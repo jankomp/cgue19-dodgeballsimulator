@@ -1,7 +1,11 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <cstdio> //for fprint & co
+#include <iostream>
+#include <GL/GL.h>
 
+#include "shader.h"
+#include "geometry.h"
+#include "camera.h"
 
 
 int main(void)
@@ -13,25 +17,32 @@ int main(void)
 		return -1;
 
 	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(640, 480, "Hello World", NULL, NULL);
+	window = glfwCreateWindow(640, 480, "dodgeball simulator", NULL, NULL);
+	
 	if (!window)
 	{
 		glfwTerminate();
-		return -1;
+		std::printf("Failed to create window");
+		//exit;
 	}
 
 	/* Make the window's context current */
 	glfwMakeContextCurrent(window);
 
-
+	glewExperimental = true;
 	GLenum err = glewInit();
-	if (GLEW_OK != err)
-	{
-		/* Problem: glewInit failed, something is seriously wrong. */
-		//fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
-		
+
+	// If GLEW wasn't initialized
+	if (err != GLEW_OK) {
+		std::printf("Failed to init GLEW");
+		//exit;
 	}
-	fprintf(stdout, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
+
+	shader testShader;
+	testShader.loadShader("shaders/basic.vert", "shaders/basic.frag");
+
+	//geometry cube = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, -1.5f, 0.0f)), geometry::createCubeGeometry(1.5f, 1.5f, 1.5f));
+	//geometry sphere = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f));
 
 
 	/* Loop until the user closes the window */
@@ -45,6 +56,9 @@ int main(void)
 
 		/* Poll for and process events */
 		glfwPollEvents();
+
+		/*draw sphere*/
+		//sphere.draw();
 	}
 
 	glfwTerminate();

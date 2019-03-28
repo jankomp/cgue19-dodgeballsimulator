@@ -21,12 +21,24 @@
     <ClInclude Include="main.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="shader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="geometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="geometry.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
