@@ -4,8 +4,8 @@
 #include <GL/GL.h>
 
 #include "shader.h"
-#include "geometry.h"
 #include "camera.h"
+#include "square.h"
 
 
 int main(void)
@@ -41,8 +41,14 @@ int main(void)
 	shader testShader;
 	testShader.loadShader("shaders/basic.vert", "shaders/basic.frag");
 
-	//geometry cube = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, -1.5f, 0.0f)), geometry::createCubeGeometry(1.5f, 1.5f, 1.5f));
-	//geometry sphere = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f));
+	testShader.useShader();
+
+	square floor = square(2.0f, 3.0f);
+
+
+
+	
+	//geometry sphere = geometry::geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f), glm::vec3(1.3,1.3,1.3));
 
 
 	/* Loop until the user closes the window */
@@ -51,15 +57,20 @@ int main(void)
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
+
+
+		/*draw triangle*/
+		floor.draw();
+
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
 
 		/* Poll for and process events */
 		glfwPollEvents();
 
-		/*draw sphere*/
-		//sphere.draw();
 	}
+
+	testShader.deleteShader();
 
 	glfwTerminate();
 	return 0;

@@ -24,7 +24,10 @@
     <ClInclude Include="shader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="geometry.h">
+    <ClInclude Include="shpere.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="square.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,7 +41,10 @@
     <ClCompile Include="shader.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="geometry.cpp">
+    <ClCompile Include="shpere.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="square.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
