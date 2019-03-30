@@ -1,0 +1,1 @@
+Das ist eine Beispieldatei um Doris zu zeigen wie Git-Flow mit Branches geht
