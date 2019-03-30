@@ -50,6 +50,10 @@ int main(void)
 	
 	//geometry sphere = geometry::geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f), glm::vec3(1.3,1.3,1.3));
 
+	//geometry cube = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, -1.5f, 0.0f)), geometry::createCubeGeometry(1.5f, 1.5f, 1.5f));
+	//geometry sphere = geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f));
+
+
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -71,6 +75,9 @@ int main(void)
 	}
 
 	testShader.deleteShader();
+
+
+
 
 	glfwTerminate();
 	return 0;
