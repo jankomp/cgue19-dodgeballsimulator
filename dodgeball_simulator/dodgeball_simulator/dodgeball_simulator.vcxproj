@@ -126,17 +126,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="geometry.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="shpere.h" />
-    <ClInclude Include="square.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="geometry.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="shpere.cpp" />
-    <ClCompile Include="square.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

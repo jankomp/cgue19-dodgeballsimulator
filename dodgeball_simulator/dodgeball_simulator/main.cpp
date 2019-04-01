@@ -5,8 +5,7 @@
 
 #include "shader.h"
 #include "camera.h"
-#include "square.h"
-
+//#include "geometry.h"
 
 int main(void)
 {
@@ -43,10 +42,7 @@ int main(void)
 
 	testShader.useShader();
 
-	square floor = square(2.0f, 3.0f);
-
-
-
+	
 	
 	//geometry sphere = geometry::geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f), glm::vec3(1.3,1.3,1.3));
 
@@ -63,8 +59,8 @@ int main(void)
 
 
 
-		/*draw triangle*/
-		floor.draw();
+		/*draw cube*/
+		//cube.draw();
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);

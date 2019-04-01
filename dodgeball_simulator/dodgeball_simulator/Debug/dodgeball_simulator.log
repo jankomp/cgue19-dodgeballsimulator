@@ -1,7 +1,12 @@
-﻿  main.cpp
-  square.cpp
+﻿  camera.cpp
+c1xx : fatal error C1083: Datei (Quelle) kann nicht geöffnet werden: "camera.cpp": No such file or directory
+  main.cpp
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.h(10): error C2061: Syntaxfehler: Bezeichner "floatzFar"
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(10): error C2628: "camera" gefolgt von "int" unzulässig (Semikolon ";" vergessen?)
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(11): error C3874: Der Rückgabetyp von "main" sollte "int" und nicht "camera" sein
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(16): error C2440: "return": "int" kann nicht in "camera" konvertiert werden
+  c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(16): note: Quelltyp konnte von keinem Konstruktor angenommen werden, oder die Überladungsauflösung des Konstruktors ist mehrdeutig
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(79): error C2440: "return": "int" kann nicht in "camera" konvertiert werden
+  c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(79): note: Quelltyp konnte von keinem Konstruktor angenommen werden, oder die Überladungsauflösung des Konstruktors ist mehrdeutig
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.h(11): error C2065: "zFar": nichtdeklarierter Bezeichner
   Code wird generiert...
-LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
-glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\vc120.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
-  dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe

@@ -27,7 +27,7 @@
     <ClInclude Include="shpere.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="square.h">
+    <ClInclude Include="geometry.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClCompile Include="shpere.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="square.cpp">
+    <ClCompile Include="geometry.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
