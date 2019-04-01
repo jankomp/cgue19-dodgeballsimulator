@@ -1,13 +1,2 @@
-﻿  camera.cpp
-c1xx : fatal error C1083: Datei (Quelle) kann nicht geöffnet werden: "camera.cpp": No such file or directory
-  geometry.cpp
-  main.cpp
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.h(10): error C2061: Syntaxfehler: Bezeichner "floatzFar"
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(10): error C2628: "camera" gefolgt von "int" unzulässig (Semikolon ";" vergessen?)
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(11): error C3874: Der Rückgabetyp von "main" sollte "int" und nicht "camera" sein
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(16): error C2440: "return": "int" kann nicht in "camera" konvertiert werden
-  c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(16): note: Quelltyp konnte von keinem Konstruktor angenommen werden, oder die Überladungsauflösung des Konstruktors ist mehrdeutig
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(79): error C2440: "return": "int" kann nicht in "camera" konvertiert werden
-  c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(79): note: Quelltyp konnte von keinem Konstruktor angenommen werden, oder die Überladungsauflösung des Konstruktors ist mehrdeutig
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.h(11): error C2065: "zFar": nichtdeklarierter Bezeichner
-  Code wird generiert...
+﻿  main.cpp
+  dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe
