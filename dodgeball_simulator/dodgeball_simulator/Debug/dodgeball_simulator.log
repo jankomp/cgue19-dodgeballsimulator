@@ -1,14 +1,4 @@
-﻿  main.cpp
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(20): error C2059: Syntaxfehler: "namespace"
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(20): error C2143: Syntaxfehler: Es fehlt ";" vor "{"
-c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\vector(20): error C2447: "{": Funktionsheader fehlt - Parameterliste im alten Stil?
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C2039: "vector": Ist kein Element von "std"
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\tools\msvc\14.15.26726\include\fstream(21): note: Siehe Deklaration von "std"
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C2143: Syntaxfehler: Es fehlt ";" vor "<"
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C4430: Fehlender Typspezifizierer - int wird angenommen. Hinweis: "default-int" wird von C++ nicht unterstützt.
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C4596: "calcVertices": Unzulässiger vollständig angegebener Name in Elementdeklaration
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C2238: Unerwartete(s) Token vor ";"
-  square.cpp
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.h(20): error C4596: "calcVertices": Unzulässiger vollständig angegebener Name in Elementdeklaration
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\square.cpp(18): error C2065: "points": nichtdeklarierter Bezeichner
+﻿  geometry.cpp
+  main.cpp
   Code wird generiert...
+  dodgeball_simulator.vcxproj -> C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Debug\dodgeball_simulator.exe
