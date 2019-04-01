@@ -4,7 +4,7 @@
 	//: _elements(data.indices.size()), _modelMatrix(modelMatrix), _material(material)
 
 
-geometry::geometry(glm::mat4 modelMatrix, geometryData& data, glm::vec3 color)
+geometry::geometry(glm::mat4 modelMatrix, geometryData& data)
 	: _elements(data.indices.size()), _modelMatrix(modelMatrix)
 {
 	// create VAO

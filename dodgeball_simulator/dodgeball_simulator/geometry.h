@@ -81,7 +81,7 @@ public:
 	 */
 	//geometry(glm::mat4 modelMatrix, geometryData& data, std::shared_ptr<Material> material);
 	
-	geometry(glm::mat4 modelMatrix, geometryData& data, glm::vec3 color);
+	geometry(glm::mat4 modelMatrix, geometryData& data);
 	~geometry();
 
 	/*!

@@ -1,5 +1,6 @@
 ﻿  camera.cpp
 c1xx : fatal error C1083: Datei (Quelle) kann nicht geöffnet werden: "camera.cpp": No such file or directory
+  geometry.cpp
   main.cpp
 c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.h(10): error C2061: Syntaxfehler: Bezeichner "floatzFar"
 c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(10): error C2628: "camera" gefolgt von "int" unzulässig (Semikolon ";" vergessen?)
