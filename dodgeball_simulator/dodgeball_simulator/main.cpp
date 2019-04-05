@@ -41,11 +41,30 @@ int main(void)
 	shader testShader;
 	testShader.loadShader("shaders/basic.vert", "shaders/basic.frag");
 
+	
+
+	float points[9] = {
+		-0.5f, 0.2f, 0.4f,
+		1.0f, 0.8f, -0.3f,
+		0.7f, 0.5f, 0.2f
+	};
+
+	unsigned int buffer;
+
+	glGenBuffers(1, &buffer);
+
+	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+
+	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points, GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+
 	testShader.useShader();
 
-	//square floor = square(2.0f, 3.0f);
 
-	
+
+	//square floor = square(2.0f, 3.0f);
 
 	
 	//geometry sphere = geometry::geometry(glm::translate(glm::mat4(1.0f), glm::vec3(-1.2f, 1.0f, 0.0f)), geometry::createSphereGeometry(32, 16, 1.0f), glm::vec3(1.3,1.3,1.3));
@@ -61,9 +80,8 @@ int main(void)
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
-
-
 		/*draw triangle*/
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		//floor.draw();
 
 		/* Swap front and back buffers */
