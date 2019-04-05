@@ -41,7 +41,6 @@ int main(void)
 	shader testShader;
 	testShader.loadShader("shaders/basic.vert", "shaders/basic.frag");
 
-	
 
 	float points[9] = {
 		-0.5f, 0.2f, 0.4f,
