@@ -6,6 +6,7 @@
 #include "shader.h"
 //#include "square.h"
 #include "geometry.h"
+#include "mesh.h"
 
 
 int main(void)
