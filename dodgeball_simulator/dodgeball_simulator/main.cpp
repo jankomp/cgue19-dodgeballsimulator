@@ -40,8 +40,7 @@ int main(void)
 		//exit;
 	}
 
-	shader testShader;
-	testShader.loadShader("shaders/model.vert", "shaders/model.frag");
+	Shader testShader("shaders/model.vert", "shaders/model.frag");
 
 
 	float points[9] = {
@@ -61,7 +60,7 @@ int main(void)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
-	testShader.useShader();
+	testShader.use();
 
 
 
@@ -92,9 +91,6 @@ int main(void)
 		glfwPollEvents();
 
 	}
-
-	testShader.deleteShader();
-
 
 
 
