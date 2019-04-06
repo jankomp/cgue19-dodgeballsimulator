@@ -36,6 +36,9 @@
     <ClInclude Include="model.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="guteCamera.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

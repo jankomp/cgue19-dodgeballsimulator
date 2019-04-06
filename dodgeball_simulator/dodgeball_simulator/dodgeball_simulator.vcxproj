@@ -127,6 +127,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="geometry.h" />
+    <ClInclude Include="guteCamera.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
