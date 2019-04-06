@@ -21,12 +21,6 @@
     <ClInclude Include="shader.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="shpere.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
-    <ClInclude Include="geometry.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -42,12 +36,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="shpere.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="geometry.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">

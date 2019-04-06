@@ -4,8 +4,6 @@
 #include <GL/GL.h>
 
 #include "shader.h"
-//#include "square.h"
-#include "geometry.h"
 #include "model.h"
 #include "guteCamera.h"
 
