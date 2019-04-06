@@ -137,8 +137,6 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="geometry.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="mesh.cpp" />
-    <ClCompile Include="model.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="shpere.cpp" />
     <ClCompile Include="stb_image.cpp" />

@@ -53,12 +53,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="mesh.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="model.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="stb_image.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
