@@ -7,7 +7,7 @@
 //#include "square.h"
 #include "geometry.h"
 #include "mesh.h"
-#include "model.h"
+//#include "model.h"
 
 
 int main(void)
@@ -41,7 +41,7 @@ int main(void)
 	}
 
 	shader testShader;
-	testShader.loadShader("shaders/basic.vert", "shaders/basic.frag");
+	testShader.loadShader("shaders/model.vert", "shaders/model.frag");
 
 
 	float points[9] = {

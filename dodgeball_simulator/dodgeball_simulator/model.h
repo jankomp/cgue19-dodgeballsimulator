@@ -8,7 +8,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
-//#include <GL/GL.h>
+#include <GL/GL.h>
 #include "shader.h"
 #include "mesh.h"
 
