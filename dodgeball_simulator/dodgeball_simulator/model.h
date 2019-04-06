@@ -10,15 +10,27 @@
 #include <iostream>
 //#include <GL/GL.h>
 #include "shader.h"
+#include "mesh.h"
 
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
+//Zeile 32!!
+
 using namespace std;
 
+struct Texture {
+	unsigned int id;
+	string type;
+	string path;  // we store the path of the texture to compare with other textures
+};
+
+vector<Texture> textures_loaded;
+
 Assimp::Importer importer;
-const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+//const aiScene *scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs);
+
 
 class model
 {
@@ -31,7 +43,7 @@ public:
 	void Draw(shader shader);
 private:
 	/*  Model Data  */
-	vector<Mesh> meshes;
+	vector<mesh> meshes;
 	string directory;
 	/*  Functions   */
 	void loadModel(string path);

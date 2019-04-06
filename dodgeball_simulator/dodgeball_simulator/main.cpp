@@ -7,6 +7,7 @@
 //#include "square.h"
 #include "geometry.h"
 #include "mesh.h"
+#include "model.h"
 
 
 int main(void)
