@@ -41,9 +41,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="shader.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="shpere.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
