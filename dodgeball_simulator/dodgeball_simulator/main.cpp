@@ -94,6 +94,7 @@ int main(void)
 	testShader.use();
 
 	Model komischerTyp("modells/Nanosuit/nanosuit.obj");
+	Model ball("modells/ball/ball.obj");
 
 
 	/* Loop until the user closes the window */
@@ -134,6 +135,7 @@ int main(void)
 		testShader.setMat4("model", model);
 
 		komischerTyp.Draw(testShader);
+		ball.Draw(testShader);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
