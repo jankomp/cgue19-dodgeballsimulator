@@ -1,2 +1,12 @@
-﻿  Camera.cpp
+﻿  main.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(107): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(187): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(188): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(192): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(193): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(195): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(196): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Debug\vc120.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
   dodgeball_simulator.vcxproj -> C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Debug\dodgeball_simulator.exe
