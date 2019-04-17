@@ -1,6 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
-#include "Camera.h"
+#include <glm/gtc/matrix_transform.hpp>
+
 
 enum Movement {
 	FORWARD,
@@ -11,16 +12,18 @@ enum Movement {
 
 class PlayerCharacter
 {
+	glm::mat4 modelMat;
 	glm::vec3 position;
 	glm::vec3 front;
 	glm::vec3 right;
 	float speed;
 	bool running;
-	//Camera * camera;
 
 public:
-	//PlayerCharacter();
-	//PlayerCharacter(Camera* newCamera);
+	PlayerCharacter();
+
+	glm::vec3 getPosition();
+	glm::mat4 getModelMat();
 
 	void rotate(float rotation, float deltaTime);
 	void move(bool running,  Movement direction, float deltaTime);

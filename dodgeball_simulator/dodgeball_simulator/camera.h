@@ -1,12 +1,10 @@
 #pragma once
-#include <glm/glm.hpp>
-#include "PlayerCharacter.cpp"
+#include "PlayerCharacter.h"
 
 class Camera
 {
-	//PlayerCharacter player;
+	PlayerCharacter *player;
 	glm::vec3 cameraPosition;
-	glm::vec3 playerPosition;
 	glm::vec3 viewDirection;
 	const glm::vec3 UP;
 	const double distance;
@@ -17,9 +15,9 @@ class Camera
 
 public:
 	Camera();
+	Camera(PlayerCharacter *newPlayer);
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
-	void updatePlayerPosition(glm::vec3 newPos);
 
 };
 

@@ -2,19 +2,16 @@
 #include <glm/gtx/transform.hpp>
 
 
-
-
-
-/*Camera::Camera(PlayerCharacter newPlayer) : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75)
+Camera::Camera(PlayerCharacter *newPlayer) : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75)
 {
 	player = newPlayer;
-}*/
+}
 
 Camera::Camera() : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75) {}
 
 glm::mat4 Camera::getWorldToViewMat() const
-{
-	return glm::lookAt(cameraPosition, playerPosition, UP);
+{	
+	return glm::lookAt(cameraPosition, player->getPosition(), UP);
 }
 
 void Camera::rotate(double phi, double theta, float deltaTime)
@@ -31,28 +28,13 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	if (pitch < -89.0f)
 		pitch = -89.0f;
 
-	float rotation;
-	float lock = 45.0f;
-	if (yaw > lock) {
-		rotation = yaw - lock;
-		yaw = lock;
-	}
-	if (yaw < -lock) {
-		rotation = yaw + lock;
-		yaw = -lock;
-	}
-	//player.rotate(rotation, deltaTime);
+	player->rotate(yaw, deltaTime);
 
 	double x = distance * cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	double y = distance * sin(glm::radians(pitch));
 	double z = distance * sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
 	cameraPosition = glm::vec3(x, y, z);
-}
-
-void Camera::updatePlayerPosition(glm::vec3 newPos)
-{
-	playerPosition = newPos;
 }
 
 
