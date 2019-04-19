@@ -12,7 +12,6 @@ enum Movement {
 
 class PlayerCharacter
 {
-	glm::mat4 modelMat;
 	glm::vec3 position;
 	glm::vec3 front;
 	glm::vec3 right;

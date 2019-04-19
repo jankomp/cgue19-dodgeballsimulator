@@ -1,5 +1,7 @@
 #include "Camera.h"
 #include <glm/gtx/transform.hpp>
+#include <iostream>
+
 
 
 Camera::Camera(PlayerCharacter *newPlayer) : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75)
@@ -28,13 +30,19 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	if (pitch < -89.0f)
 		pitch = -89.0f;
 
-	player->rotate(yaw, deltaTime);
+	//player->rotate(yaw, deltaTime);
 
 	double x = distance * cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	double y = distance * sin(glm::radians(pitch));
 	double z = distance * sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
+	/*glm::vec3 playerPos = player->getPosition();
+	cameraPosition.x = x + playerPos.x;
+	cameraPosition.y = y + playerPos.y;
+	cameraPosition.z = z + playerPos.z;*/
 	cameraPosition = glm::vec3(x, y, z);
+	std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
+
 }
 
 

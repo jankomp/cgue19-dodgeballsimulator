@@ -1,13 +1,13 @@
 #include "PlayerCharacter.h"
+#include <iostream>
+
 
 
 PlayerCharacter::PlayerCharacter()
 {
+	position = glm::vec3(0.0, 0.0, 0.0);
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
-	modelMat = glm::mat4(1.0);
-	modelMat = glm::translate(modelMat, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-	modelMat = glm::scale(modelMat, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
 }
 
 void PlayerCharacter::rotate(float rotation, float deltaTime) {
@@ -16,13 +16,11 @@ void PlayerCharacter::rotate(float rotation, float deltaTime) {
 
 	right = glm::normalize(glm::cross(front, glm::vec3(0.0f, 1.0f, 0.0f)));
 
-	modelMat = glm::rotate_slow(modelMat, rotation, glm::vec3(0.0, 1.0, 0.0));
 }
 
 void PlayerCharacter::move(bool running, Movement direction, float deltaTime) {
 	float movementSpeed;
-	glm::vec3 movement;
-	if (running) {
+ 	if (running) {
 		movementSpeed = 50;
 	}
 	else {
@@ -30,34 +28,21 @@ void PlayerCharacter::move(bool running, Movement direction, float deltaTime) {
 	}
 	float velocity = movementSpeed * deltaTime;
 	if (direction == FORWARD)
-		movement = front * velocity;
-		position += movement;
+		position += front * velocity;
 	if (direction == BACKWARD)
-		movement = -(front * velocity);
-		position += movement;
+		position -= front * velocity;
 	if (direction == LEFT)
-		movement = right * velocity;
-		position += movement;
+		position += right * velocity;
 	if (direction == RIGHT)
-		movement = -(right * velocity);
-		position += movement;
+		position -= right * velocity;
 
-	modelMat = glm::translate(modelMat, movement);
-
+	std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
 }
 
 glm::vec3 PlayerCharacter::getPosition() {
 	return position;
 }
 
-glm::mat4 PlayerCharacter::getModelMat(){
-	return modelMat;
-}
-
-
 void PlayerCharacter::updatePlayerCharacter() {
 
 }
-
-
-

@@ -138,8 +138,8 @@ int main(void)
 		testShader.setMat4("model", model);
 		ball.Draw(testShader);
 
-		//model = glm::translate(model, player.getPosition());
-		testShader.setMat4("model", player.getModelMat());
+		model = glm::translate(model, player.getPosition());
+		testShader.setMat4("model", model);
 		komischerTyp.Draw(testShader);
 
 		/* Swap front and back buffers */
