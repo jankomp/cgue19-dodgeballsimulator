@@ -98,6 +98,7 @@ int main(void)
 
 	Model komischerTyp("modells/Nanosuit/nanosuit.obj");
 	Model ball("modells/ball/ball.obj");
+	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
 
 	/* Loop until the user closes the window */
@@ -141,6 +142,7 @@ int main(void)
 		model = glm::translate(model, player.getPosition());
 		testShader.setMat4("model", model);
 		komischerTyp.Draw(testShader);
+		turnhalle.Draw(testShader);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
