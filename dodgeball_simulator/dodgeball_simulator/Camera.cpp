@@ -13,7 +13,11 @@ Camera::Camera() : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), dista
 
 glm::mat4 Camera::getWorldToViewMat() const
 {	
-	return glm::lookAt(cameraPosition, player->getPosition(), UP);
+	glm::vec3 playerPos = player->getPosition();
+	playerPos.x = playerPos.x/10;
+	playerPos.y = playerPos.y / 10;
+	playerPos.z = playerPos.z / 10;
+	return glm::lookAt(cameraPosition, playerPos, UP);
 }
 
 void Camera::rotate(double phi, double theta, float deltaTime)
@@ -36,13 +40,31 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	double y = distance * sin(glm::radians(pitch));
 	double z = distance * sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
-	/*glm::vec3 playerPos = player->getPosition();
-	cameraPosition.x = x + playerPos.x;
-	cameraPosition.y = y + playerPos.y;
-	cameraPosition.z = z + playerPos.z;*/
-	cameraPosition = glm::vec3(x, y, z);
+	glm::vec3 playerPos = player->getPosition();
+	cameraPosition.x = x + playerPos.x/10;
+	cameraPosition.y = y + playerPos.y / 10;
+	cameraPosition.z = z + playerPos.z / 10;
 	std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
-
 }
 
+void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
+	glm::vec3 front = glm::vec3(0, 0, 1);
+	glm::vec3 right = glm::vec3(1, 0, 0);
+	float movementSpeed;
 
+	if (running) {
+		movementSpeed = 50;
+	}
+	else {
+		movementSpeed = 30;
+	}
+	float velocity = movementSpeed * deltaTime;
+	if (direction == FORWARD)
+		cameraPosition += front * velocity;
+	if (direction == BACKWARD)
+		cameraPosition -= front * velocity;
+	if (direction == LEFT)
+		cameraPosition += right * velocity;
+	if (direction == RIGHT)
+		cameraPosition -= right * velocity;
+}

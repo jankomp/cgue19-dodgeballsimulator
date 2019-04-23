@@ -18,6 +18,6 @@ public:
 	Camera(PlayerCharacter *newPlayer);
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
-
+	void sidewaysMotion(bool running, Movement direction, float deltaTime);
 };
 
