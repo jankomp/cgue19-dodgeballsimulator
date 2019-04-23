@@ -122,7 +122,6 @@ int main(void)
 
 		/*draw triangle*/
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-		//floor.draw();
 
 
 		// view/projection transformations
@@ -133,15 +132,23 @@ int main(void)
 
 
 		// render the loaded model
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
-		testShader.setMat4("model", model);
+
+		// ball
+		glm::mat4 ball_model = glm::mat4(1.0f);
+		//ball_model = glm::translate(ball_model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
+		ball_model = glm::scale(ball_model, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
+		testShader.setMat4("model", ball_model);
 		ball.Draw(testShader);
 
-		model = glm::translate(model, player.getPosition());
-		testShader.setMat4("model", model);
-		komischerTyp.Draw(testShader);
+		// turnhalle
+		glm::mat4 turnhalle_modell = glm::mat4(1.0f);
+		//model = glm::translate(model, player.getPosition());
+		//komischerTyp.Draw(testShader);
+		turnhalle_modell = glm::translate(turnhalle_modell, glm::vec3(0.0f, -100.0f, 0.0f));
+		//turnhalle_modell = glm::translate(turnhalle_modell, glm::vec3(-100.0f, 0.0f, 0.0f));
+		//turnhalle_modell = glm::translate(turnhalle_modell, glm::vec3(0.0f, 0.0f, -100.0f));
+		turnhalle_modell = glm::scale(turnhalle_modell, glm::vec3(10.0f, 10.0f, 10.0f));
+		testShader.setMat4("model", turnhalle_modell);
 		turnhalle.Draw(testShader);
 
 		/* Swap front and back buffers */
@@ -151,8 +158,6 @@ int main(void)
 		glfwPollEvents();
 
 	}
-
-
 
 	glfwTerminate();
 	return 0;
