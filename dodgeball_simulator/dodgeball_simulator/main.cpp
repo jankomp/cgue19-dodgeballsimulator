@@ -99,7 +99,6 @@ int main(void)
 	Model komischerTyp("modells/Nanosuit/nanosuit.obj");
 	Model ball("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
-	Model crosshair("modells/crosshair/crosshair.obj");
 
 
 	/* Loop until the user closes the window */
@@ -123,8 +122,6 @@ int main(void)
 
 		/*draw triangle*/
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-		//floor.draw();
-
 
 		// view/projection transformations
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
@@ -145,11 +142,6 @@ int main(void)
 		gameShader.setMat4("model", model);
 		komischerTyp.Draw(gameShader);
 		turnhalle.Draw(gameShader);
-
-		hudShader.use();
-
-		crosshair.Draw(hudShader);
-
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
