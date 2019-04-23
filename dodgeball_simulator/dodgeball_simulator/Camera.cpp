@@ -14,8 +14,8 @@ Camera::Camera() : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), dista
 glm::mat4 Camera::getWorldToViewMat() const
 {	
 	glm::vec3 playerPos = player->getPosition();
-	playerPos.x = playerPos.x/10;
-	playerPos.y = playerPos.y / 10;
+	playerPos.x = playerPos.x / 10;
+	playerPos.y = playerPos.y / 10 + 2.0;
 	playerPos.z = playerPos.z / 10;
 	return glm::lookAt(cameraPosition, playerPos, UP);
 }
@@ -41,8 +41,8 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	double z = distance * sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
 	glm::vec3 playerPos = player->getPosition();
-	cameraPosition.x = x + playerPos.x/10;
-	cameraPosition.y = y + playerPos.y / 10;
+	cameraPosition.x = x + playerPos.x / 10;
+	cameraPosition.y = y + playerPos.y / 10 + 2.0;
 	cameraPosition.z = z + playerPos.z / 10;
 	std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
 }

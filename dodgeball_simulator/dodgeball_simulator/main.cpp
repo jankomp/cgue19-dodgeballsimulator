@@ -29,6 +29,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
+
 int main(void)
 {
 
@@ -74,7 +75,8 @@ int main(void)
 		//exit;
 	}
 
-	Shader testShader("shaders/model.vert", "shaders/model.frag");
+	Shader gameShader("shaders/model.vert", "shaders/model.frag");
+	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
 
 
 	float points[9] = {
@@ -94,11 +96,10 @@ int main(void)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
-	testShader.use();
-
 	Model komischerTyp("modells/Nanosuit/nanosuit.obj");
 	Model ball("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
+	Model crosshair("modells/crosshair/crosshair.obj");
 
 
 	/* Loop until the user closes the window */
@@ -128,21 +129,27 @@ int main(void)
 		// view/projection transformations
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
-		testShader.setMat4("projection", projection);
-		testShader.setMat4("view", view);
+		gameShader.setMat4("projection", projection);
+		gameShader.setMat4("view", view);
 
+		gameShader.use();
 
 		// render the loaded model
 		glm::mat4 model = glm::mat4(1.0f);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
 		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
-		testShader.setMat4("model", model);
-		ball.Draw(testShader);
+		gameShader.setMat4("model", model);
+		ball.Draw(gameShader);
 
 		model = glm::translate(model, player.getPosition());
-		testShader.setMat4("model", model);
-		komischerTyp.Draw(testShader);
-		turnhalle.Draw(testShader);
+		gameShader.setMat4("model", model);
+		komischerTyp.Draw(gameShader);
+		turnhalle.Draw(gameShader);
+
+		hudShader.use();
+
+		crosshair.Draw(hudShader);
+
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
