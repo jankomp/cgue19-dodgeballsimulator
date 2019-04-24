@@ -144,7 +144,7 @@ int main(void)
 		//turnhalle
 		glm::mat4 model_turnhalle = glm::mat4(1.0f);
 		model_turnhalle = glm::translate(model_turnhalle, glm::vec3(0.0f, 0.0f, 0.0f)); 
-		model_turnhalle = glm::scale(model_turnhalle, glm::vec3(10.0f, 10.0f, 10.0f));
+		//model_turnhalle = glm::scale(model_turnhalle, glm::vec3(10.0f, 10.0f, 10.0f));
 		gameShader.setMat4("model", model_turnhalle);
 		turnhalle.Draw(gameShader);
 
