@@ -101,7 +101,6 @@ int main(void)
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
 
-
 	Model boy("modells/boy/boy.obj");
 	Model boy_new("modells/boy_new/boy.obj");
 	Model girl("modells/girl/girl.obj");
@@ -109,9 +108,13 @@ int main(void)
 	Model junge_lt("modells/junge/Lt_boy.obj");
 
 
+	//glEnable(GL_CULL_FACE);
+	glEnable(GL_DEPTH_TEST);
+
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
+
 
 		// per-frame time logic
 		// --------------------
@@ -126,7 +129,8 @@ int main(void)
 
 		/* Render here */
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		//glClear(GL_COLOR_BUFFER_BIT );
 
 		/*draw triangle*/
 		glDrawArrays(GL_TRIANGLES, 0, 3);
@@ -144,47 +148,22 @@ int main(void)
 		//turnhalle
 		glm::mat4 model_turnhalle = glm::mat4(1.0f);
 		model_turnhalle = glm::translate(model_turnhalle, glm::vec3(0.0f, 0.0f, 0.0f));
-		//model_turnhalle = glm::scale(model_turnhalle, glm::vec3(10.0f, 10.0f, 10.0f));
 		gameShader.setMat4("model", model_turnhalle);
 		turnhalle.Draw(gameShader);
 
 		//ball
 		glm::mat4 model_ball = glm::mat4(1.0f);
-		//model_ball = glm::translate(model_ball, glm::vec3(0.0f, 0.5f, 0.5f)); // translate it down so it's at the center of the scene
-		model_ball = glm::translate(model_ball, glm::vec3(0.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
-		//model_ball = glm::translate(model_ball, player.getPosition()); // translate it down so it's at the center of the scene
+		model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
 		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
 		gameShader.setMat4("model", model_ball);
 		ball.Draw(gameShader);
-
-
 
 		//spieler
 		glm::mat4 model_spieler = glm::mat4(1.0f);
 		model_spieler = glm::translate(model_spieler, player.getPosition());
 		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_spieler);
-		//junge_lt.Draw(gameShader);
-
-		model_spieler = glm::translate(model_spieler, (player.getPosition() - glm::vec3(10.0f, 5.0f, 0.0f)));
-		gameShader.setMat4("model", model_spieler);
-		//boy.Draw(gameShader);
-
-
-		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(15.0f, 0.0f, 0.0f)));
-		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
-		gameShader.setMat4("model", model_spieler);
-		//boy_new.Draw(gameShader);
-
-		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(5.0f, 0.0f, 0.0f)));
-		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
-		gameShader.setMat4("model", model_spieler);
-		//girl.Draw(gameShader);
-
-		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(10.0f, 0.0f, 0.0f)));
-		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
-		gameShader.setMat4("model", model_spieler);
-		//junge.Draw(gameShader);
+		junge_lt.Draw(gameShader);
 
 
 		/* Swap front and back buffers */
