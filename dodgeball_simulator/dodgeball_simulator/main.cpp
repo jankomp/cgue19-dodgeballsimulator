@@ -96,16 +96,11 @@ int main(void)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
-	Model komischerTyp("modells/Nanosuit/nanosuit.obj");
 	Model ball("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
-
-	Model boy("modells/boy/boy.obj");
-	Model boy_new("modells/boy_new/boy.obj");
-	Model girl("modells/girl/girl.obj");
-	Model junge("modells/junge/boyy.obj");
-	Model junge_lt("modells/junge/Lt_boy.obj");
+	Model spieler("modells/junge_rot/Lt_boy.obj");
+	Model gegner("modells/junge/Lt_boy.obj");
 
 
 	//glEnable(GL_CULL_FACE);
@@ -163,7 +158,13 @@ int main(void)
 		model_spieler = glm::translate(model_spieler, player.getPosition());
 		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_spieler);
-		junge_lt.Draw(gameShader);
+		spieler.Draw(gameShader);
+
+		glm::mat4 model_gegner = glm::mat4(1.0f);
+		model_gegner = glm::translate(model_gegner, glm::vec3(4.0f, 0.0f, 0.0f));
+		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
+		gameShader.setMat4("model", model_gegner);
+		gegner.Draw(gameShader);
 
 
 		/* Swap front and back buffers */
