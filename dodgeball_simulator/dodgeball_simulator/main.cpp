@@ -132,16 +132,28 @@ int main(void)
 		gameShader.use();
 
 		// render the loaded model
-		glm::mat4 model = glm::mat4(1.0f);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); // translate it down so it's at the center of the scene
-		model = glm::scale(model, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
-		gameShader.setMat4("model", model);
+
+		//ball
+		glm::mat4 model_ball = glm::mat4(1.0f);
+		model_ball = glm::translate(model_ball, glm::vec3(5.0f, 5.0f, 5.0f)); // translate it down so it's at the center of the scene
+		//model_ball = glm::translate(model_ball, player.getPosition()); // translate it down so it's at the center of the scene
+		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
+		gameShader.setMat4("model", model_ball);
 		ball.Draw(gameShader);
 
-		model = glm::translate(model, player.getPosition());
-		gameShader.setMat4("model", model);
-		komischerTyp.Draw(gameShader);
+		//turnhalle
+		glm::mat4 model_turnhalle = glm::mat4(1.0f);
+		model_turnhalle = glm::translate(model_turnhalle, glm::vec3(0.0f, 0.0f, 0.0f)); 
+		model_turnhalle = glm::scale(model_turnhalle, glm::vec3(10.0f, 10.0f, 10.0f));
+		gameShader.setMat4("model", model_turnhalle);
 		turnhalle.Draw(gameShader);
+
+		//spieler
+		glm::mat4 model_spieler = glm::mat4(1.0f);
+		model_spieler = glm::translate(model_spieler, player.getPosition());
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.1f, 0.1f, 0.1f));
+		gameShader.setMat4("model", model_spieler);
+		komischerTyp.Draw(gameShader);
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
