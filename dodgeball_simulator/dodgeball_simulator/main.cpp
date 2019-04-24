@@ -101,6 +101,14 @@ int main(void)
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
 
+
+	Model boy("modells/boy/boy.obj");
+	Model boy_new("modells/boy_new/boy.obj");
+	Model girl("modells/girl/girl.obj");
+	Model junge("modells/junge/boy.obj");
+	Model junge_lt("modells/junge/Lt_boy.obj");
+
+
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
 	{
@@ -151,9 +159,30 @@ int main(void)
 		//spieler
 		glm::mat4 model_spieler = glm::mat4(1.0f);
 		model_spieler = glm::translate(model_spieler, player.getPosition());
-		model_spieler = glm::scale(model_spieler, glm::vec3(0.1f, 0.1f, 0.1f));
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_spieler);
-		komischerTyp.Draw(gameShader);
+		junge_lt.Draw(gameShader);
+
+		model_spieler = glm::translate(model_spieler, (player.getPosition() - glm::vec3(10.0f, 5.0f, 0.0f)));
+		gameShader.setMat4("model", model_spieler);
+		boy.Draw(gameShader);
+
+
+		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(15.0f, 0.0f, 0.0f)));
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
+		gameShader.setMat4("model", model_spieler);
+		boy_new.Draw(gameShader);
+
+		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(5.0f, 0.0f, 0.0f)));
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
+		gameShader.setMat4("model", model_spieler);
+		girl.Draw(gameShader);
+
+		model_spieler = glm::translate(model_spieler, (player.getPosition() + glm::vec3(10.0f, 0.0f, 0.0f)));
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.2f, 0.2f, 0.2f));
+		gameShader.setMat4("model", model_spieler);
+		junge.Draw(gameShader);
+
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(window);
