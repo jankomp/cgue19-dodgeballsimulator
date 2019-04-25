@@ -100,7 +100,7 @@ int main(void)
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
 	Model spieler("modells/junge_rot/Lt_boy.obj");
-	Model gegner("modells/junge/Lt_boy.obj");
+	Model gegner("modells/junge_blau/Lt_boy.obj");
 
 
 	//glEnable(GL_CULL_FACE);
