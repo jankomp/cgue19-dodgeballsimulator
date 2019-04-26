@@ -100,19 +100,19 @@ int main(void)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
-	//Model ball("modells/ball/ball.obj");
-	//Model turnhalle("modells/turnhalle/turnhalle.obj");
+	Model ball("modells/ball/ball.obj");
+	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
-	//Model spieler("modells/junge_rot/Lt_boy.obj");
-	//Model gegner("modells/junge_blau/Lt_boy.obj");
+	Model spieler("modells/junge_rot/Lt_boy.obj");
+	Model gegner("modells/junge_blau/Lt_boy.obj");
 
 
-	glEnable(GL_CULL_FACE);
+	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 
 
-	TextRenderer asdf;
-	asdf.Load("fonts/arial.ttf", 48);
+	TextRenderer level;
+	level.Load("fonts/arial.ttf", 48);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -139,19 +139,18 @@ int main(void)
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		// view/projection transformations
-		//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
+		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
-		//gameShader.setMat4("projection", projection);
-		//gameShader.setMat4("view", view);
+		gameShader.setMat4("projection", projection);
+		gameShader.setMat4("view", view);
 
-		//gameShader.use();
+		gameShader.use();
 
+		projection = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+		//textShader.use();
+		//textShader.setMat4("projection", projection);
 
-		glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-		textShader.use();
-		textShader.setMat4("projection", projection);
-
-		asdf.RenderText(textShader, "dodgeball simulator", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+		//level.RenderText(textShader, "Level", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
 
 
@@ -161,27 +160,27 @@ int main(void)
 		glm::mat4 model_turnhalle = glm::mat4(1.0f);
 		model_turnhalle = glm::translate(model_turnhalle, glm::vec3(0.0f, 0.0f, 0.0f));
 		gameShader.setMat4("model", model_turnhalle);
-		//turnhalle.Draw(gameShader);
+		turnhalle.Draw(gameShader);
 
 		//ball
 		glm::mat4 model_ball = glm::mat4(1.0f);
 		model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
 		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
 		gameShader.setMat4("model", model_ball);
-		//ball.Draw(gameShader);
+		ball.Draw(gameShader);
 
 		//spieler
 		glm::mat4 model_spieler = glm::mat4(1.0f);
 		model_spieler = glm::translate(model_spieler, player.getPosition());
 		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_spieler);
-		//spieler.Draw(gameShader);
+		spieler.Draw(gameShader);
 
 		glm::mat4 model_gegner = glm::mat4(1.0f);
 		model_gegner = glm::translate(model_gegner, glm::vec3(4.0f, 0.0f, 0.0f));
 		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_gegner);
-		//gegner.Draw(gameShader);
+		gegner.Draw(gameShader);
 
 
 		/* Swap front and back buffers */
