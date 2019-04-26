@@ -2,6 +2,7 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <GL/GL.h>
+#include <ft2build.h>
 
 #include "shader.h"
 #include "model.h"

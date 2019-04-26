@@ -39,6 +39,9 @@
     <ClInclude Include="Ball.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="text_rendering.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
