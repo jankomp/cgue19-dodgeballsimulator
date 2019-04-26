@@ -107,8 +107,12 @@ int main(void)
 	//Model gegner("modells/junge_blau/Lt_boy.obj");
 
 
-	//glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+
+
+	TextRenderer asdf;
+	asdf.Load("fonts/arial.ttf", 48);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -135,17 +139,20 @@ int main(void)
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		// view/projection transformations
-		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
+		//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
-		gameShader.setMat4("projection", projection);
-		gameShader.setMat4("view", view);
+		//gameShader.setMat4("projection", projection);
+		//gameShader.setMat4("view", view);
 
-		gameShader.use();
+		//gameShader.use();
 
 
-		TextRenderer asdf;
+		glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+		textShader.use();
+		textShader.setMat4("projection", projection);
+
 		asdf.RenderText(textShader, "dodgeball simulator", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
-	
+
 
 
 		// render the loaded model

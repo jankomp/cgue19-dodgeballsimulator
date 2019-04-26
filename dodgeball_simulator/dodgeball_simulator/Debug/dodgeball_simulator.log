@@ -1,3 +1,12 @@
-﻿  text_renderer.cpp
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\text_renderer.cpp(94): warning C4838: Konvertierung von "FT_Pos" zu "GLuint" erfordert eine einschränkende Konvertierung
+﻿  main.cpp
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(124): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(240): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(241): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(245): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(246): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(248): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(249): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+LINK : warning LNK4098: Standardbibliothek "LIBCMT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+LINK : warning LNK4098: Standardbibliothek "MSVCRT" steht in Konflikt mit anderen Bibliotheken; /NODEFAULTLIB:Bibliothek verwenden.
+glew32s.lib(glew.obj) : warning LNK4099: PDB "vc120.pdb" wurde nicht mit "glew32s.lib(glew.obj)" oder an "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\vc120.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
   dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe
