@@ -4,10 +4,12 @@
 #include <GL/GL.h>
 #include <ft2build.h>
 
+//#include "text_rendering.h"
 #include "shader.h"
 #include "model.h"
 //#include "guteCamera.h"
 #include "Camera.h"
+#include "text_renderer.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -78,6 +80,7 @@ int main(void)
 
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
+	Shader textShader("shaders/text.vert", "shaders/text.frag");
 
 
 	float points[9] = {
@@ -97,11 +100,11 @@ int main(void)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
 
-	Model ball("modells/ball/ball.obj");
-	Model turnhalle("modells/turnhalle/turnhalle.obj");
+	//Model ball("modells/ball/ball.obj");
+	//Model turnhalle("modells/turnhalle/turnhalle.obj");
 
-	Model spieler("modells/junge_rot/Lt_boy.obj");
-	Model gegner("modells/junge_blau/Lt_boy.obj");
+	//Model spieler("modells/junge_rot/Lt_boy.obj");
+	//Model gegner("modells/junge_blau/Lt_boy.obj");
 
 
 	//glEnable(GL_CULL_FACE);
@@ -139,33 +142,39 @@ int main(void)
 
 		gameShader.use();
 
+
+		TextRenderer asdf;
+		asdf.RenderText(textShader, "dodgeball simulator", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+	
+
+
 		// render the loaded model
 
 		//turnhalle
 		glm::mat4 model_turnhalle = glm::mat4(1.0f);
 		model_turnhalle = glm::translate(model_turnhalle, glm::vec3(0.0f, 0.0f, 0.0f));
 		gameShader.setMat4("model", model_turnhalle);
-		turnhalle.Draw(gameShader);
+		//turnhalle.Draw(gameShader);
 
 		//ball
 		glm::mat4 model_ball = glm::mat4(1.0f);
 		model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
 		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
 		gameShader.setMat4("model", model_ball);
-		ball.Draw(gameShader);
+		//ball.Draw(gameShader);
 
 		//spieler
 		glm::mat4 model_spieler = glm::mat4(1.0f);
 		model_spieler = glm::translate(model_spieler, player.getPosition());
 		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_spieler);
-		spieler.Draw(gameShader);
+		//spieler.Draw(gameShader);
 
 		glm::mat4 model_gegner = glm::mat4(1.0f);
 		model_gegner = glm::translate(model_gegner, glm::vec3(4.0f, 0.0f, 0.0f));
 		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_gegner);
-		gegner.Draw(gameShader);
+		//gegner.Draw(gameShader);
 
 
 		/* Swap front and back buffers */
