@@ -69,7 +69,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)libraries\assimp_4.1.0\debugLib;$(ProjectDir)libraries\physx_4.1\debugLib;$(ProjectDir)libraries\glfw_3.2.1\debugLib;$(ProjectDir)libraries\glew_2.1.0\debugLib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)libraries\assimp_4.1.0\releaseLib;$(ProjectDir)libraries\physx_4.1\releaseLib;$(ProjectDir)libraries\glfw_3.2.1\releaseLib;$(ProjectDir)libraries;$(ProjectDir)libraries\glew_2.1.0\releaseLib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -78,10 +85,25 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(ProjectDir)lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc140-mtd.lib;freetype.lib;</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc140-mt.lib;IrrXML.lib;zlibstaticd.lib;PhysX_static_32.lib
+
+;PhysXExtensions_static_32.lib;
+
+PhysXCooking_static_32.lib;
+
+PhysXCommon_static_32.lib
+
+;PhysXVehicle_static_32.lib
+
+;PhysXCharacterKinematic_static_32.lib
+
+;PhysXPvdSDK_static_32.lib
+
+;PhysXFoundation_static_32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -96,18 +118,35 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLEW_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(ProjectDir)lib-vc2015;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc140-mtd.lib;freetype.lib;</AdditionalDependencies>
+      <AdditionalDependencies>glew32sd.lib;glfw3.lib;opengl32.lib;user32.lib;gdi32.lib;shell32.lib;assimp-vc140-mt.lib;IrrXML.lib;zlibstaticd.lib;PhysX_static_32.lib
+
+;PhysXExtensions_static_32.lib;
+
+PhysXCooking_static_32.lib;
+
+PhysXCommon_static_32.lib
+
+;PhysXVehicle_static_32.lib
+
+;PhysXCharacterKinematic_static_32.lib
+
+;PhysXPvdSDK_static_32.lib
+
+;PhysXFoundation_static_32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -131,10 +170,9 @@
     <ClInclude Include="main.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
+    <ClInclude Include="physics.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="shader.h" />
-    <ClInclude Include="text_renderer.h" />
-    <ClInclude Include="text_rendering.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
@@ -142,7 +180,6 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="stb_image.cpp" />
-    <ClCompile Include="text_renderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

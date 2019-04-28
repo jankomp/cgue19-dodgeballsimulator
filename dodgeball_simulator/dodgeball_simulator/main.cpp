@@ -2,14 +2,16 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <GL/GL.h>
-#include <ft2build.h>
+//#include <ft2build.h>
+
+#include "physics.h"
 
 //#include "text_rendering.h"
 #include "shader.h"
 #include "model.h"
 //#include "guteCamera.h"
 #include "Camera.h"
-#include "text_renderer.h"
+//#include "text_renderer.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -110,9 +112,11 @@ int main(void)
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 
+	initPhysics();
 
-	TextRenderer level;
-	level.Load("fonts/arial.ttf", 48);
+
+	//TextRenderer level;
+	//level.Load("fonts/arial.ttf", 48);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))

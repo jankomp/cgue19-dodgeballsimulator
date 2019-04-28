@@ -1,5 +1,1 @@
-﻿  Camera.cpp
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\playercharacter.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "PxPhysicsAPI.h": No such file or directory
-  PlayerCharacter.cpp
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\playercharacter.h(4): fatal error C1083: Datei (Include) kann nicht geöffnet werden: "PxPhysicsAPI.h": No such file or directory
-  Code wird generiert...
+﻿  dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe
