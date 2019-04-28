@@ -30,9 +30,6 @@
     <ClInclude Include="model.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="guteCamera.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerCharacter.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>

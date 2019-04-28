@@ -2,14 +2,12 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <GL/GL.h>
-//#include <ft2build.h>
+#include <ft2build.h>
 
 #include "physics.h"
-
 //#include "text_rendering.h"
 #include "shader.h"
 #include "model.h"
-//#include "guteCamera.h"
 #include "Camera.h"
 //#include "text_renderer.h"
 
@@ -84,24 +82,6 @@ int main(void)
 	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 
-
-	float points[9] = {
-		-0.5f, 0.2f, 0.4f,
-		1.0f, 0.8f, -0.3f,
-		0.7f, 0.5f, 0.2f
-	};
-
-	unsigned int buffer;
-
-	glGenBuffers(1, &buffer);
-
-	glBindBuffer(GL_ARRAY_BUFFER, buffer);
-
-	glBufferData(GL_ARRAY_BUFFER, 9 * sizeof(float), points, GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
-
 	Model ball("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
@@ -139,8 +119,6 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		//glClear(GL_COLOR_BUFFER_BIT );
 
-		/*draw triangle*/
-		glDrawArrays(GL_TRIANGLES, 0, 3);
 
 		// view/projection transformations
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
@@ -153,9 +131,7 @@ int main(void)
 		projection = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 		//textShader.use();
 		//textShader.setMat4("projection", projection);
-
 		//level.RenderText(textShader, "Level", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
-
 
 
 		// render the loaded model

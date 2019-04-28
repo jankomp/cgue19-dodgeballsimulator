@@ -166,7 +166,6 @@ PhysXCommon_static_32.lib
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="guteCamera.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
