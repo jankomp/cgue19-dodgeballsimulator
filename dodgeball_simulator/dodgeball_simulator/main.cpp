@@ -191,14 +191,22 @@ void processInput(GLFWwindow *window)
 		running = false;
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		player.move(running, FORWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		camera.sidewaysMotion(running, FORWARD, deltaTime);
+	}
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 		player.move(running, BACKWARD, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		camera.sidewaysMotion(running, BACKWARD, deltaTime);
+	}
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		player.move(running, LEFT, deltaTime);
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		camera.sidewaysMotion(running, LEFT, deltaTime);
+	}
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		player.move(running, RIGHT, deltaTime);
+		camera.sidewaysMotion(running, RIGHT, deltaTime);
+	}
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes

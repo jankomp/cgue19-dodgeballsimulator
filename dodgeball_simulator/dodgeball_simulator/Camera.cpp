@@ -53,10 +53,10 @@ void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
 	float movementSpeed;
 
 	if (running) {
-		movementSpeed = 50;
+		movementSpeed = 20;
 	}
 	else {
-		movementSpeed = 30;
+		movementSpeed = 5;
 	}
 	float velocity = movementSpeed * deltaTime;
 	if (direction == FORWARD)
