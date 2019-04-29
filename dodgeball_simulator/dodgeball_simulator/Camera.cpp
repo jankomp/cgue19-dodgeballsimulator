@@ -20,8 +20,6 @@ glm::mat4 Camera::getWorldToViewMat() const
 	playerPos.z = playerPos.z;
 	return glm::lookAt(cameraPosition, playerPos, UP);
 
-
-
 }
 
 void Camera::rotate(double phi, double theta, float deltaTime)
