@@ -5,11 +5,10 @@
 #include <ft2build.h>
 
 #include "physics.h"
-//#include "text_rendering.h"
 #include "shader.h"
 #include "model.h"
 #include "Camera.h"
-//#include "text_renderer.h"
+#include "text_renderer.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -99,12 +98,16 @@ int main(void)
 
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	initPhysics();
 
+	//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
-	//TextRenderer level;
-	//level.Load("fonts/arial.ttf", 48);
+
+	TextRenderer level;
+	level.Load("fonts/arial.ttf", 48);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -129,17 +132,23 @@ int main(void)
 
 
 		// view/projection transformations
+
 		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
 		gameShader.setMat4("projection", projection);
 		gameShader.setMat4("view", view);
 
+
+		glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+		textShader.use();
+		textShader.setMat4("projection", proj2);
+		level.RenderText(textShader, "Level", 200.0f, 200.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+
+
 		gameShader.use();
 
-		projection = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-		//textShader.use();
-		//textShader.setMat4("projection", projection);
-		//level.RenderText(textShader, "Level", 50.0f, 25.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+
+
 
 
 		// render the loaded model
@@ -170,6 +179,12 @@ int main(void)
 		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_gegner);
 		gegner.Draw(gameShader);
+
+
+
+		glEnable(GL_DEPTH_TEST);
+		glDisable(GL_CULL_FACE);
+
 
 
 		/* Swap front and back buffers */

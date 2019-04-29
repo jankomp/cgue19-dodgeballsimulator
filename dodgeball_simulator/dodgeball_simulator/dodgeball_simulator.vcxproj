@@ -71,7 +71,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(ProjectDir)libraries\assimp_4.1.0\debugLib;$(ProjectDir)libraries\physx_4.1\debugLib;$(ProjectDir)libraries\glfw_3.2.1\debugLib;$(ProjectDir)libraries\glew_2.1.0\debugLib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(ProfectDir)libraries;$(ProjectDir)libraries\assimp_4.1.0\debugLib;$(ProjectDir)libraries\physx_4.1\debugLib;$(ProjectDir)libraries\glfw_3.2.1\debugLib;$(ProjectDir)libraries\glew_2.1.0\debugLib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
@@ -103,7 +103,7 @@ PhysXCommon_static_32.lib
 
 ;PhysXPvdSDK_static_32.lib
 
-;PhysXFoundation_static_32.lib</AdditionalDependencies>
+;PhysXFoundation_static_32.lib;freetype.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,7 +146,7 @@ PhysXCommon_static_32.lib
 
 ;PhysXPvdSDK_static_32.lib
 
-;PhysXFoundation_static_32.lib</AdditionalDependencies>
+;PhysXFoundation_static_32.lib;freetype.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -172,6 +172,7 @@ PhysXCommon_static_32.lib
     <ClInclude Include="physics.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="text_renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
@@ -179,6 +180,7 @@ PhysXCommon_static_32.lib
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="stb_image.cpp" />
+    <ClCompile Include="text_renderer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
