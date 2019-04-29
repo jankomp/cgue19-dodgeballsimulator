@@ -20,7 +20,7 @@ class PlayerCharacter
 	bool running;
 
 public:
-	PlayerCharacter();
+	PlayerCharacter(glm::vec3 startPos);
 
 	glm::vec3 getPosition();
 	glm::mat4 getModelMat();

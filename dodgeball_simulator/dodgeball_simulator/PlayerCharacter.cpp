@@ -3,9 +3,9 @@
 
 
 
-PlayerCharacter::PlayerCharacter()
+PlayerCharacter::PlayerCharacter(glm::vec3 startPos)
 {
-	position = glm::vec3(0.0, 0.0, 0.0);
+	position = startPos;
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
 }

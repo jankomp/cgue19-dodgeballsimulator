@@ -2,11 +2,12 @@
 #include <glm/gtx/transform.hpp>
 #include <iostream>
 
+//Camera::cameraPosition = glm::vec3(0.0f, 3.0f, 0.0f);
 
-
-Camera::Camera(PlayerCharacter *newPlayer) : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75)
+Camera::Camera(PlayerCharacter *newPlayer, glm::vec3 startPosCam) : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.5), yaw(-90.0)
 {
 	player = newPlayer;
+	cameraPosition = startPosCam;
 }
 
 Camera::Camera() : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75) {}
@@ -18,6 +19,9 @@ glm::mat4 Camera::getWorldToViewMat() const
 	playerPos.y = playerPos.y + 2.0;
 	playerPos.z = playerPos.z;
 	return glm::lookAt(cameraPosition, playerPos, UP);
+
+
+
 }
 
 void Camera::rotate(double phi, double theta, float deltaTime)
@@ -26,19 +30,20 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	theta *= mouseSensitivity;
 
 	yaw += phi;
-	pitch -= theta;
+	pitch += theta;
 
 	// Make sure that when pitch is out of bounds, screen doesn't get flipped
-	if (pitch > 89.0f)
-		pitch = 89.0f;
-	if (pitch < -89.0f)
-		pitch = -89.0f;
+	if (pitch > 50.0f)
+		pitch = 50.0f;
+	if (pitch < -40.0f)
+		pitch = -40.0f;
 
 	//player->rotate(yaw, deltaTime);
 
 	double x = distance * cos(glm::radians(yaw)) * cos(glm::radians(pitch));
 	double y = distance * sin(glm::radians(pitch));
 	double z = distance * sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+
 
 	glm::vec3 playerPos = player->getPosition();
 	cameraPosition.x = x + playerPos.x;

@@ -22,8 +22,16 @@ const unsigned int SCR_HEIGHT = 1800;
 
 // player & camera
 bool running = false;
-PlayerCharacter player;
-Camera camera(&player);
+PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
+PlayerCharacter player_gegner(glm::vec3(0.0, 0.0, 4.5));
+
+glm::vec3 camPos;
+
+//camPos.x = player.getPosition.x + 0.0f;
+
+
+
+Camera camera(&player, glm::vec3(0.0f,2.0f,-6.5f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
@@ -121,7 +129,7 @@ int main(void)
 
 
 		// view/projection transformations
-		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1920 / (float)1080, 0.1f, 100.0f);
+		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
 		gameShader.setMat4("projection", projection);
 		gameShader.setMat4("view", view);
@@ -157,7 +165,8 @@ int main(void)
 		spieler.Draw(gameShader);
 
 		glm::mat4 model_gegner = glm::mat4(1.0f);
-		model_gegner = glm::translate(model_gegner, glm::vec3(4.0f, 0.0f, 0.0f));
+		model_gegner = glm::translate(model_gegner, player_gegner.getPosition());
+		model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
 		gameShader.setMat4("model", model_gegner);
 		gegner.Draw(gameShader);

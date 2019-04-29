@@ -15,7 +15,7 @@ class Camera
 
 public:
 	Camera();
-	Camera(PlayerCharacter *newPlayer);
+	Camera(PlayerCharacter *newPlayer, glm::vec3 startPosCam);
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
 	void sidewaysMotion(bool running, Movement direction, float deltaTime);
