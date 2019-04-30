@@ -16,9 +16,11 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 int screen = 1;
-bool head_up_display = false;
+bool head_up_display = true;
 int frames = 0;
+float t_beginning;
 
+int gegnerPunktestand = 0, spielerPunktestand = 0;
 
 // settings
 const unsigned int SCR_WIDTH = 1920;
@@ -112,8 +114,15 @@ int main(void)
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
 
-	TextRenderer text;
-	text.Load("fonts/arial.ttf", 48);
+	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
+	title.Load("fonts/arial.ttf", 140);
+	text.Load("fonts/arial.ttf", 80);
+	spielstand.Load("fonts/arial.ttf", 150);
+	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
+
+	ballSchrift.Load("fonts/Balls.ttf", 68);
+	
+
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -125,6 +134,8 @@ int main(void)
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
+
+
 
 
 
@@ -150,8 +161,8 @@ int main(void)
 			textShader.use();
 			textShader.setMat4("projection", proj2);
 
-			text.RenderText(textShader, "DODGEBALLSIMULATOR", ((float)SCR_WIDTH / 2) - 570, ((float)SCR_HEIGHT / 2) + 100, 2.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) -250, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) -400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 
 		}
@@ -159,6 +170,8 @@ int main(void)
 		if (screen == 2) {
 
 			clock time();
+
+			glfwSetTime(t_beginning);
 
 			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 			textShader.use();
@@ -197,8 +210,20 @@ int main(void)
 			gameShader.setMat4("model", model_gegner);
 			gegner.Draw(gameShader);
 
-			text.RenderText(textShader, "Level", ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 100, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+			if (head_up_display == true) {
+				herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
+				clock();
+			
+				std::string strGegner = std::to_string(gegnerPunktestand);
+				std::string strSpieler = std::to_string(spielerPunktestand);
+
+				spielstand.RenderText(textShader, strGegner + ":" + strSpieler, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
+			}
 		}
 
 		if (screen == 3) {
@@ -262,7 +287,12 @@ void processInput(GLFWwindow *window)
 		glfwSetTime(0);
 	}
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-		head_up_display = true;
+		if (head_up_display == true) {
+			head_up_display = false;
+		}
+		else if (head_up_display == false) {
+			head_up_display = true;
+		}
 	}
 
 

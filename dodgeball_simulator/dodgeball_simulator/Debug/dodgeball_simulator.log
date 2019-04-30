@@ -1,14 +1,26 @@
-﻿  clock.cpp
-  main.cpp
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(125): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(161): warning C4930: "clock time(void)": Funktion mit Prototyp wurde nicht aufgerufen (war eine Variablendefinition gemeint?)
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(286): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(287): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(291): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(292): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(294): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(295): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-  Code wird generiert...
+﻿  Camera.cpp
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(17): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(28): warning C4244: "+=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(29): warning C4244: "+=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(45): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(46): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\camera.cpp(47): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
      Bibliothek "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.lib" und Objekt "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exp" werden erstellt.
 glew32sd.lib(glew.obj) : warning LNK4099: PDB "glew_static.pdb" wurde nicht mit "glew32sd.lib(glew.obj)" oder an "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\glew_static.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
 glfw3.lib(context.obj) : warning LNK4099: PDB "glfw.pdb" wurde nicht mit "glfw3.lib(context.obj)" oder an "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\glfw.pdb" gefunden; Objekt wird verkn³pft, als ob keine Debuginformationen vorhanden wõren.
