@@ -166,6 +166,8 @@ PhysXCommon_static_32.lib
   <ItemGroup>
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="clock.h" />
+    <ClInclude Include="gamePlay.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
@@ -177,6 +179,8 @@ PhysXCommon_static_32.lib
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="clock.cpp" />
+    <ClCompile Include="gamePlay.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="stb_image.cpp" />

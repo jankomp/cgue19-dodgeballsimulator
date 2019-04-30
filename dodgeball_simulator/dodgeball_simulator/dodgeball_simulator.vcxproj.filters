@@ -42,6 +42,12 @@
     <ClInclude Include="text_renderer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="gamePlay.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="clock.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,6 +66,12 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="text_renderer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="gamePlay.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="clock.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
