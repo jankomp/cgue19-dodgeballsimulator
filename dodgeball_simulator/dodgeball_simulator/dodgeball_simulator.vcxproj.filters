@@ -36,16 +36,2011 @@
     <ClInclude Include="Ball.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="physics.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="text_renderer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="gamePlay.h">
+    <ClInclude Include="physics.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="clock.h">
+    <ClInclude Include="include\ft2build.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PxPhysicsAPI.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_image.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxBoxController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxCapsuleController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxControllerBehavior.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxControllerManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxControllerObstacles.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\characterkinematic\PxExtended.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\collision\PxCollisionDefs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\windows\PxWindowsDelayLoadHook.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxBase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxCollection.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxCoreUtilityTypes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxMetaData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxMetaDataFlags.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxPhysicsInsertionCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxPhysXCommonConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxProfileZone.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxRenderBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxSerialFramework.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxSerializer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxStringTable.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxTolerancesScale.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\common\PxTypeInfo.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxBVH33MidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxBVH34MidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxBVHStructureDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\Pxc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxConvexMeshDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxCooking.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxMidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cooking\PxTriangleMeshDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cudamanager\PxCudaContextManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\cudamanager\PxCudaMemoryManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxBinaryConverter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxBroadPhaseExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxCollectionExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxConstraintExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxContactJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxConvexMeshExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxD6Joint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxD6JointCreate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDefaultAllocator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDefaultCpuDispatcher.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDefaultErrorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDefaultSimulationFilterShader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDefaultStreams.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxDistanceJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxExtensionsAPI.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxFixedJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxJointLimit.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxMassProperties.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxPrismaticJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRaycastCCD.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRepXSerializer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRepXSimpleType.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRevoluteJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRigidActorExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxRigidBodyExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxSceneQueryExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxSerialization.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxShapeExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxSimpleFactory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxSmoothNormals.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxSphericalJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxStringTableExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\extensions\PxTriangleMeshExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\filebuf\PxFileBuf.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxAssert.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxFoundationConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxMathUtils.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxBoxGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxBVHStructure.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxCapsuleGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxConvexMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxConvexMeshGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxGeometryHelpers.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxGeometryQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxHeightField.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxHeightFieldDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxHeightFieldFlag.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxHeightFieldGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxHeightFieldSample.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxMeshQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxMeshScale.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxPlaneGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxSimpleTriangleMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxSphereGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxTriangle.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxTriangleMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geometry\PxTriangleMeshGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geomutils\GuContactBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\geomutils\GuContactPoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\gpu\PxGpu.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\pvd\PxPvd.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\pvd\PxPvdSceneClient.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\pvd\PxPvdTransport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\solver\PxSolverDefs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\task\PxCpuDispatcher.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\task\PxTask.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\task\PxTaskDefine.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\task\PxTaskManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleComponents.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleDrive.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleDrive4W.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleDriveNW.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleDriveTank.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleNoDrive.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleSDK.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleShaders.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleTireFriction.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleUpdate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleUtil.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleUtilControl.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleUtilSetup.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleUtilTelemetry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\vehicle\PxVehicleWheels.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxActor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxAggregate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulation.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulationBase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulationJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulationJointReducedCoordinate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulationLink.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxArticulationReducedCoordinate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxBatchQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxBatchQueryDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxBroadPhase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxClient.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxConstraint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxConstraintDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxContact.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxContactModifyCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxDeletionListener.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxFiltering.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxForceMode.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxFoundation.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxImmediateMode.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxLockedData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxMaterial.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPhysics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPhysicsAPI.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPhysicsSerialization.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPhysicsVersion.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPhysXConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxPruningStructure.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxQueryFiltering.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxQueryReport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxRigidActor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxRigidBody.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxRigidDynamic.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxRigidStatic.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxScene.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxSceneDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxSceneLock.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxShape.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxSimulationEventCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxSimulationStatistics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\PxVisualizationParameter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Compiler\poppack1.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Compiler\pstdint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Compiler\pushpack1.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\port\AndroidJNI\AndroidJNIIOSystem.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\ai_assert.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\anim.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\camera.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\cexport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\cfileio.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\cimport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\color4.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\config.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\DefaultIOStream.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\DefaultIOSystem.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\DefaultLogger.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Defines.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\defs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Exporter.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Importer.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\importerdesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\IOStream.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\IOSystem.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\light.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\Logger.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\LogStream.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\material.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\matrix3x3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\matrix4x4.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\mesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\metadata.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\NullLogger.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\postprocess.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\ProgressHandler.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\quaternion.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\scene.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\SceneCombiner.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\texture.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\types.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\vector2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\vector3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\assimp_4.1.0\include\assimp\version.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glew_2.1.0\include\GL\eglew.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glew_2.1.0\include\GL\glew.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glew_2.1.0\include\GL\glxew.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glew_2.1.0\include\GL\wglew.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glfw_3.2.1\include\GLFW\glfw3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glfw_3.2.1\include\GLFW\glfw3native.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_features.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_fixes.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_noise.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_swizzle.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_swizzle_func.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\_vectorize.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\compute_common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\compute_vector_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\qualifier.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\setup.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_float.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_half.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_quat.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_clip_space.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double2x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double3x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_double4x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float2x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float3x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_float4x4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_projection.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_transform.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_double.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_double_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_exponential.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_float.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_float_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_geometric.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_transform.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_trigonometric.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_constants.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_int_sized.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_uint_sized.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_ulp.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool1_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_bool4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double1_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_double4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float1_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_float4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int1_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_int4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint1_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint2_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint3_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_uint4_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext\vector_ulp.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\bitfield.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\color_space.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\constants.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\epsilon.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\integer.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_access.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_integer.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_inverse.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_transform.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\noise.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\packing.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\quaternion.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\random.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\reciprocal.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\round.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\type_aligned.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\type_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\type_ptr.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\ulp.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtc\vec1.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\associated_min_max.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\bit.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\closest_point.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\color_encoding.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\color_space.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\color_space_YCoCg.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\compatibility.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\component_wise.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\dual_quaternion.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\easing.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\euler_angles.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\extend.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\extended_min_max.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\exterior_product.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_exponential.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_square_root.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_trigonometry.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\functions.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\gradient_paint.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\handed_coordinate_space.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\hash.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\integer.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\intersect.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\io.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\log_base.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_cross_product.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_decompose.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_factorisation.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_interpolation.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_major_storage.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_operation.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_query.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_transform_2d.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\mixed_product.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\norm.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\normal.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\normalize_dot.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\number_precision.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\optimum_pow.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\orthonormalize.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\perpendicular.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\polar_coordinates.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\projection.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\quaternion.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\range.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\raw_data.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\rotate_normalized_axis.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\rotate_vector.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\scalar_multiplication.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\scalar_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\spline.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\std_based_type.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\string_cast.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\texture.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\transform.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\transform2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\type_aligned.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\type_trait.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\vec_swizzle.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_angle.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_query.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\gtx\wrap.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\common.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\exponential.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\geometric.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\integer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\matrix.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\packing.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\platform.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\trigonometric.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\simd\vector_relational.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\common.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\exponential.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\ext.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\fwd.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\geometric.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\glm.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\integer.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat2x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat2x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat2x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat3x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat3x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat3x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat4x2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat4x3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\mat4x4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\matrix.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\packing.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\trigonometric.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\vec2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\vec3.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\vec4.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\glm_0.9.9.4\include\glm\vector_relational.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxBoxController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxCapsuleController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxController.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxControllerBehavior.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxControllerManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxControllerObstacles.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\characterkinematic\PxExtended.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\collision\PxCollisionDefs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\windows\PxWindowsDelayLoadHook.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxBase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxCollection.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxCoreUtilityTypes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxMetaData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxMetaDataFlags.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxPhysicsInsertionCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxPhysXCommonConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxProfileZone.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxRenderBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxSerialFramework.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxSerializer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxStringTable.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxTolerancesScale.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\common\PxTypeInfo.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxBVH33MidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxBVH34MidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxBVHStructureDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\Pxc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxConvexMeshDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxCooking.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxMidphaseDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cooking\PxTriangleMeshDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cudamanager\PxCudaContextManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\cudamanager\PxCudaMemoryManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxBinaryConverter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxBroadPhaseExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxCollectionExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxConstraintExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxContactJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxConvexMeshExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxD6Joint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxD6JointCreate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDefaultAllocator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDefaultCpuDispatcher.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDefaultErrorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDefaultSimulationFilterShader.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDefaultStreams.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxDistanceJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxExtensionsAPI.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxFixedJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxJointLimit.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxMassProperties.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxPrismaticJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRaycastCCD.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRepXSerializer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRepXSimpleType.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRevoluteJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRigidActorExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxRigidBodyExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxSceneQueryExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxSerialization.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxShapeExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxSimpleFactory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxSmoothNormals.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxSphericalJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxStringTableExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\extensions\PxTriangleMeshExt.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\filebuf\PxFileBuf.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\unix\PxUnixIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\windows\PxWindowsIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\Px.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxAllocatorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxAssert.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxBitAndData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxBounds3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxErrorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxErrors.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxFlags.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxFoundationConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxIO.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxMat33.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxMat44.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxMath.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxMathUtils.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxMemory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxPlane.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxPreprocessor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxProfiler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxQuat.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxSharedAssert.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxSimpleTypes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxStrideIterator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxTransform.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxUnionCast.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxVec2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxVec3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\foundation\PxVec4.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxBoxGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxBVHStructure.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxCapsuleGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxConvexMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxConvexMeshGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxGeometryHelpers.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxGeometryQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxHeightField.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxHeightFieldDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxHeightFieldFlag.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxHeightFieldGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxHeightFieldSample.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxMeshQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxMeshScale.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxPlaneGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxSimpleTriangleMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxSphereGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxTriangle.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxTriangleMesh.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geometry\PxTriangleMeshGeometry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geomutils\GuContactBuffer.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\geomutils\GuContactPoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\gpu\PxGpu.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\pvd\PxPvd.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\pvd\PxPvdSceneClient.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\pvd\PxPvdTransport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\solver\PxSolverDefs.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\task\PxCpuDispatcher.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\task\PxTask.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\task\PxTaskDefine.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\task\PxTaskManager.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleComponents.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleDrive.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleDrive4W.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleDriveNW.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleDriveTank.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleNoDrive.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleSDK.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleShaders.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleTireFriction.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleUpdate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleUtil.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleUtilControl.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleUtilSetup.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleUtilTelemetry.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\vehicle\PxVehicleWheels.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxActor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxAggregate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulation.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulationBase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulationJoint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulationJointReducedCoordinate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulationLink.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxArticulationReducedCoordinate.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxBatchQuery.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxBatchQueryDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxBroadPhase.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxClient.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxConstraint.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxConstraintDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxContact.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxContactModifyCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxDeletionListener.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxFiltering.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxForceMode.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxFoundation.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxImmediateMode.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxLockedData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxMaterial.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPhysics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPhysicsAPI.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPhysicsSerialization.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPhysicsVersion.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPhysXConfig.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxPruningStructure.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxQueryFiltering.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxQueryReport.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxRigidActor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxRigidBody.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxRigidDynamic.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxRigidStatic.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxScene.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxSceneDesc.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxSceneLock.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxShape.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxSimulationEventCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxSimulationStatistics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries\physx_4.1\include\PxVisualizationParameter.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\unix\PxUnixIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\windows\PxWindowsIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\Px.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxAllocatorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxBitAndData.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxBounds3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxErrorCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxErrors.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxFlags.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxIntrinsics.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxIO.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxMat33.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxMat44.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxMath.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxMemory.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxPlane.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxPreprocessor.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxProfiler.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxQuat.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxSharedAssert.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxSimpleTypes.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxStrideIterator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxTransform.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxUnionCast.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxVec2.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxVec3.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysX\foundation\PxVec4.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,11 +2063,428 @@
     <ClCompile Include="text_renderer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="gamePlay.cpp">
+    <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="clock.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="glut32.dll" />
+    <None Include="libraries\assimp_4.1.0\include\assimp\color4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\material.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\matrix3x3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\matrix4x4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\quaternion.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\vector2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\assimp_4.1.0\include\assimp\vector3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_common_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_exponential.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_exponential_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_geometric.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_geometric_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_integer.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_integer_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_matrix.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_matrix_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_packing.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_packing_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_trigonometric.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_trigonometric_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_vector_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\func_vector_relational_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_half.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat2x4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat3x4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_mat4x4_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_quat.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_quat_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec1.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec3.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec4.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\detail\type_vec4_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_clip_space.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_projection.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\matrix_transform.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_common_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_exponential.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_geometric.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_transform.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\quaternion_trigonometric.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_constants.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\scalar_ulp.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\vector_common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\vector_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\ext\vector_ulp.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\bitfield.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\color_space.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\constants.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\epsilon.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\integer.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_access.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_inverse.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\matrix_transform.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\noise.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\packing.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\quaternion.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\quaternion_simd.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\random.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\reciprocal.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\round.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\type_precision.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\type_ptr.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtc\ulp.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\associated_min_max.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\bit.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\closest_point.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\color_encoding.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\color_space.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\color_space_YCoCg.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\common.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\compatibility.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\component_wise.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\dual_quaternion.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\easing.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\euler_angles.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\extend.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\extended_min_max.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\exterior_product.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_exponential.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_square_root.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\fast_trigonometry.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\float_notmalize.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\functions.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\gradient_paint.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\handed_coordinate_space.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\hash.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\integer.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\intersect.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\io.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\log_base.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_cross_product.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_decompose.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_factorisation.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_interpolation.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_major_storage.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_operation.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_query.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\matrix_transform_2d.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\mixed_product.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\norm.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\normal.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\normalize_dot.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\number_precision.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\optimum_pow.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\orthonormalize.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\perpendicular.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\polar_coordinates.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\projection.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\quaternion.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\raw_data.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\rotate_normalized_axis.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\rotate_vector.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\scalar_relational.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\spline.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\std_based_type.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\string_cast.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\texture.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\transform.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\transform2.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\type_aligned.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\type_trait.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_angle.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_query.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
+    <None Include="libraries\glm_0.9.9.4\include\glm\gtx\wrap.inl">
+      <Filter>Headerdateien</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -29,8 +29,8 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	pitch += theta;
 
 	// Make sure that when pitch is out of bounds, screen doesn't get flipped
-	if (pitch > 40.0f)
-		pitch = 40.0f;
+	if (pitch > 50.0f)
+		pitch = 50.0f;
 	if (pitch < -40.0f)
 		pitch = -40.0f;
 

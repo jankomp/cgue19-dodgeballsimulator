@@ -9,18 +9,14 @@
 #include "model.h"
 #include "Camera.h"
 #include "text_renderer.h"
-#include "clock.h"
+
+using namespace physx;
+using namespace std;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
-int screen = 1;
-bool head_up_display = true;
-int frames = 0;
-float t_beginning;
-
-int gegnerPunktestand = 0, spielerPunktestand = 0;
 
 // settings
 const unsigned int SCR_WIDTH = 1920;
@@ -106,23 +102,65 @@ int main(void)
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
-	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	initPhysics();
 
 	//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
 
-	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
-	title.Load("fonts/arial.ttf", 140);
-	text.Load("fonts/arial.ttf", 80);
-	spielstand.Load("fonts/arial.ttf", 150);
-	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
 
-	ballSchrift.Load("fonts/Balls.ttf", 68);
-	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//Physx
+	static PxDefaultErrorCallback gDefaultErrorCallback;
+	static PxDefaultAllocator gDefaultAllocatorCallback;
+	static PxFoundation* gFoundation = NULL;
+	//Creating foundation for PhysX
+	gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
+	if (!gFoundation)
+		printf("PxCreateFoundation failed!");
 
+	static PxPhysics* gPhysicsSDK = NULL;
+	//Creating instance of PhysX SDK
+	gPhysicsSDK = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale());
+	if (gPhysicsSDK == NULL)
+	{
+		cerr << "Error creating PhysX3 device, Exiting..." << endl;
+		exit(1);
+	}
+
+	PxScene* gScene = NULL;
+	//Creating scene
+	PxSceneDesc sceneDesc(gPhysicsSDK->getTolerancesScale());
+	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
+	sceneDesc.cpuDispatcher = PxDefaultCpuDispatcherCreate(1);
+	sceneDesc.filterShader = PxDefaultSimulationFilterShader;
+	gScene = gPhysicsSDK->createScene(sceneDesc);
+
+	//Creating material
+	PxMaterial* mMaterial =
+		//static friction, dynamic friction, restitution
+		gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
+
+	//1-Creating static plane (floor)
+	PxTransform planePos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+	PxRigidStatic* planeActor = gPhysicsSDK->createRigidStatic(planePos);
+	planeActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*planeActor);
+
+	//creating sphere (ball)
+	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 2.0f));
+	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
+	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(1.0), *mMaterial));
+	gScene->addActor(*ballActor);
+
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	TextRenderer level;
+	level.Load("fonts/arial.ttf", 48);
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -134,10 +172,6 @@ int main(void)
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
-
-
-
-
 
 		// input
 		// -----
@@ -152,84 +186,52 @@ int main(void)
 
 		// view/projection transformations
 
+		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
+		gameShader.setMat4("projection", projection);
+		gameShader.setMat4("view", view);
 
 
-		if (screen == 1) {
-
-			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-			textShader.use();
-			textShader.setMat4("projection", proj2);
-
-			title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) -400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+		glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+		textShader.use();
+		textShader.setMat4("projection", proj2);
+		level.RenderText(textShader, "Level", 200.0f, 200.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
 
 
-		}
+		gameShader.use();
 
-		if (screen == 2) {
 
-			clock time();
 
-			glfwSetTime(t_beginning);
 
-			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-			textShader.use();
-			textShader.setMat4("projection", proj2);
 
-			gameShader.use();
-			gameShader.setMat4("projection", projection);
-			gameShader.setMat4("view", view);
+		// render the loaded model
 
-			// render the loaded model
+		//turnhalle
+		glm::mat4 model_turnhalle = glm::mat4(1.0f);
+		model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		gameShader.setMat4("model", model_turnhalle);
+		turnhalle.Draw(gameShader);
 
-			//turnhalle
-			glm::mat4 model_turnhalle = glm::mat4(1.0f);
-			model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			gameShader.setMat4("model", model_turnhalle);
-			turnhalle.Draw(gameShader);
+		//ball
+		glm::mat4 model_ball = glm::mat4(1.0f);
+		model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
+		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
+		gameShader.setMat4("model", model_ball);
+		ball.Draw(gameShader);
 
-			//ball
-			glm::mat4 model_ball = glm::mat4(1.0f);
-			model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
-			model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
-			gameShader.setMat4("model", model_ball);
-			ball.Draw(gameShader);
+		//spieler
+		glm::mat4 model_spieler = glm::mat4(1.0f);
+		model_spieler = glm::translate(model_spieler, player.getPosition());
+		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
+		gameShader.setMat4("model", model_spieler);
+		spieler.Draw(gameShader);
 
-			//spieler
-			glm::mat4 model_spieler = glm::mat4(1.0f);
-			model_spieler = glm::translate(model_spieler, player.getPosition());
-			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
-			gameShader.setMat4("model", model_spieler);
-			spieler.Draw(gameShader);
-
-			glm::mat4 model_gegner = glm::mat4(1.0f);
-			model_gegner = glm::translate(model_gegner, player_gegner.getPosition());
-			model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
-			gameShader.setMat4("model", model_gegner);
-			gegner.Draw(gameShader);
-
-			if (head_up_display == true) {
-				herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-
-				clock();
-			
-				std::string strGegner = std::to_string(gegnerPunktestand);
-				std::string strSpieler = std::to_string(spielerPunktestand);
-
-				spielstand.RenderText(textShader, strGegner + ":" + strSpieler, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-
-			}
-		}
-
-		if (screen == 3) {
-
-		}
-
+		glm::mat4 model_gegner = glm::mat4(1.0f);
+		model_gegner = glm::translate(model_gegner, player_gegner.getPosition());
+		model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
+		gameShader.setMat4("model", model_gegner);
+		gegner.Draw(gameShader);
 
 
 
@@ -246,7 +248,8 @@ int main(void)
 
 	}
 
-
+	gPhysicsSDK->release();
+	//gFoundation->release();
 
 	glfwTerminate();
 	return 0;
@@ -282,20 +285,6 @@ void processInput(GLFWwindow *window)
 		player.move(running, RIGHT, deltaTime);
 		camera.sidewaysMotion(running, RIGHT, deltaTime);
 	}
-	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
-		screen = 2;
-		glfwSetTime(0);
-	}
-	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-		if (head_up_display == true) {
-			head_up_display = false;
-		}
-		else if (head_up_display == false) {
-			head_up_display = true;
-		}
-	}
-
-
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
