@@ -2043,6 +2043,9 @@
     <ClInclude Include="Ball.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -2064,6 +2067,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Ball.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

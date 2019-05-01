@@ -9,6 +9,7 @@
 #include "model.h"
 #include "Camera.h"
 #include "text_renderer.h"
+#include "enemy.h"
 
 using namespace physx;
 using namespace std;
@@ -18,6 +19,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
 
+
 // settings
 const unsigned int SCR_WIDTH = 1920;
 const unsigned int SCR_HEIGHT = 1800;
@@ -25,7 +27,8 @@ const unsigned int SCR_HEIGHT = 1800;
 // player & camera
 bool running = false;
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
-PlayerCharacter player_gegner(glm::vec3(0.0, 0.0, 4.5));
+enemy enemy_character(glm::vec3(-2.0, 0.0, 4.5));
+enemy enemy2_character(glm::vec3(-2.0, 0.0, 3.5));
 bool ballcaught = false;
 
 glm::vec3 camPos;
@@ -38,6 +41,11 @@ Camera camera(&player, glm::vec3(0.0f,2.0f,-6.5f));
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
+
+int screen = 1;
+bool head_up_display = true;
+
+int gegnerPunktestand = 0, spielerPunktestand = 0;
 
 // timing
 float deltaTime = 0.0f;
@@ -107,7 +115,7 @@ int main(void)
 
 	initPhysics();
 
-	//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
 
 
@@ -156,12 +164,28 @@ int main(void)
 	gScene->addActor(*ballActor);
 
 
-
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	TextRenderer level;
-	level.Load("fonts/arial.ttf", 48);
+	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
+	title.Load("fonts/arial.ttf", 140);
+	text.Load("fonts/arial.ttf", 80);
+	spielstand.Load("fonts/arial.ttf", 150);
+	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
+
+	ballSchrift.Load("fonts/Balls.ttf", 68);
+
+
+
+
+
+
+
+
+
+
+
+
+	
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -191,56 +215,93 @@ int main(void)
 
 		// view/projection transformations
 
-		glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) SCR_WIDTH / (float) SCR_HEIGHT, 0.1f, 100.0f);
 		glm::mat4 view = camera.getWorldToViewMat();
-		gameShader.setMat4("projection", projection);
-		gameShader.setMat4("view", view);
 
+		if (screen == 1) {
 
-		glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-		textShader.use();
-		textShader.setMat4("projection", proj2);
-		level.RenderText(textShader, "Level", 200.0f, 200.0f, 1.0f, glm::vec3(0.5, 0.8f, 0.2f));
+			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+			textShader.use();
+			textShader.setMat4("projection", proj2);
 
+			title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
-		gameShader.use();
+		}
 
+		if (screen == 2) {
 
-
-
-
-		// render the loaded model
-
-		//turnhalle
-		glm::mat4 model_turnhalle = glm::mat4(1.0f);
-		model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		gameShader.setMat4("model", model_turnhalle);
-		turnhalle.Draw(gameShader);
-
-		//ball
-		glm::mat4 model_ball = glm::mat4(1.0f);
-		PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
-		glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
-		ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
-		model_ball = glm::translate(model_ball, ballRenderPosition); 
-		model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
-		gameShader.setMat4("model", model_ball);
+			gameShader.use();
 		
-		ball.Draw(gameShader);
 
-		//spieler
-		glm::mat4 model_spieler = glm::mat4(1.0f);
-		model_spieler = glm::translate(model_spieler, player.getPosition());
-		model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
-		gameShader.setMat4("model", model_spieler);
-		spieler.Draw(gameShader);
+			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+			textShader.use();
+			textShader.setMat4("projection", proj2);
 
-		glm::mat4 model_gegner = glm::mat4(1.0f);
-		model_gegner = glm::translate(model_gegner, player_gegner.getPosition());
-		model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-		model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
-		gameShader.setMat4("model", model_gegner);
-		gegner.Draw(gameShader);
+			gameShader.use();
+			gameShader.setMat4("projection", projection);
+			gameShader.setMat4("view", view);
+
+			// render the loaded model
+
+			//turnhalle
+			glm::mat4 model_turnhalle = glm::mat4(1.0f);
+			model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			gameShader.setMat4("model", model_turnhalle);
+			turnhalle.Draw(gameShader);
+		
+			//ball
+			glm::mat4 model_ball = glm::mat4(1.0f);
+			PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
+			glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
+			ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
+			model_ball = glm::translate(model_ball, ballRenderPosition);
+			model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
+			gameShader.setMat4("model", model_ball);
+			ball.Draw(gameShader);
+
+			//spieler
+			glm::mat4 model_spieler = glm::mat4(1.0f);
+			model_spieler = glm::translate(model_spieler, player.getPosition());
+			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
+			gameShader.setMat4("model", model_spieler);
+			spieler.Draw(gameShader);
+
+
+
+			glm::mat4 model_gegner = glm::mat4(1.0f);
+			//model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
+		
+			//enemy_character.move(deltaTime);
+			model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
+			model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
+			gameShader.setMat4("model", model_gegner);
+			gegner.Draw(gameShader);
+
+
+			//enemy2_character.move(deltaTime);
+		
+			if (head_up_display == true) {
+				herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
+			
+
+				std::string strGegner = std::to_string(gegnerPunktestand);
+				std::string strSpieler = std::to_string(spielerPunktestand);
+
+				spielstand.RenderText(textShader, strGegner + ":" + strSpieler, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+
+			}
+
+		}
+
+		if (screen == 3) {
+
+		}
+
 
 
 
@@ -295,6 +356,21 @@ void processInput(GLFWwindow *window)
 		player.move(running, RIGHT, deltaTime);
 		camera.sidewaysMotion(running, RIGHT, deltaTime);
 	}
+
+	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+		screen = 2;
+		glfwSetTime(0);
+	}
+	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
+		head_up_display = true;
+	}
+
+	/*if (head_up_display == true) {
+		head_up_display = false;
+	}
+	else if (head_up_display == false) {
+		head_up_display = true;
+	}*/
 
 }
 
