@@ -173,6 +173,10 @@ int main(void)
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
+		//advance the PhysX simulation by one step
+		gScene->simulate(deltaTime);
+		gScene->fetchResults(true);
+
 		// input
 		// -----
 		processInput(window);
@@ -214,7 +218,10 @@ int main(void)
 
 		//ball
 		glm::mat4 model_ball = glm::mat4(1.0f);
-		model_ball = glm::translate(model_ball, glm::vec3(2.0f, 2.0f, 0.0f)); // translate it down so it's at the center of the scene
+		PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
+		glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
+		ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
+		model_ball = glm::translate(model_ball, ballRenderPosition); // translate it down so it's at the center of the scene
 		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
 		gameShader.setMat4("model", model_ball);
 		ball.Draw(gameShader);
@@ -248,6 +255,7 @@ int main(void)
 
 	}
 
+	gScene->release();
 	gPhysicsSDK->release();
 	//gFoundation->release();
 
