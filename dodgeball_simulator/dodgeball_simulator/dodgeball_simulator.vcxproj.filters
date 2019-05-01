@@ -33,9 +33,6 @@
     <ClInclude Include="PlayerCharacter.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="text_renderer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -2043,6 +2040,9 @@
     <ClInclude Include="include\PhysX\foundation\PxVec4.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Ball.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -2057,13 +2057,13 @@
     <ClCompile Include="PlayerCharacter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="text_renderer.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Ball.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

@@ -151,7 +151,7 @@ int main(void)
 	//creating sphere (ball)
 	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 2.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
-	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(1.0), *mMaterial));
+	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
 	gScene->addActor(*ballActor);
 
 
@@ -222,7 +222,7 @@ int main(void)
 		glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
 		ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
 		model_ball = glm::translate(model_ball, ballRenderPosition); // translate it down so it's at the center of the scene
-		model_ball = glm::scale(model_ball, glm::vec3(0.1f, 0.1f, 0.1f));	// it's a bit too big for our scene, so scale it down
+		model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
 		gameShader.setMat4("model", model_ball);
 		ball.Draw(gameShader);
 
