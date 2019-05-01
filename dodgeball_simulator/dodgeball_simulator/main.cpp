@@ -26,6 +26,7 @@ const unsigned int SCR_HEIGHT = 1800;
 bool running = false;
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
 PlayerCharacter player_gegner(glm::vec3(0.0, 0.0, 4.5));
+bool ballcaught = false;
 
 glm::vec3 camPos;
 
@@ -221,9 +222,10 @@ int main(void)
 		PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
 		glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
 		ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
-		model_ball = glm::translate(model_ball, ballRenderPosition); // translate it down so it's at the center of the scene
-		model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));	// it's a bit too big for our scene, so scale it down
+		model_ball = glm::translate(model_ball, ballRenderPosition); 
+		model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
 		gameShader.setMat4("model", model_ball);
+		
 		ball.Draw(gameShader);
 
 		//spieler
@@ -293,6 +295,7 @@ void processInput(GLFWwindow *window)
 		player.move(running, RIGHT, deltaTime);
 		camera.sidewaysMotion(running, RIGHT, deltaTime);
 	}
+
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
