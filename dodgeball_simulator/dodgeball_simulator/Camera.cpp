@@ -69,3 +69,14 @@ void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
 	if (direction == RIGHT)
 		cameraPosition -= right * velocity;
 }
+
+void Camera::camReset(glm::vec3 startPosCam) 
+{
+	cameraPosition = glm::vec3(0.0f, 2.0f, -6.5f);
+	viewDirection = glm::vec3(0.0f, 0.0f, -1.0f);
+	//UP = glm::vec3(0.0f, 1.0f, 0.0f); 
+	//distance = (3.0);
+	//mouseSensitivity = (0.5);
+	yaw = (-90.0);
+
+}

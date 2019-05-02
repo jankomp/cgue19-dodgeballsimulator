@@ -1,10 +1,10 @@
 ﻿  main.cpp
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(163): warning C4305: "Argument": Verkürzung von "double" in "physx::PxReal"
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(197): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(392): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(393): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(397): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(398): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(159): warning C4305: "Argument": Verkürzung von "double" in "physx::PxReal"
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(189): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(399): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
 c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(400): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(401): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(404): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(405): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(407): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(408): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
   dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe

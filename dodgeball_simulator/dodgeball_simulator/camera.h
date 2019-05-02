@@ -19,5 +19,6 @@ public:
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
 	void sidewaysMotion(bool running, Movement direction, float deltaTime);
+	void camReset(glm::vec3 startPosCam);
 };
 
