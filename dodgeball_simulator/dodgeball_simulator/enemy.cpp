@@ -20,7 +20,7 @@ void enemy::rotate(float rotation, float deltaTime) {
 
 void enemy::move(float deltaTime) {
 
-	if (counter % 100 == 0) {
+	if (counter % 100 == 1) {
 		runOrNot = rand() % 2;
 		dir = rand() % 4;
 	}
@@ -28,10 +28,10 @@ void enemy::move(float deltaTime) {
 
 	float movementSpeed;
 	if (runOrNot == 1) {
-		movementSpeed = 1;
+		movementSpeed = 2;
 	}
 	else {
-		movementSpeed = 0.5;
+		movementSpeed = 1;
 	}
 	float velocity = movementSpeed * deltaTime;
 

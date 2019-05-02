@@ -27,21 +27,19 @@ const unsigned int SCR_HEIGHT = 1800;
 // player & camera
 bool running = false;
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
-enemy enemy_character(glm::vec3(-2.0, 0.0, 4.5));
-enemy enemy2_character(glm::vec3(-2.0, 0.0, 3.5));
+enemy enemy_character(glm::vec3(0.0, 0.0, 6.0));
+enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5));
+enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5));
+bool ballcaught = false;
 
-glm::vec3 camPos;
+glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
 
-//camPos.x = player.getPosition.x + 0.0f;
-
-
-
-Camera camera(&player, glm::vec3(0.0f,2.0f,-6.5f));
+Camera camera(&player, camPos);
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
-int screen = 1;
+int screen = 2;
 bool head_up_display = true;
 
 int gegnerPunktestand = 0, spielerPunktestand = 0;
@@ -114,8 +112,7 @@ int main(void)
 
 	initPhysics();
 
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-
+	
 
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -206,7 +203,14 @@ int main(void)
 
 	ballSchrift.Load("fonts/Balls.ttf", 68);
 
-	   	  
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+
+
+	//turnhalle
+	glm::mat4 model_turnhalle = glm::mat4(1.0f);
+	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+	
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -265,8 +269,6 @@ int main(void)
 			// render the loaded model
 
 			//turnhalle
-			glm::mat4 model_turnhalle = glm::mat4(1.0f);
-			model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 			gameShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(gameShader);
 		
@@ -292,10 +294,8 @@ int main(void)
 
 
 
-			glm::mat4 model_gegner = glm::mat4(1.0f);
-			//model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
-		
-			//enemy_character.move(deltaTime);
+			glm::mat4 model_gegner = glm::mat4(1.0f);	
+			enemy_character.move(deltaTime);
 			model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
 			model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 			model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
@@ -303,21 +303,34 @@ int main(void)
 			gegner.Draw(gameShader);
 
 
-			//enemy2_character.move(deltaTime);
+			glm::mat4 model_gegner2 = glm::mat4(1.0f);
+			enemy2_character.move(deltaTime);
+			model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
+			model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
+			gameShader.setMat4("model", model_gegner2);
+			gegner.Draw(gameShader);
+
+
+			glm::mat4 model_gegner3 = glm::mat4(1.0f);
+			enemy3_character.move(deltaTime);
+			model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
+			model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
+			gameShader.setMat4("model", model_gegner3);
+			gegner.Draw(gameShader);
+
 		
 			if (head_up_display == true) {
 				herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
-			
-
 				std::string strGegner = std::to_string(gegnerPunktestand);
 				std::string strSpieler = std::to_string(spielerPunktestand);
 
 				spielstand.RenderText(textShader, strGegner + ":" + strSpieler, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-
 			}
 
 		}
@@ -384,7 +397,13 @@ void processInput(GLFWwindow *window)
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		screen = 2;
 		glfwSetTime(0);
+		//camera.camReset();
 	}
+
+	if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS) {
+		camera.camReset(camPos);
+	}
+
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
 		head_up_display = true;
 	}
