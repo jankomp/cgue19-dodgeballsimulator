@@ -149,29 +149,30 @@ int main(void)
 
 	//1-Creating static plane (floor)
 	PxTransform floorPos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
-	PxRigidStatic* floorActor = gPhysicsSDK->createRigidStatic(floorPos);
-	floorActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*floorActor);
+	PxRigidStatic* gymActor = gPhysicsSDK->createRigidStatic(floorPos);
+	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*gymActor);
 
 	//Creating walls
-	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 10.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
-	floorActor = gPhysicsSDK->createRigidStatic(wall1Pos);
-	floorActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 20.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	gymActor = gPhysicsSDK->createRigidStatic(wall1Pos);
+	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*gymActor);
 
-	/*PxTransform wall2Pos = PxTransform(PxVec3(-10.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
-	PxRigidStatic* wall2Actor = gPhysicsSDK->createRigidStatic(wall2Pos);
-	wall2Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*wall2Actor);
+	PxTransform wall2Pos = PxTransform(PxVec3(0.0f, 0.0f, -20.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	gymActor = gPhysicsSDK->createRigidStatic(wall2Pos);
+	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*gymActor);
+	
+	PxTransform wall3Pos = PxTransform(PxVec3(-20.0f, 0.0f, 0.0f));
+	gymActor = gPhysicsSDK->createRigidStatic(wall3Pos);
+	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*gymActor);
 
-	PxTransform wall3Pos = PxTransform(PxVec3(0.0f, 0.0f, 10.0f));
-	PxRigidStatic* wall3Actor = gPhysicsSDK->createRigidStatic(wall3Pos);
-	wall3Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*wall3Actor);
-
-	PxTransform wall4Pos = PxTransform(PxVec3(0.0f, 0.0f, -10.0f));
-	PxRigidStatic* wall4Actor = gPhysicsSDK->createRigidStatic(wall4Pos);
-	wall4Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*wall4Actor);
+	PxTransform wall4Pos = PxTransform(PxVec3(20.0f, 0.0f, 0.0f), PxQuat(-PxPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	gymActor = gPhysicsSDK->createRigidStatic(wall4Pos);
+	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*gymActor);
 
 	//1-Creating static plane (roof)
 	/*PxTransform roofPos = PxTransform(PxVec3(0.0f,  11.0f, 0.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
