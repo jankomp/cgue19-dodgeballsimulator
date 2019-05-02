@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PLAYER_CHARACTER_H
+#define PLAYER_CHARACTER_H
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 //#include <PxPhysicsAPI.h>
@@ -33,3 +35,4 @@ private:
 	void updatePlayerCharacter();
 };
 
+#endif

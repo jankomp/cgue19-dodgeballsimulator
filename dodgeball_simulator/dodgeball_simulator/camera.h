@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CAMERA_H
+#define CAMERA_H
 #include "PlayerCharacter.h"
 
 class Camera
@@ -21,3 +22,4 @@ public:
 	void sidewaysMotion(bool running, Movement direction, float deltaTime);
 };
 
+#endif

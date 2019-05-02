@@ -29,7 +29,6 @@ bool running = false;
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
 enemy enemy_character(glm::vec3(-2.0, 0.0, 4.5));
 enemy enemy2_character(glm::vec3(-2.0, 0.0, 3.5));
-bool ballcaught = false;
 
 glm::vec3 camPos;
 
@@ -152,10 +151,36 @@ int main(void)
 		gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
 
 	//1-Creating static plane (floor)
-	PxTransform planePos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
-	PxRigidStatic* planeActor = gPhysicsSDK->createRigidStatic(planePos);
-	planeActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*planeActor);
+	PxTransform floorPos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+	PxRigidStatic* floorActor = gPhysicsSDK->createRigidStatic(floorPos);
+	floorActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*floorActor);
+
+	//Creating walls
+	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 10.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	floorActor = gPhysicsSDK->createRigidStatic(wall1Pos);
+	floorActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+
+	/*PxTransform wall2Pos = PxTransform(PxVec3(-10.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	PxRigidStatic* wall2Actor = gPhysicsSDK->createRigidStatic(wall2Pos);
+	wall2Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*wall2Actor);
+
+	PxTransform wall3Pos = PxTransform(PxVec3(0.0f, 0.0f, 10.0f));
+	PxRigidStatic* wall3Actor = gPhysicsSDK->createRigidStatic(wall3Pos);
+	wall3Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*wall3Actor);
+
+	PxTransform wall4Pos = PxTransform(PxVec3(0.0f, 0.0f, -10.0f));
+	PxRigidStatic* wall4Actor = gPhysicsSDK->createRigidStatic(wall4Pos);
+	wall4Actor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*wall4Actor);
+
+	//1-Creating static plane (roof)
+	/*PxTransform roofPos = PxTransform(PxVec3(0.0f,  11.0f, 0.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+	PxRigidStatic* roofActor = gPhysicsSDK->createRigidStatic(roofPos);
+	roofActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
+	gScene->addActor(*roofActor);*/
 
 	//creating sphere (ball)
 	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 2.0f));
@@ -163,6 +188,13 @@ int main(void)
 	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
 	gScene->addActor(*ballActor);
 
+	//creating box (player)
+	PxVec3 playerPos = PxVec3(0.0);
+	playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
+	PxTransform playerPosition = PxTransform(playerPos);
+	PxRigidDynamic* playerActor = gPhysicsSDK->createRigidDynamic(playerPosition);
+	playerActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	gScene->addActor(*playerActor);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -174,18 +206,7 @@ int main(void)
 
 	ballSchrift.Load("fonts/Balls.ttf", 68);
 
-
-
-
-
-
-
-
-
-
-
-
-	
+	   	  
 
 	/* Loop until the user closes the window */
 	while (!glfwWindowShouldClose(window))
@@ -260,6 +281,9 @@ int main(void)
 			ball.Draw(gameShader);
 
 			//spieler
+			playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
+			playerActor->setGlobalPose(PxTransform(playerPos));
+
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
 			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
