@@ -45,7 +45,7 @@ void enemy::move(float deltaTime) {
 	if (dir == 3)
 		position -= right * velocity;
 
-	std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
+	//std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
 
 	counter = counter + 1;
 }

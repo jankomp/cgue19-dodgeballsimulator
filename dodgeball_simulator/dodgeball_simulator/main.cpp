@@ -39,7 +39,7 @@ float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
-int screen = 2;
+int screen = 1;
 bool head_up_display = true;
 
 int gegnerPunktestand = 0, spielerPunktestand = 0;
@@ -398,16 +398,18 @@ void processInput(GLFWwindow *window)
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		screen = 2;
 		glfwSetTime(0);
-		//camera.camReset();
+		camera.camReset(&player, camPos);
 	}
 
 	if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS) {
-		camera.camReset(camPos);
+		camera.camReset(&player, camPos);
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
 		head_up_display = true;
 	}
+
+	if (GLFWmousebuttonfun)
 
 	/*if (head_up_display == true) {
 		head_up_display = false;
@@ -445,6 +447,24 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 	lastY = ypos;
 
 	camera.rotate(xoffset, yoffset, deltaTime);
+
+
+}
+
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+{
+	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+		player.shootBall(camera.getViewDirection());
+	}
+	//else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
+	//	_dragging = false;
+	//}
+	//else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
+	//	_strafing = true;
+	//}
+	//else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE) {
+	//	_strafing = false;
+	//}
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called

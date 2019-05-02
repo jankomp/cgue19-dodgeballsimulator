@@ -3,6 +3,8 @@
 
 
 
+
+
 PlayerCharacter::PlayerCharacter(glm::vec3 startPos)
 {
 	position = startPos;
@@ -43,6 +45,10 @@ glm::vec3 PlayerCharacter::getPosition() {
 	return position;
 }
 
-void PlayerCharacter::updatePlayerCharacter() {
+void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
+	position = newPos;
+}
+
+void shootBall(glm::vec3 direction) {
 
 }

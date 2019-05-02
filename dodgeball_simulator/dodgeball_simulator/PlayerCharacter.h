@@ -20,6 +20,7 @@ class PlayerCharacter
 	glm::vec3 right;
 	float speed;
 	bool running;
+	bool hasBall;
 
 public:
 	PlayerCharacter(glm::vec3 startPos);
@@ -29,10 +30,11 @@ public:
 
 	void rotate(float rotation, float deltaTime);
 	void move(bool running,  Movement direction, float deltaTime);
-
+	void updatePlayerCharacter(glm::vec3 newPos);
+	void shootBall(glm::vec3 direction);
 
 private:
-	void updatePlayerCharacter();
+	
 };
 
 #endif

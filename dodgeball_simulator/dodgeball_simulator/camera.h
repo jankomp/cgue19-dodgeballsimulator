@@ -20,7 +20,8 @@ public:
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
 	void sidewaysMotion(bool running, Movement direction, float deltaTime);
-	void camReset(glm::vec3 startPosCam);
+	void camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam);
+	glm::vec3 getViewDirection();
 };
 
 #endif

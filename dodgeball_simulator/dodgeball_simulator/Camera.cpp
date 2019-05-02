@@ -70,13 +70,20 @@ void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
 		cameraPosition -= right * velocity;
 }
 
-void Camera::camReset(glm::vec3 startPosCam) 
+void Camera::camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam)
 {
 	cameraPosition = glm::vec3(0.0f, 2.0f, -6.5f);
+	player->updatePlayerCharacter(glm::vec3(0.0, 0.0, -4.5));
+	//player = newPlayer;
 	viewDirection = glm::vec3(0.0f, 0.0f, -1.0f);
 	//UP = glm::vec3(0.0f, 1.0f, 0.0f); 
 	//distance = (3.0);
 	//mouseSensitivity = (0.5);
 	yaw = (-90.0);
 
+}
+
+glm::vec3 Camera::getViewDirection()
+{
+	return player->getPosition() - cameraPosition;
 }
