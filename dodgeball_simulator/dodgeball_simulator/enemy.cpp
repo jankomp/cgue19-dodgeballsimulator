@@ -79,6 +79,6 @@ glm::vec3 enemy::getPosition() {
 	return position;
 }
 
-void enemy::updatePlayerCharacter() {
-
+void enemy::updateEnemy(glm::vec3 newPos) {
+	position = newPos;
 }

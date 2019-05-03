@@ -24,8 +24,9 @@ public:
 
 	void rotate(float rotation, float deltaTime);
 	void move(float deltaTime);
+	void updateEnemy(glm::vec3 newPos);
 
 private:
-	void updatePlayerCharacter();
+	
 };
 
