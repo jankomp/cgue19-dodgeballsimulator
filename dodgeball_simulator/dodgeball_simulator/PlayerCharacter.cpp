@@ -5,11 +5,12 @@
 
 
 
-PlayerCharacter::PlayerCharacter(glm::vec3 startPos)
+PlayerCharacter::PlayerCharacter(glm::vec3 startPos, Ball* newBall)
 {
 	position = startPos;
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
+	ball = newBall;
 }
 
 void PlayerCharacter::rotate(float rotation, float deltaTime) {
@@ -49,6 +50,15 @@ void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
 	position = newPos;
 }
 
-void shootBall(glm::vec3 direction) {
+void PlayerCharacter::shootBall(glm::vec3 direction) {
+	if (true) {
+		shooting = true;
+		ball->flyBall(position, direction);
+	}
+}
 
+bool PlayerCharacter::shootingBall() {
+	bool returnVal = shooting;
+	shooting = false;
+	return returnVal;
 }

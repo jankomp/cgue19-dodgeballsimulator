@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "ball.h"
 //#include <PxPhysicsAPI.h>
 
 
@@ -23,18 +24,21 @@ class PlayerCharacter
 	bool hasBall;
 
 public:
-	PlayerCharacter(glm::vec3 startPos);
+	PlayerCharacter(glm::vec3 startPos, Ball* newBall);
 
 	glm::vec3 getPosition();
 	glm::mat4 getModelMat();
+
+	Ball* ball;
 
 	void rotate(float rotation, float deltaTime);
 	void move(bool running,  Movement direction, float deltaTime);
 	void updatePlayerCharacter(glm::vec3 newPos);
 	void shootBall(glm::vec3 direction);
+	bool shootingBall();
 
 private:
-	
+	bool shooting;
 };
 
 #endif

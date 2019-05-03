@@ -17,9 +17,9 @@ public:
 
 	void updatePosition(vec3 newPosition);
 	void drawBall(Shader* shader);
-	void flyBall();
+	void flyBall(vec3 startPos, vec3 direction);
 
-	Ball();
+	Ball(vec3 newPosition);
 
 private:
 };

@@ -18,6 +18,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 void processInput(GLFWwindow *window);
+void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 
 // settings
@@ -26,7 +27,8 @@ const unsigned int SCR_HEIGHT = 1800;
 
 // player & camera
 bool running = false;
-PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5));
+Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
+PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5), &ball);
 enemy enemy_character(glm::vec3(0.0, 0.0, 6.0));
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5));
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5));
@@ -84,6 +86,9 @@ int main(void)
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetCursorPosCallback(window, mouse_callback);
 	glfwSetScrollCallback(window, scroll_callback);
+	glfwSetMouseButtonCallback(window, mouse_button_callback);
+	//hide cursor
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	glewExperimental = true;
 	GLenum err = glewInit();
@@ -154,31 +159,31 @@ int main(void)
 	gScene->addActor(*gymActor);
 
 	//Creating walls
-	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 20.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 27.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
 	gymActor = gPhysicsSDK->createRigidStatic(wall1Pos);
 	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
 	gScene->addActor(*gymActor);
 
-	PxTransform wall2Pos = PxTransform(PxVec3(0.0f, 0.0f, -20.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	PxTransform wall2Pos = PxTransform(PxVec3(0.0f, 0.0f, -27.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
 	gymActor = gPhysicsSDK->createRigidStatic(wall2Pos);
 	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
 	gScene->addActor(*gymActor);
 	
-	PxTransform wall3Pos = PxTransform(PxVec3(-20.0f, 0.0f, 0.0f));
+	PxTransform wall3Pos = PxTransform(PxVec3(-13.5f, 0.0f, 0.0f));
 	gymActor = gPhysicsSDK->createRigidStatic(wall3Pos);
 	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
 	gScene->addActor(*gymActor);
 
-	PxTransform wall4Pos = PxTransform(PxVec3(20.0f, 0.0f, 0.0f), PxQuat(-PxPi, PxVec3(0.0f, 1.0f, 0.0f)));
+	PxTransform wall4Pos = PxTransform(PxVec3(13.5f, 0.0f, 0.0f), PxQuat(-PxPi, PxVec3(0.0f, 1.0f, 0.0f)));
 	gymActor = gPhysicsSDK->createRigidStatic(wall4Pos);
 	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
 	gScene->addActor(*gymActor);
 
 	//1-Creating static plane (roof)
-	/*PxTransform roofPos = PxTransform(PxVec3(0.0f,  11.0f, 0.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
+	PxTransform roofPos = PxTransform(PxVec3(0.0f,  12.0f, 0.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
 	PxRigidStatic* roofActor = gPhysicsSDK->createRigidStatic(roofPos);
 	roofActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*roofActor);*/
+	gScene->addActor(*roofActor);
 
 	//creating sphere (ball)
 	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 2.0f));
@@ -227,6 +232,15 @@ int main(void)
 		//advance the PhysX simulation by one step
 		gScene->simulate(deltaTime);
 		gScene->fetchResults(true);
+
+		if (player.shootingBall()) {
+			glm::vec3 grafic = camera.getViewDirection() - player.getPosition();
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y; direction.z = grafic.z;
+			ballActor->addForce(direction);
+		}
+		else {
+			ballActor->clearForce();
+		}
 
 		// input
 		// -----
@@ -409,15 +423,6 @@ void processInput(GLFWwindow *window)
 		head_up_display = true;
 	}
 
-	if (GLFWmousebuttonfun)
-
-	/*if (head_up_display == true) {
-		head_up_display = false;
-	}
-	else if (head_up_display == false) {
-		head_up_display = true;
-	}*/
-
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
@@ -447,8 +452,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 	lastY = ypos;
 
 	camera.rotate(xoffset, yoffset, deltaTime);
-
-
 }
 
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
@@ -457,13 +460,6 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 		player.shootBall(camera.getViewDirection());
 	}
 	//else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
-	//	_dragging = false;
-	//}
-	//else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS) {
-	//	_strafing = true;
-	//}
-	//else if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE) {
-	//	_strafing = false;
 	//}
 }
 
