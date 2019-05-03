@@ -36,6 +36,7 @@ public:
 	void updatePlayerCharacter(glm::vec3 newPos);
 	void shootBall(glm::vec3 direction);
 	bool shootingBall();
+	int collision();
 
 private:
 	bool shooting;

@@ -60,14 +60,59 @@ void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
 		movementSpeed = 5;
 	}
 	float velocity = movementSpeed * deltaTime;
-	if (direction == FORWARD)
-		cameraPosition += front * velocity;
-	if (direction == BACKWARD)
-		cameraPosition -= front * velocity;
-	if (direction == LEFT)
-		cameraPosition += right * velocity;
-	if (direction == RIGHT)
-		cameraPosition -= right * velocity;
+
+	if (player->collision() == 0) {
+		if (direction == FORWARD)
+			cameraPosition += front * velocity;
+		if (direction == BACKWARD)
+			cameraPosition -= front * velocity;
+		if (direction == LEFT)
+			cameraPosition += right * velocity;
+		if (direction == RIGHT)
+			cameraPosition -= right * velocity;
+	}
+	if (player->collision() == 1) {
+		if (direction == FORWARD)
+			cameraPosition = cameraPosition;
+		if (direction == BACKWARD)
+			cameraPosition -= front * velocity;
+		if (direction == LEFT)
+			cameraPosition += right * velocity;
+		if (direction == RIGHT)
+			cameraPosition -= right * velocity;
+	}
+	if (player->collision() == 2) {
+		if (direction == FORWARD)
+			cameraPosition += front * velocity;
+		if (direction == BACKWARD)
+			cameraPosition = cameraPosition;
+		if (direction == LEFT)
+			cameraPosition += right * velocity;
+		if (direction == RIGHT)
+			cameraPosition -= right * velocity;
+	}
+	if (player->collision() == 3) {
+		if (direction == FORWARD)
+			cameraPosition += front * velocity;
+		if (direction == BACKWARD)
+			cameraPosition -= front * velocity;
+		if (direction == LEFT)
+			cameraPosition = cameraPosition;
+		if (direction == RIGHT)
+			cameraPosition -= right * velocity;
+	}
+	if (player->collision() == 4) {
+		if (direction == FORWARD)
+			cameraPosition += front * velocity;
+		if (direction == BACKWARD)
+			cameraPosition -= front * velocity;
+		if (direction == LEFT)
+			cameraPosition += right * velocity;
+		if (direction == RIGHT)
+			cameraPosition = cameraPosition;
+	}
+
+
 }
 
 void Camera::camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam)
