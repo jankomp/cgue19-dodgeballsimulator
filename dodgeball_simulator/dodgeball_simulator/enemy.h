@@ -24,9 +24,6 @@ public:
 
 	void rotate(float rotation, float deltaTime);
 	void move(float deltaTime);
-	int collision();
-
-
 
 private:
 	void updatePlayerCharacter();
