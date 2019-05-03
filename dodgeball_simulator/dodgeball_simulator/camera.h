@@ -6,6 +6,7 @@ class Camera
 {
 	PlayerCharacter *player;
 	glm::vec3 cameraPosition;
+	glm::vec3 cameraRotation;
 	glm::vec3 viewDirection;
 	const glm::vec3 UP;
 	const double distance;
@@ -19,7 +20,7 @@ public:
 	Camera(PlayerCharacter *newPlayer, glm::vec3 startPosCam);
 	glm::mat4 getWorldToViewMat() const;
 	void rotate(double phi, double theta, float deltaTime);
-	void sidewaysMotion(bool running, Movement direction, float deltaTime);
+	void sidewaysMotion();
 	void camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam);
 	glm::vec3 getViewDirection();
 };

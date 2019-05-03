@@ -42,77 +42,14 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 
 
 	glm::vec3 playerPos = player->getPosition();
-	cameraPosition.x = x + playerPos.x;
-	cameraPosition.y = y + playerPos.y + 2.0;
-	cameraPosition.z = z + playerPos.z;
+	
+	cameraRotation = glm::vec3(x, y + 2.0, z);
+	cameraPosition = playerPos + cameraRotation;
 	std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
 }
 
-void Camera::sidewaysMotion(bool running, Movement direction, float deltaTime) {
-	glm::vec3 front = glm::vec3(0, 0, 1);
-	glm::vec3 right = glm::vec3(1, 0, 0);
-	float movementSpeed;
-
-	if (running) {
-		movementSpeed = 20;
-	}
-	else {
-		movementSpeed = 5;
-	}
-	float velocity = movementSpeed * deltaTime;
-
-	if (player->collision() == 0) {
-		if (direction == FORWARD)
-			cameraPosition += front * velocity;
-		if (direction == BACKWARD)
-			cameraPosition -= front * velocity;
-		if (direction == LEFT)
-			cameraPosition += right * velocity;
-		if (direction == RIGHT)
-			cameraPosition -= right * velocity;
-	}
-	if (player->collision() == 1) {
-		if (direction == FORWARD)
-			cameraPosition = cameraPosition;
-		if (direction == BACKWARD)
-			cameraPosition -= front * velocity;
-		if (direction == LEFT)
-			cameraPosition += right * velocity;
-		if (direction == RIGHT)
-			cameraPosition -= right * velocity;
-	}
-	if (player->collision() == 2) {
-		if (direction == FORWARD)
-			cameraPosition += front * velocity;
-		if (direction == BACKWARD)
-			cameraPosition = cameraPosition;
-		if (direction == LEFT)
-			cameraPosition += right * velocity;
-		if (direction == RIGHT)
-			cameraPosition -= right * velocity;
-	}
-	if (player->collision() == 3) {
-		if (direction == FORWARD)
-			cameraPosition += front * velocity;
-		if (direction == BACKWARD)
-			cameraPosition -= front * velocity;
-		if (direction == LEFT)
-			cameraPosition = cameraPosition;
-		if (direction == RIGHT)
-			cameraPosition -= right * velocity;
-	}
-	if (player->collision() == 4) {
-		if (direction == FORWARD)
-			cameraPosition += front * velocity;
-		if (direction == BACKWARD)
-			cameraPosition -= front * velocity;
-		if (direction == LEFT)
-			cameraPosition += right * velocity;
-		if (direction == RIGHT)
-			cameraPosition = cameraPosition;
-	}
-
-
+void Camera::sidewaysMotion() {
+	cameraPosition = player->getPosition() + cameraRotation;
 }
 
 void Camera::camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam)

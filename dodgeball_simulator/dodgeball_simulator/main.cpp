@@ -228,6 +228,8 @@ int main(void)
 		float currentFrame = glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
+		float fps = 1.0f / deltaTime;
+		//cout << "fps: " << fps << endl;
 
 		//advance the PhysX simulation by one step
 		gScene->simulate(deltaTime);
@@ -394,19 +396,19 @@ void processInput(GLFWwindow *window)
 
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
 		player.move(running, FORWARD, deltaTime);
-		camera.sidewaysMotion(running, FORWARD, deltaTime);
+		camera.sidewaysMotion();
 	}
 	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
 		player.move(running, BACKWARD, deltaTime);
-		camera.sidewaysMotion(running, BACKWARD, deltaTime);
+		camera.sidewaysMotion();
 	}
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
 		player.move(running, LEFT, deltaTime);
-		camera.sidewaysMotion(running, LEFT, deltaTime);
+		camera.sidewaysMotion();
 	}
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
 		player.move(running, RIGHT, deltaTime);
-		camera.sidewaysMotion(running, RIGHT, deltaTime);
+		camera.sidewaysMotion();
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {

@@ -40,6 +40,7 @@ public:
 
 private:
 	bool shooting;
+	int count;
 };
 
 #endif
