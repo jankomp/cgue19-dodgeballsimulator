@@ -44,7 +44,8 @@ bool firstMouse = true;
 int screen = 2;
 bool head_up_display = true;
 
-int gegnerPunktestand = 0, spielerPunktestand = 0;
+int scoreEnemy = 0, scorePlayer = 0;
+
 
 // timing
 float deltaTime = 0.0f;
@@ -332,42 +333,56 @@ int main(void)
 
 
 
-			glm::mat4 model_gegner = glm::mat4(1.0f);	
-			enemy_character.move(deltaTime);
-			model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
-			model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
-			gameShader.setMat4("model", model_gegner);
-			gegner.Draw(gameShader);
+			if (enemy_character.getActive()) {
+				glm::mat4 model_gegner = glm::mat4(1.0f);
+				enemy_character.move(deltaTime);
+				model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
+				model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
+				gameShader.setMat4("model", model_gegner);
+				gegner.Draw(gameShader);
+			}
 
 
-			glm::mat4 model_gegner2 = glm::mat4(1.0f);
-			enemy2_character.move(deltaTime);
-			model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
-			model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
-			gameShader.setMat4("model", model_gegner2);
-			gegner.Draw(gameShader);
+			if (enemy2_character.getActive())
+			{
+				glm::mat4 model_gegner2 = glm::mat4(1.0f);
+				enemy2_character.move(deltaTime);
+				model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
+				model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
+				gameShader.setMat4("model", model_gegner2);
+				gegner.Draw(gameShader);
+			}
 
-
-			glm::mat4 model_gegner3 = glm::mat4(1.0f);
-			enemy3_character.move(deltaTime);
-			model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
-			model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
-			gameShader.setMat4("model", model_gegner3);
-			gegner.Draw(gameShader);
+			if (enemy3_character.getActive())
+			{
+				glm::mat4 model_gegner3 = glm::mat4(1.0f);
+				enemy3_character.move(deltaTime);
+				model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
+				model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+				model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
+				gameShader.setMat4("model", model_gegner3);
+				gegner.Draw(gameShader);
+			}
 
 		
 			if (head_up_display == true) {
-				herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 
-				std::string strGegner = std::to_string(gegnerPunktestand);
-				std::string strSpieler = std::to_string(spielerPunktestand);
+				switch (player.getLifes())
+				{
+				case 3:
+					herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				case 2:
+					herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				case 1:
+					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				}
 
-				spielstand.RenderText(textShader, strGegner + ":" + strSpieler, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				std::string strScoreEnemy = std::to_string(player.getScore());
+				std::string strScorePlayer = std::to_string(scorePlayer);
+
+				spielstand.RenderText(textShader, strScoreEnemy + ":" + strScorePlayer, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 			}
 

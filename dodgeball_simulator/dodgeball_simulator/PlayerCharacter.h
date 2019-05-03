@@ -22,6 +22,8 @@ class PlayerCharacter
 	float speed;
 	bool running;
 	bool hasBall;
+	int score;
+	int lifes;
 
 public:
 	PlayerCharacter(glm::vec3 startPos, Ball* newBall);
@@ -37,6 +39,8 @@ public:
 	void shootBall(glm::vec3 direction);
 	bool shootingBall();
 	void hasball(bool posession);
+	int getScore();
+	int getLifes();
 
 private:
 	bool shooting;

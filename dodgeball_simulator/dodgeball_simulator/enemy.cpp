@@ -8,6 +8,7 @@ enemy::enemy(glm::vec3 startPos)
 	position = startPos;
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
+	active = true;
 }
 
 void enemy::rotate(float rotation, float deltaTime) {
@@ -85,4 +86,12 @@ void enemy::updateEnemy(glm::vec3 newPos) {
 
 void enemy::hasball(bool possession) {
 	hasBall = possession;
+}
+
+int enemy::getScore() {
+	return score;
+}
+
+bool enemy::getActive() {
+	return active;
 }

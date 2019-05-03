@@ -16,6 +16,8 @@ class enemy
 	int dir;
 	int counter;
 	bool hasBall;
+	int score;
+	bool active;
 
 public:
 	enemy(glm::vec3 startPos);
@@ -27,6 +29,9 @@ public:
 	void move(float deltaTime);
 	void updateEnemy(glm::vec3 newPos);
 	void hasball(bool possession);
+	int getScore();
+	bool getActive();
+
 private:
 	
 };

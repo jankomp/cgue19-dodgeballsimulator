@@ -89,3 +89,11 @@ bool PlayerCharacter::shootingBall() {
 void PlayerCharacter::hasball(bool possession) {
 	hasBall = possession;
 }
+
+int PlayerCharacter::getLifes() {
+	return lifes;
+}
+
+int PlayerCharacter::getScore() {
+	return score;
+}
