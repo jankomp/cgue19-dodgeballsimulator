@@ -235,9 +235,28 @@ int main(void)
 		gScene->simulate(deltaTime);
 		gScene->fetchResults(true);
 
+		if (ballActor->isSleeping()) {
+			ballcaught = true;
+			if (ballActor->getGlobalPose().p.z <= 0) {
+				player.hasball(true);
+			}
+			else {
+				int random = rand() % 3;
+				switch(random) {
+					case 0: enemy_character.hasball(true);
+						break;
+					case 1: enemy2_character.hasball(true);
+						break;
+					case 2: enemy3_character.hasball(true);
+						break;
+				}
+			}
+		}
+
 		if (player.shootingBall()) {
 			glm::vec3 grafic = camera.getViewDirection() - player.getPosition();
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y; direction.z = grafic.z;
+			direction *= 10.0;
 			ballActor->addForce(direction);
 		}
 		else {
@@ -290,14 +309,16 @@ int main(void)
 			turnhalle.Draw(gameShader);
 		
 			//ball
-			glm::mat4 model_ball = glm::mat4(1.0f);
-			PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
-			glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
-			ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
-			model_ball = glm::translate(model_ball, ballRenderPosition);
-			model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
-			gameShader.setMat4("model", model_ball);
-			ball.Draw(gameShader);
+			if (!ballcaught) {
+				glm::mat4 model_ball = glm::mat4(1.0f);
+				PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
+				glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
+				ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
+				model_ball = glm::translate(model_ball, ballRenderPosition);
+				model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
+				gameShader.setMat4("model", model_ball);
+				ball.Draw(gameShader);
+			}
 
 			//spieler
 			playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;

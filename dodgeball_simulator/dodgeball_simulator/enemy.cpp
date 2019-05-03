@@ -82,3 +82,7 @@ glm::vec3 enemy::getPosition() {
 void enemy::updateEnemy(glm::vec3 newPos) {
 	position = newPos;
 }
+
+void enemy::hasball(bool possession) {
+	hasBall = possession;
+}

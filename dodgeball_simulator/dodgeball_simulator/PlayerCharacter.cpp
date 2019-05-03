@@ -85,3 +85,7 @@ bool PlayerCharacter::shootingBall() {
 	}
 	return returnVal;
 }
+
+void PlayerCharacter::hasball(bool possession) {
+	hasBall = possession;
+}
