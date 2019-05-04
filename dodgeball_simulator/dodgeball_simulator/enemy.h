@@ -1,6 +1,8 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include "text_renderer.h"
+#include "PlayerCharacter.h"
 //#include <PxPhysicsAPI.h>
 
 
@@ -31,6 +33,7 @@ public:
 	void hasball(bool possession);
 	int getScore();
 	bool getActive();
+	void hit(PlayerCharacter *player);
 
 private:
 	

@@ -95,3 +95,12 @@ int enemy::getScore() {
 bool enemy::getActive() {
 	return active;
 }
+
+void enemy::hit (PlayerCharacter *player) {
+	active = false;
+	player->increaseScore();
+	Shader textShader("shaders/text.vert", "shaders/text.frag");
+	TextRenderer text;
+	text.Load("fonts/arial.ttf", 80);
+	text.RenderText(textShader, "+1", ((float)1920 / 2) - 20, ((float)1800 / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+}

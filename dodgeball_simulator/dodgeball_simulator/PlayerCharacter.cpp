@@ -8,6 +8,7 @@ PlayerCharacter::PlayerCharacter(glm::vec3 startPos, Ball* newBall)
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
 	ball = newBall;
+	lifes = 3;
 }
 
 void PlayerCharacter::rotate(float rotation, float deltaTime) {
@@ -96,4 +97,17 @@ int PlayerCharacter::getLifes() {
 
 int PlayerCharacter::getScore() {
 	return score;
+}
+
+void PlayerCharacter::increaseScore() {
+	score = score + 1;
+}
+
+void PlayerCharacter::hit() {
+	lifes = lifes - 1;
+	//scoreEnemy = scoreEnemy + 1;
+	Shader textShader("shaders/text.vert", "shaders/text.frag");
+	TextRenderer text;
+	text.Load("fonts/arial.ttf", 80);
+	text.RenderText(textShader, "-1", ((float)1920 / 2) - 20, ((float)1800 / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 }

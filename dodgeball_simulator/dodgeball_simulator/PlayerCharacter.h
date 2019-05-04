@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "ball.h"
+#include "text_renderer.h"
 //#include <PxPhysicsAPI.h>
 
 
@@ -41,6 +42,8 @@ public:
 	void hasball(bool posession);
 	int getScore();
 	int getLifes();
+	void hit();
+	void increaseScore();
 
 private:
 	bool shooting;
