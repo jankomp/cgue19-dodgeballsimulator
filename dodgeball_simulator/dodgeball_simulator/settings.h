@@ -10,13 +10,6 @@
 
 class settings
 {
-
-	//bool running = false;
-	//PlayerCharacter *player;
-	//Camera *camera;
-
-
-
 public:
 	settings();
 	//settings(PlayerCharacter *playP, Camera *cam, float deltaT);
@@ -36,15 +29,6 @@ public:
 	 bool headUpDisplay();
 	 float getDeltaTime();
 	 void setDeltaTime(float toSet);
-
-
-
-	 /*float deltaTime;
-	 int screen = 2;
-	 bool head_up_display = true;
-	 bool firstMouse = true;
-	 float lastX = 1920 / 2.0f;
-	 float lastY = 1800 / 2.0f;*/
 
 };
 

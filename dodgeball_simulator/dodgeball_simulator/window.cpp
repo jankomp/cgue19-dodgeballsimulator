@@ -1,8 +1,9 @@
 #include "window.h"
 
+extern int SCR_WIDTH;
+extern int SCR_HEIGHT;
 
-
-int window::genWindow(int SCR_WIDTH, int SCR_HEIGHT)
+int window::genWindow()
 {
 	settings s;
 

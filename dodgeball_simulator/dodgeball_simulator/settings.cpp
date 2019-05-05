@@ -1,5 +1,8 @@
 #include "settings.h"
 
+extern int SCR_WIDTH;
+extern int SCR_HEIGHT;
+
 bool running = false;
 PlayerCharacter *player;
 Camera *camera;
@@ -7,8 +10,10 @@ extern float deltaTime = 0.0f;
 int screen = 2;
 bool head_up_display = true;
 bool firstMouse = true;
-float lastX = 1920 / 2.0f;
-float lastY = 1800 / 2.0f;
+float lastX = SCR_WIDTH / 2.0f;
+float lastY = SCR_HEIGHT / 2.0f;
+
+
 
 settings::settings(PlayerCharacter *playP, Camera *cam) {
 	player = playP;

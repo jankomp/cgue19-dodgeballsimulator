@@ -4,12 +4,12 @@
 #include <iostream>
 #include <GL/GL.h>
 #include "settings.h"
+
+
 class window
 {
-	
-
 public:
-	int genWindow(int SCR_WIDTH, int SCR_HEIGHT);
+	int genWindow();
 	GLFWwindow* getWindow();
 	bool run();
 	GLFWwindow* gameWindow;

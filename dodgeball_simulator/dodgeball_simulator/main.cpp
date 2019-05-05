@@ -19,8 +19,8 @@ using namespace std;
 
 
 // settings
-extern int SCR_WIDTH = 1920;
-extern int SCR_HEIGHT = 1800;
+int SCR_WIDTH = 1920;
+int SCR_HEIGHT = 1800;
 
 // player & camera
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
@@ -38,8 +38,7 @@ glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
 Camera camera(&player, camPos);
 
 float helpFloat = 0;
-//extern int scoreEnemy = 0; 
-//extern int scorePlayer = 0;
+
 
 int scoreEnemy = 0;
 int scorePlayer = 0;
@@ -52,10 +51,8 @@ float lastFrame = 0.0f;
 
 int main(void)
 {
-
 	window gameWindow;
-	gameWindow.genWindow(SCR_WIDTH, SCR_HEIGHT);
-
+	gameWindow.genWindow();
 
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
@@ -76,7 +73,6 @@ int main(void)
 	initPhysics();
 
 	
-
 
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Physx
