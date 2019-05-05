@@ -76,6 +76,7 @@ void PlayerCharacter::shootBall(glm::vec3 direction) {
 		count = 120;
 		shooting = true;
 		ball->flyBall(position, direction);
+		hasBall = false;
 	}
 }
 
