@@ -10,6 +10,7 @@
 #include "Camera.h"
 #include "text_renderer.h"
 #include "enemy.h"
+#include "allEnemies.h"
 
 using namespace physx;
 using namespace std;
@@ -33,6 +34,8 @@ enemy enemy_character(glm::vec3(0.0, 0.0, 6.0));
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5));
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5));
 bool ballcaught = false;
+
+allEnemies allEn;
 
 glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
 
@@ -392,7 +395,7 @@ int main(void)
 				}
 
 				std::string strScoreEnemy = std::to_string(player.getScore());
-				std::string strScorePlayer = std::to_string(scorePlayer);
+				std::string strScorePlayer = std::to_string(allEn.getScore());
 
 				spielstand.RenderText(textShader, strScoreEnemy + ":" + strScorePlayer, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

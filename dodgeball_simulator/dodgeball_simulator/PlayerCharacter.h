@@ -6,6 +6,7 @@
 #include "ball.h"
 #include "text_renderer.h"
 //#include <PxPhysicsAPI.h>
+#include "allEnemies.h"
 
 
 enum Movement {
@@ -43,7 +44,7 @@ public:
 	bool gethasball();
 	int getScore();
 	int getLifes();
-	void hit();
+	void hit(allEnemies *allEn);
 	void increaseScore();
 
 private:
