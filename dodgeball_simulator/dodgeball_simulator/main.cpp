@@ -139,7 +139,7 @@ int main(void)
 	gScene->addActor(*roofActor);
 
 	//creating sphere (ball)
-	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 1.0f));
+	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
 	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
 	gScene->addActor(*ballActor);
@@ -151,6 +151,24 @@ int main(void)
 	PxRigidDynamic* playerActor = gPhysicsSDK->createRigidDynamic(playerPosition);
 	playerActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
 	gScene->addActor(*playerActor);
+
+	//creating boxes (enemys)
+	PxVec3 enemy_characterPos = PxVec3(0.0);
+	enemy_characterPos.x = enemy_character.getPosition().x;	enemy_characterPos.y = enemy_character.getPosition().y;	enemy_characterPos.z = enemy_character.getPosition().z;
+	PxTransform enemy_characterPosition = PxTransform(enemy_characterPos);
+	PxRigidDynamic* enemy_characterActor = gPhysicsSDK->createRigidDynamic(enemy_characterPosition);
+	enemy_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	gScene->addActor(*enemy_characterActor);	PxVec3 enemy2_characterPos = PxVec3(0.0);
+	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
+	PxTransform enemy2_characterPosition = PxTransform(enemy2_characterPos);
+	PxRigidDynamic* enemy2_characterActor = gPhysicsSDK->createRigidDynamic(enemy2_characterPosition);
+	enemy2_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	gScene->addActor(*enemy2_characterActor);	PxVec3 enemy3_characterPos = PxVec3(0.0);
+	enemy3_characterPos.x = enemy3_character.getPosition().x;	enemy3_characterPos.y = enemy3_character.getPosition().y;	enemy3_characterPos.z = enemy3_character.getPosition().z;
+	PxTransform enemy3_characterPosition = PxTransform(enemy3_characterPos);
+	PxRigidDynamic* enemy3_characterActor = gPhysicsSDK->createRigidDynamic(enemy3_characterPosition);
+	enemy3_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	gScene->addActor(*enemy3_characterActor);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -215,6 +233,7 @@ int main(void)
 				playerPos.y += 2.0;	playerPos.z += 2.0;
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 				ballcaught = false;
+				player.sethasball(false);
 			}
 			else if (enemy_character.gethasball()) {
 				glm::vec3 enemyPos = enemy_character.getPosition();
@@ -240,31 +259,33 @@ int main(void)
 		}
 
 		if (player.shootingBall()) {
-			glm::vec3 grafic = camera.getViewDirection() - player.getPosition();
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y; direction.z = grafic.z;
-			direction *= 10.0;
+			glm::vec3 grafic = camera.getViewDirection();
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.75; direction.z = grafic.z;
+			direction *= 14.0;
 			ballActor->addForce(direction);
 		}else if (enemy_character.shootingBall()) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			direction *= 30.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
+			direction *= 30.0;
 			ballActor->addForce(direction);
 		}else if (enemy2_character.shootingBall()) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy2_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			direction *= 30.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
+			direction *= 30.0;
 			ballActor->addForce(direction);
 		} else if (enemy3_character.shootingBall()) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy3_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;
 			direction *= 30.0;
 			ballActor->addForce(direction);
@@ -342,6 +363,12 @@ int main(void)
 			playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
 			playerActor->setGlobalPose(PxTransform(playerPos));
 
+			//enemies
+			enemy_characterActor->setGlobalPose(PxTransform(PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z)));
+			enemy2_characterActor->setGlobalPose(PxTransform(PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z)));
+			enemy3_characterActor->setGlobalPose(PxTransform(PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z)));
+
+
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
 			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
@@ -400,7 +427,8 @@ int main(void)
 				std::string strScorePlayer = std::to_string(allEn.getScore());
 
 				spielstand.RenderText(textShader, strScoreEnemy + ":" + strScorePlayer, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				if(player.gethasball())
+					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 			}
 
 		}

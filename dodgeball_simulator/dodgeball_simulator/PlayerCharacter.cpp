@@ -76,7 +76,7 @@ void PlayerCharacter::shootBall() {
 		count = 120;
 		shooting = true;
 		ball->flyBall();
-		hasBall = false;
+		//hasBall = false;
 	}
 }
 
