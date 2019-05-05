@@ -30,9 +30,9 @@ const unsigned int SCR_HEIGHT = 1800;
 bool running = false;
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5), &ball);
-enemy enemy_character(glm::vec3(0.0, 0.0, 6.0));
-enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5));
-enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5));
+enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
+enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
+enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 bool ballcaught = false;
 
 allEnemies allEn;
@@ -247,11 +247,11 @@ int main(void)
 			else {
 				int random = rand() % 3;
 				switch(random) {
-					case 0: enemy_character.hasball(true);
+					case 0: enemy_character.sethasball(true);
 						break;
-					case 1: enemy2_character.hasball(true);
+					case 1: enemy2_character.sethasball(true);
 						break;
-					case 2: enemy3_character.hasball(true);
+					case 2: enemy3_character.sethasball(true);
 						break;
 				}
 			}
@@ -264,9 +264,11 @@ int main(void)
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 				ballcaught = false;
 			}
-			//else if (enemy_character.hasball) {}
-			//else if (enemy2_character.hasball) {}
-			//else if (enemy3_character.hasball) {}
+			else if (enemy_character.gethasball()) {
+				
+			}
+			else if (enemy2_character.gethasball()) {}
+			else if (enemy3_character.gethasball()) {}
 		}
 
 		if (player.shootingBall()) {

@@ -3,12 +3,13 @@
 
 int runOrNot = 0, dir = 0, counter = 0;
 
-enemy::enemy(glm::vec3 startPos)
+enemy::enemy(glm::vec3 startPos, Ball* newBall)
 {
 	position = startPos;
 	front = glm::vec3(0.0, 0.0, 1.0);
 	right = glm::vec3(1.0, 0.0, 0.0);
 	active = true;
+	ball = newBall;
 }
 
 void enemy::rotate(float rotation, float deltaTime) {
@@ -84,8 +85,12 @@ void enemy::updateEnemy(glm::vec3 newPos) {
 	position = newPos;
 }
 
-void enemy::hasball(bool possession) {
+void enemy::sethasball(bool possession) {
 	hasBall = possession;
+}
+
+bool enemy::gethasball() {
+	return hasBall;
 }
 
 bool enemy::getActive() {
@@ -99,4 +104,21 @@ void enemy::hit (PlayerCharacter *player) {
 	TextRenderer text;
 	text.Load("fonts/arial.ttf", 80);
 	text.RenderText(textShader, "+1", ((float)1920 / 2) - 20, ((float)1800 / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+}
+
+
+void enemy::shootBall(glm::vec3 direction) {
+	if (hasBall) {
+		count = 120;
+		shooting = true;
+		ball->flyBall(position, direction);
+	}
+}
+
+bool enemy::shootingBall() {
+	bool returnVal = shooting;
+	if (count-- < 0) {
+		shooting = false;
+	}
+	return returnVal;
 }

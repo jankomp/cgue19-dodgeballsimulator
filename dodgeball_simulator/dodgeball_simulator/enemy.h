@@ -19,9 +19,10 @@ class enemy
 	int counter;
 	bool hasBall;
 	bool active;
+	Ball* ball;
 
 public:
-	enemy(glm::vec3 startPos);
+	enemy(glm::vec3 startPos, Ball* ball);
 
 	glm::vec3 getPosition();
 	glm::mat4 getModelMat();
@@ -29,10 +30,15 @@ public:
 	void rotate(float rotation, float deltaTime);
 	void move(float deltaTime);
 	void updateEnemy(glm::vec3 newPos);
-	void hasball(bool possession);
+	void sethasball(bool possession);
+	bool gethasball();
 	bool getActive();
 	void hit(PlayerCharacter *player);
+	bool shooting;
+	int count;
 
+	void shootBall(glm::vec3 direction);
+	bool shootingBall();
 private:
 	
 };

@@ -67,5 +67,7 @@ void Camera::camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam)
 
 glm::vec3 Camera::getViewDirection()
 {
-	return player->getPosition() - cameraPosition;
+	glm::vec3 playerPos = player->getPosition();
+	playerPos.y += 2.5;
+	return playerPos - cameraPosition;
 }
