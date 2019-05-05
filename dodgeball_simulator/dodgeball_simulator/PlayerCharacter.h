@@ -7,8 +7,6 @@
 #include "ball.h"
 #include "text_renderer.h"
 //#include <PxPhysicsAPI.h>
-//#include "allEnemies.h"
-
 
 
 enum Movement {
