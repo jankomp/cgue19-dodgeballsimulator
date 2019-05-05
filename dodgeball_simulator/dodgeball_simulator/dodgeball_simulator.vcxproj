@@ -168,6 +168,7 @@ PhysXCommon_static_32.lib
     <ClInclude Include="allEnemies.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CollisionCallback.h" />
     <ClInclude Include="enemy.h" />
     <ClInclude Include="include\ft2build.h" />
     <ClInclude Include="include\PhysX\characterkinematic\PxBoxController.h" />
@@ -850,6 +851,7 @@ PhysXCommon_static_32.lib
     <ClCompile Include="allEnemies.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CollisionCallback.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp" />
     <ClCompile Include="main.cpp" />

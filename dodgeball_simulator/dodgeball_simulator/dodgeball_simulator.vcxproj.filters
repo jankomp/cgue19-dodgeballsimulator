@@ -2055,6 +2055,9 @@
     <ClInclude Include="window.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionCallback.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -2088,6 +2091,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="window.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionCallback.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

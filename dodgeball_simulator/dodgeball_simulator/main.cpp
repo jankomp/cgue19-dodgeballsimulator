@@ -6,6 +6,7 @@
 
 #include "window.h"
 #include "settings.h"
+#include "PlayerCharacter.h"
 #include "physics.h"
 #include "shader.h"
 #include "model.h"
@@ -14,6 +15,7 @@
 #include "enemy.h"
 #include "allEnemies.h"
 #include "CollisionCallback.h"
+
 
 using namespace physx;
 using namespace std;
@@ -25,7 +27,7 @@ extern int SCR_HEIGHT = 1800;
 
 // player & camera
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
-PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5), &ball);
+PlayerCharacter player(glm::vec3(0.0, 0.0, -4.5), &ball);
 enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
