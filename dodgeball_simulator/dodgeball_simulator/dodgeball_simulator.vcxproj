@@ -841,8 +841,10 @@ PhysXCommon_static_32.lib
     <ClInclude Include="model.h" />
     <ClInclude Include="physics.h" />
     <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="settings.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="text_renderer.h" />
+    <ClInclude Include="window.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="allEnemies.cpp" />
@@ -852,8 +854,10 @@ PhysXCommon_static_32.lib
     <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="settings.cpp" />
     <ClCompile Include="stb_image.cpp" />
     <ClCompile Include="text_renderer.cpp" />
+    <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="glut32.dll" />

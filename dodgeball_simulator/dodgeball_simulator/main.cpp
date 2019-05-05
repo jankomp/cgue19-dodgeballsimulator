@@ -4,6 +4,8 @@
 #include <GL/GL.h>
 #include <ft2build.h>
 
+#include "window.h"
+#include "settings.h"
 #include "physics.h"
 #include "shader.h"
 #include "model.h"
@@ -15,19 +17,19 @@
 using namespace physx;
 using namespace std;
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-void processInput(GLFWwindow *window);
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+//void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+//void mouse_callback(GLFWwindow* window, double xpos, double ypos);
+//void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
+//void processInput(GLFWwindow *window);
+//void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
 
 // settings
-const unsigned int SCR_WIDTH = 1920;
-const unsigned int SCR_HEIGHT = 1800;
+extern int SCR_WIDTH = 1920;
+extern int SCR_HEIGHT = 1800;
 
 // player & camera
-bool running = false;
+//bool running = false;
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
 PlayerCharacter player (glm::vec3(0.0, 0.0, -4.5), &ball);
 enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
@@ -41,68 +43,75 @@ allEnemies allEn;
 glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
 
 Camera camera(&player, camPos);
-float lastX = SCR_WIDTH / 2.0f;
-float lastY = SCR_HEIGHT / 2.0f;
-bool firstMouse = true;
+//float lastX = SCR_WIDTH / 2.0f;
+//float lastY = SCR_HEIGHT / 2.0f;
+//bool firstMouse = true;
 
-int screen = 2;
-bool head_up_display = true;
+
+float helpFloat = 0;
+
+//
+//int screen = 2;
+//bool head_up_display = true;
 
 int scoreEnemy = 0, scorePlayer = 0;
 
 
 // timing
-float deltaTime = 0.0f;
+//float deltaTime = 0.0f;
 float lastFrame = 0.0f;
 
 
 int main(void)
 {
 
-	glfwInit();
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+	window gameWindow;
+	gameWindow.genWindow(SCR_WIDTH, SCR_HEIGHT);
 
-#ifdef __APPLE__
-	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
-#endif
-
-	GLFWwindow* window;
-
-	/* Create a windowed mode window and its OpenGL context */
-	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "dodgeball simulator", NULL, NULL);
-
-	/* Initialize the library */
-	if (!glfwInit())
-		return -1;
-
-	
-	
-	if (!window)
-	{
-		glfwTerminate();
-		std::printf("Failed to create window");
-		//exit;
-	}
-
-	/* Make the window's context current */
-	glfwMakeContextCurrent(window);
-	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
-	glfwSetCursorPosCallback(window, mouse_callback);
-	glfwSetScrollCallback(window, scroll_callback);
-	glfwSetMouseButtonCallback(window, mouse_button_callback);
-	//hide cursor
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-
-	glewExperimental = true;
-	GLenum err = glewInit();
-
-	// If GLEW wasn't initialized
-	if (err != GLEW_OK) {
-		std::printf("Failed to init GLEW");
-		//exit;
-	}
+//	glfwInit();
+//	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+//	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+//	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+//
+//#ifdef __APPLE__
+//	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
+//#endif
+//
+//	GLFWwindow* window;
+//
+//	/* Create a windowed mode window and its OpenGL context */
+//	window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "dodgeball simulator", NULL, NULL);
+//
+//	/* Initialize the library */
+//	if (!glfwInit())
+//		return -1;
+//
+//	
+//	
+//	if (!window)
+//	{
+//		glfwTerminate();
+//		std::printf("Failed to create window");
+//		//exit;
+//	}
+//
+//	/* Make the window's context current */
+//	glfwMakeContextCurrent(window);
+//	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+//	glfwSetCursorPosCallback(window, mouse_callback);
+//	glfwSetScrollCallback(window, scroll_callback);
+//	glfwSetMouseButtonCallback(window, mouse_button_callback);
+//	//hide cursor
+//	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
+//
+//	glewExperimental = true;
+//	GLenum err = glewInit();
+//
+//	// If GLEW wasn't initialized
+//	if (err != GLEW_OK) {
+//		std::printf("Failed to init GLEW");
+//		//exit;
+//	}
 
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
@@ -224,20 +233,22 @@ int main(void)
 	
 
 	/* Loop until the user closes the window */
-	while (!glfwWindowShouldClose(window))
+	while (gameWindow.run())
 	{
-
+		settings s(&player, &camera);
 
 		// per-frame time logic
 		// --------------------
 		float currentFrame = glfwGetTime();
-		deltaTime = currentFrame - lastFrame;
+		helpFloat = currentFrame - lastFrame;
 		lastFrame = currentFrame;
-		float fps = 1.0f / deltaTime;
+		s.setDeltaTime(helpFloat);
+		//float fps = 1.0f / deltaTime;
 		//cout << "fps: " << fps << endl;
 
 		//advance the PhysX simulation by one step
-		gScene->simulate(deltaTime);
+		gScene->simulate(s.getDeltaTime());
+		//gScene->simulate(deltaTime);
 		gScene->fetchResults(true);
 
 		if (ballActor->isSleeping() && !ballcaught) {
@@ -333,7 +344,8 @@ int main(void)
 
 		// input
 		// -----
-		processInput(window);
+		//processInput(window);
+		s.processInput(gameWindow.getWindow());
 
 
 		/* Render here */
@@ -346,7 +358,7 @@ int main(void)
 
 		glm::mat4 view = camera.getWorldToViewMat();
 
-		if (screen == 1) {
+		if (s.getScreen() == 1) {
 
 			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 			textShader.use();
@@ -357,7 +369,7 @@ int main(void)
 
 		}
 
-		if (screen == 2) {
+		if (s.getScreen() == 2) {
 
 			gameShader.use();
 		
@@ -402,7 +414,7 @@ int main(void)
 
 			if (enemy_character.getActive()) {
 				glm::mat4 model_gegner = glm::mat4(1.0f);
-				enemy_character.move(deltaTime);
+				enemy_character.move(s.getDeltaTime());
 				model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
 				model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
@@ -414,7 +426,7 @@ int main(void)
 			if (enemy2_character.getActive())
 			{
 				glm::mat4 model_gegner2 = glm::mat4(1.0f);
-				enemy2_character.move(deltaTime);
+				enemy2_character.move(s.getDeltaTime());
 				model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
 				model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
@@ -425,7 +437,7 @@ int main(void)
 			if (enemy3_character.getActive())
 			{
 				glm::mat4 model_gegner3 = glm::mat4(1.0f);
-				enemy3_character.move(deltaTime);
+				enemy3_character.move(s.getDeltaTime());
 				model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
 				model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 				model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
@@ -434,7 +446,7 @@ int main(void)
 			}
 
 		
-			if (head_up_display == true) {
+			if (s.headUpDisplay()) {
 
 				switch (player.getLifes())
 				{
@@ -455,9 +467,9 @@ int main(void)
 
 		}
 
-		if (screen == 3) {
+	/*	if (screen == 3) {
 
-		}
+		}*/
 
 
 
@@ -468,7 +480,7 @@ int main(void)
 
 
 		/* Swap front and back buffers */
-		glfwSwapBuffers(window);
+		glfwSwapBuffers(gameWindow.getWindow());
 
 		/* Poll for and process events */
 		glfwPollEvents();
@@ -483,97 +495,97 @@ int main(void)
 	return 0;
 }
 
-
-// ---------------------------------------------------------------------------------------------------------
-void processInput(GLFWwindow *window)
-{
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-		glfwSetWindowShouldClose(window, true);
-
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
-		running = true;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
-		running = false;
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		player.move(running, FORWARD, deltaTime);
-		camera.sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		player.move(running, BACKWARD, deltaTime);
-		camera.sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		player.move(running, LEFT, deltaTime);
-		camera.sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		player.move(running, RIGHT, deltaTime);
-		camera.sidewaysMotion();
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
-		screen = 2;
-		glfwSetTime(0);
-		camera.camReset(&player, camPos);
-		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
-		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
-		enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
-	}
-
-	if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS) {
-		camera.camReset(&player, camPos);
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-		head_up_display = true;
-	}
-
-}
-
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-	// make sure the viewport matches the new window dimensions; note that width and 
-	// height will be significantly larger than specified on retina displays.
-	glViewport(0, 0, width, height);
-}
-
-// glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
-void mouse_callback(GLFWwindow* window, double xpos, double ypos)
-{
-	if (firstMouse)
-	{
-		lastX = xpos;
-		lastY = ypos;
-		firstMouse = false;
-	}
-
-	float xoffset = xpos - lastX;
-	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
-
-	lastX = xpos;
-	lastY = ypos;
-
-	camera.rotate(xoffset, yoffset, deltaTime);
-}
-
-void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
-{
-	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		player.shootBall();
-	}
-	//else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
-	//}
-}
-
-// glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
-void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
-{
-	//camera.ProcessMouseScroll(yoffset);
-}
+//
+//// ---------------------------------------------------------------------------------------------------------
+//void processInput(GLFWwindow *window)
+//{
+//	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+//		glfwSetWindowShouldClose(window, true);
+//
+//	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+//		running = true;
+//	}
+//	else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
+//		running = false;
+//	}
+//
+//	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+//		player.move(running, FORWARD, deltaTime);
+//		camera.sidewaysMotion();
+//	}
+//	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+//		player.move(running, BACKWARD, deltaTime);
+//		camera.sidewaysMotion();
+//	}
+//	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+//		player.move(running, LEFT, deltaTime);
+//		camera.sidewaysMotion();
+//	}
+//	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+//		player.move(running, RIGHT, deltaTime);
+//		camera.sidewaysMotion();
+//	}
+//
+//	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+//		screen = 2;
+//		glfwSetTime(0);
+//		camera.camReset(&player, camPos);
+//		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
+//		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
+//		enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
+//	}
+//
+//	if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS) {
+//		camera.camReset(&player, camPos);
+//	}
+//
+//	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
+//		head_up_display = true;
+//	}
+//
+//}
+//
+//// glfw: whenever the window size changed (by OS or user resize) this callback function executes
+//// ---------------------------------------------------------------------------------------------
+//void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+//{
+//	// make sure the viewport matches the new window dimensions; note that width and 
+//	// height will be significantly larger than specified on retina displays.
+//	glViewport(0, 0, width, height);
+//}
+//
+//// glfw: whenever the mouse moves, this callback is called
+//// -------------------------------------------------------
+//void mouse_callback(GLFWwindow* window, double xpos, double ypos)
+//{
+//	if (firstMouse)
+//	{
+//		lastX = xpos;
+//		lastY = ypos;
+//		firstMouse = false;
+//	}
+//
+//	float xoffset = xpos - lastX;
+//	float yoffset = lastY - ypos; // reversed since y-coordinates go from bottom to top
+//
+//	lastX = xpos;
+//	lastY = ypos;
+//
+//	camera.rotate(xoffset, yoffset, deltaTime);
+//}
+//
+//void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
+//{
+//	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
+//		player.shootBall();
+//	}
+//	//else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
+//	//}
+//}
+//
+//// glfw: whenever the mouse scroll wheel scrolls, this callback is called
+//// ----------------------------------------------------------------------
+//void scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+//{
+//	//camera.ProcessMouseScroll(yoffset);
+//}
