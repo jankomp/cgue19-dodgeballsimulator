@@ -78,7 +78,6 @@ int main(void)
 	static PxDefaultErrorCallback gDefaultErrorCallback;
 	static PxDefaultAllocator gDefaultAllocatorCallback;
 	static PxFoundation* gFoundation = NULL;
-	static PxSimulationEventCallback gContactReportCallback;
 	//Creating foundation for PhysX
 	gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
 	if (!gFoundation)
@@ -166,8 +165,8 @@ int main(void)
 	gScene->addActor(*enemy_characterActor);
 
 	// sceneDesc is an instance of 'PxSceneDesc'
-	//CollisionCallback gContactReportCallback;
-	//sceneDesc.simulationEventCallback = &gContactReportCallback;
+    CollisionCallback gContactReportCallback;
+	sceneDesc.simulationEventCallback = &gContactReportCallback;
 
 	PxVec3 enemy2_characterPos = PxVec3(0.0);
 	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
@@ -475,16 +474,4 @@ int main(void)
 
 	glfwTerminate();
 	return 0;
-}
-
-void PxSimulationEventCallback::onTrigger(PxTriggerPair* pairs, PxU32 count) {
-	//loop through all trigger-pairs of PhysX simulation
-	for (PxU32 i = 0; i < 2; i++)
-	{
-		//get current trigger actor & other actor info
-		//from current trigger-pair
-		const PxTriggerPair& curTriggerPair = pairs[i];
-		PxRigidActor* triggerActor = curTriggerPair.triggerActor; //enemy or character
-		PxRigidActor* otherActor = curTriggerPair.otherActor; //ball
-	}
 }

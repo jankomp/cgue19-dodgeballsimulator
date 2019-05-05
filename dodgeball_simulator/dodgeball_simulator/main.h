@@ -1,6 +1,6 @@
 #pragma once
 
-class main: PxSimulationEventCallback
+class main
 {
 public:
 	main();
