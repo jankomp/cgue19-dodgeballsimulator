@@ -33,7 +33,7 @@ public:
 	void sethasball(bool possession);
 	bool gethasball();
 	bool getActive();
-	void hit(PlayerCharacter *player);
+	void hit();
 	bool shooting;
 	int count;
 

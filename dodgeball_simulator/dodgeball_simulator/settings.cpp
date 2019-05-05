@@ -1,5 +1,8 @@
 #include "settings.h"
 
+extern int SCR_WIDTH;
+extern int SCR_HEIGHT;
+
 bool running = false;
 PlayerCharacter *player;
 Camera *camera;
@@ -7,8 +10,10 @@ extern float deltaTime = 0.0f;
 int screen = 2;
 bool head_up_display = true;
 bool firstMouse = true;
-float lastX = 1920 / 2.0f;
-float lastY = 1800 / 2.0f;
+float lastX = SCR_WIDTH / 2.0f;
+float lastY = SCR_HEIGHT / 2.0f;
+
+
 
 settings::settings(PlayerCharacter *playP, Camera *cam) {
 	player = playP;
@@ -50,15 +55,15 @@ void settings::processInput(GLFWwindow *window)
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		screen = 2;
-		//glfwSetTime(0);
-		//camera->camReset(&player, camPos);
+		
+		camera->camReset(player, camera->getPosition());
 		//enemy_character.updateEnemy(glm::vec3(0.0, 0.0, 6.0));
 		//enemy2_character.updateEnemy(glm::vec3(-3.0, 0.0, 3.5));
 		//enemy3_character.updateEnemy(glm::vec3(3.0, 0.0, 3.5));
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
-		//camera->camReset(&player, camPos);
+		camera->camReset(player, camera->getPosition());
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {

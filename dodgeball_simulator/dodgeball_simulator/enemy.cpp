@@ -1,6 +1,8 @@
 #include "enemy.h"
 #include <iostream>
 
+extern int scorePlayer;
+
 int runOrNot = 0, dir = 0, counter = 0;
 
 enemy::enemy(glm::vec3 startPos, Ball* newBall)
@@ -98,9 +100,10 @@ bool enemy::getActive() {
 	return active;
 }
 
-void enemy::hit (PlayerCharacter *player) {
+void enemy::hit () {
 	active = false;
-	player->increaseScore();
+	//player->increaseScore();
+	scorePlayer = scorePlayer + 1;
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 	TextRenderer text;
 	text.Load("fonts/arial.ttf", 80);

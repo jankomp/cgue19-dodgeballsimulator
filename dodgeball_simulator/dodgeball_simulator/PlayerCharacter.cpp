@@ -1,6 +1,7 @@
 #include "PlayerCharacter.h"
 #include <iostream>
 
+extern int scoreEnemy;
 
 PlayerCharacter::PlayerCharacter(glm::vec3 startPos, Ball* newBall)
 {
@@ -108,9 +109,9 @@ void PlayerCharacter::increaseScore() {
 	score = score + 1;
 }
 
-void PlayerCharacter::hit(allEnemies *allEn) {
+void PlayerCharacter::hit() {
 	lifes = lifes - 1;
-	allEn->increaseScore();
+	scoreEnemy = scoreEnemy + 1;
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 	TextRenderer text;
 	text.Load("fonts/arial.ttf", 80);

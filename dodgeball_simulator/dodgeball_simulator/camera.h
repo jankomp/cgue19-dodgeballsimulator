@@ -23,6 +23,7 @@ public:
 	void sidewaysMotion();
 	void camReset(PlayerCharacter *newPlayer, glm::vec3 startPosCam);
 	glm::vec3 getViewDirection();
+	glm::vec3 getPosition();
 };
 
 #endif
