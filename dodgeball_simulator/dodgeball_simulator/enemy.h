@@ -29,7 +29,7 @@ public:
 
 	void rotate(float rotation, float deltaTime);
 	void move(float deltaTime);
-	void updateEnemy(glm::vec3 newPos);
+	void setPosition(glm::vec3 newPos);
 	void sethasball(bool possession);
 	bool gethasball();
 	bool getActive();
@@ -37,7 +37,7 @@ public:
 	bool shooting;
 	int count;
 
-	void shootBall(glm::vec3 direction);
+	void shootBall();
 	bool shootingBall();
 private:
 	

@@ -38,7 +38,7 @@ public:
 	void rotate(float rotation, float deltaTime);
 	void move(bool running,  Movement direction, float deltaTime);
 	void updatePlayerCharacter(glm::vec3 newPos);
-	void shootBall(glm::vec3 direction);
+	void shootBall();
 	bool shootingBall();
 	void sethasball(bool posession);
 	bool gethasball();

@@ -71,11 +71,11 @@ void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
 	position = newPos;
 }
 
-void PlayerCharacter::shootBall(glm::vec3 direction) {
+void PlayerCharacter::shootBall() {
 	if (hasBall) {
 		count = 120;
 		shooting = true;
-		ball->flyBall(position, direction);
+		ball->flyBall();
 		hasBall = false;
 	}
 }

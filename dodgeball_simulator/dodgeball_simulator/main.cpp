@@ -190,7 +190,7 @@ int main(void)
 	gScene->addActor(*roofActor);
 
 	//creating sphere (ball)
-	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
+	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 1.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
 	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
 	gScene->addActor(*ballActor);
@@ -245,6 +245,7 @@ int main(void)
 				player.sethasball(true);
 			}
 			else {
+				ball.shot = true;
 				int random = rand() % 3;
 				switch(random) {
 					case 0: enemy_character.sethasball(true);
@@ -257,6 +258,7 @@ int main(void)
 			}
 		}
 
+
 		if (ball.isShot()) {
 			if (player.gethasball()) {
 				glm::vec3 playerPos = player.getPosition();
@@ -264,20 +266,26 @@ int main(void)
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 				ballcaught = false;
 			}
-			else {
-				glm::vec3 enemyPos;
-				if (enemy_character.gethasball()) {
-					glm::vec3 enemyPos = enemy_character.getPosition();
-				}
-				else if (enemy2_character.gethasball()) {
-					glm::vec3 enemyPos = enemy2_character.getPosition();
-				}
-				else if (enemy3_character.gethasball()) {
-					glm::vec3 enemyPos = enemy3_character.getPosition();
-				}
+			else if (enemy_character.gethasball()) {
+				glm::vec3 enemyPos = enemy_character.getPosition();
 				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
+				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 				ballcaught = false;
+				enemy_character.shootBall();
+			}
+			else if (enemy2_character.gethasball()) {
+				glm::vec3 enemyPos = enemy2_character.getPosition();
+				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
+				ballcaught = false;
+				enemy2_character.shootBall();
+			}
+			else if (enemy3_character.gethasball()) {
+				glm::vec3 enemyPos = enemy3_character.getPosition();
+				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
+				ballcaught = false;
+				enemy3_character.shootBall();
 			}
 		}
 
@@ -288,6 +296,31 @@ int main(void)
 			ballActor->addForce(direction);
 		}
 		else {
+			ballActor->clearForce();
+		}
+
+		if (enemy_character.shootingBall()) {
+			glm::vec3 enemyPos = enemy_character.getPosition();
+			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
+			direction *= 30.0;
+			ballActor->addForce(direction);
+		}else if (enemy2_character.shootingBall()) {
+			glm::vec3 enemyPos = enemy2_character.getPosition();
+			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);	
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
+			direction *= 30.0;
+			ballActor->addForce(direction);
+		} else if (enemy3_character.shootingBall()) {
+			glm::vec3 enemyPos = enemy3_character.getPosition();
+			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
+			direction *= 30.0;
+			ballActor->addForce(direction);
+		} else{
 			ballActor->clearForce();
 		}
 
@@ -478,9 +511,9 @@ void processInput(GLFWwindow *window)
 		screen = 2;
 		glfwSetTime(0);
 		camera.camReset(&player, camPos);
-		enemy_character.updateEnemy(glm::vec3(0.0, 0.0, 6.0));
-		enemy2_character.updateEnemy(glm::vec3(-3.0, 0.0, 3.5));
-		enemy3_character.updateEnemy(glm::vec3(3.0, 0.0, 3.5));
+		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
+		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
+		enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
 	}
 
 	if (glfwGetKey(window,GLFW_KEY_R) == GLFW_PRESS) {
@@ -525,7 +558,7 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos)
 void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		player.shootBall(camera.getViewDirection());
+		player.shootBall();
 	}
 	//else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
 	//}

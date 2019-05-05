@@ -9,7 +9,7 @@ Ball::Ball(vec3 newPosition)
 void Ball::drawBall(Shader* shader) {
 }
 
-void Ball::flyBall(vec3 startPos, vec3 direction) {
+void Ball::flyBall() {
 	shot = true;
 }
 

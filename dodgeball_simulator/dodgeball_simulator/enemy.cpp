@@ -77,11 +77,12 @@ void enemy::move(float deltaTime) {
 }
 
 
+
 glm::vec3 enemy::getPosition() {
 	return position;
 }
 
-void enemy::updateEnemy(glm::vec3 newPos) {
+void enemy::setPosition(glm::vec3 newPos) {
 	position = newPos;
 }
 
@@ -107,11 +108,11 @@ void enemy::hit (PlayerCharacter *player) {
 }
 
 
-void enemy::shootBall(glm::vec3 direction) {
+void enemy::shootBall() {
 	if (hasBall) {
 		count = 120;
 		shooting = true;
-		ball->flyBall(position, direction);
+		ball->flyBall();
 		hasBall = false;
 	}
 }

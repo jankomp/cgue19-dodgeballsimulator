@@ -18,7 +18,7 @@ public:
 
 	void updatePosition(vec3 newPosition);
 	void drawBall(Shader* shader);
-	void flyBall(vec3 startPos, vec3 direction);
+	void flyBall();
 	bool isShot();
 
 	Ball(vec3 newPosition);
