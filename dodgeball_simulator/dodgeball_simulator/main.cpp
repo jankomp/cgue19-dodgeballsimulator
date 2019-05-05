@@ -38,7 +38,12 @@ glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
 Camera camera(&player, camPos);
 
 float helpFloat = 0;
-int scoreEnemy = 0, scorePlayer = 0;
+//extern int scoreEnemy = 0; 
+//extern int scorePlayer = 0;
+
+int scoreEnemy = 0;
+int scorePlayer = 0;
+
 
 
 // timing
@@ -396,8 +401,8 @@ int main(void)
 					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				}
 
-				std::string strScoreEnemy = std::to_string(player.getScore());
-				std::string strScorePlayer = std::to_string(allEn.getScore());
+				std::string strScoreEnemy = std::to_string(scorePlayer);
+				std::string strScorePlayer = std::to_string(scoreEnemy);
 
 				spielstand.RenderText(textShader, strScoreEnemy + ":" + strScorePlayer, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));

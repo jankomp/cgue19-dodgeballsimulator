@@ -1,12 +1,14 @@
 #ifndef PLAYER_CHARACTER_H
 #define PLAYER_CHARACTER_H
 
+#include "main.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "ball.h"
 #include "text_renderer.h"
 //#include <PxPhysicsAPI.h>
-#include "allEnemies.h"
+//#include "allEnemies.h"
+
 
 
 enum Movement {
@@ -44,7 +46,7 @@ public:
 	bool gethasball();
 	int getScore();
 	int getLifes();
-	void hit(allEnemies *allEn);
+	void hit();
 	void increaseScore();
 
 private:
