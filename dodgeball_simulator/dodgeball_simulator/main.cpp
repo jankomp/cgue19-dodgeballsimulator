@@ -49,7 +49,7 @@ int main(void)
 {
 
 	window gameWindow;
-	gameWindow.genWindow(SCR_WIDTH, SCR_HEIGHT);
+	gameWindow.genWindow();
 
 
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
