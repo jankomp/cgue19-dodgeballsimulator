@@ -50,15 +50,15 @@ void settings::processInput(GLFWwindow *window)
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		screen = 2;
-		//glfwSetTime(0);
-		//camera->camReset(&player, camPos);
+		
+		camera->camReset(player, camera->getPosition());
 		//enemy_character.updateEnemy(glm::vec3(0.0, 0.0, 6.0));
 		//enemy2_character.updateEnemy(glm::vec3(-3.0, 0.0, 3.5));
 		//enemy3_character.updateEnemy(glm::vec3(3.0, 0.0, 3.5));
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
-		//camera->camReset(&player, camPos);
+		camera->camReset(player, camera->getPosition());
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {

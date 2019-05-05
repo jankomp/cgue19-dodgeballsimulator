@@ -71,3 +71,7 @@ glm::vec3 Camera::getViewDirection()
 	playerPos.y += 2.5;
 	return playerPos - cameraPosition;
 }
+
+glm::vec3 Camera::getPosition() {
+	return cameraPosition;
+}
