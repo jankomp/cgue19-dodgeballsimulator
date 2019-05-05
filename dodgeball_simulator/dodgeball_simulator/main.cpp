@@ -13,6 +13,7 @@
 #include "text_renderer.h"
 #include "enemy.h"
 #include "allEnemies.h"
+#include "CollisionCallback.h"
 
 using namespace physx;
 using namespace std;
@@ -158,13 +159,23 @@ int main(void)
 	PxTransform enemy_characterPosition = PxTransform(enemy_characterPos);
 	PxRigidDynamic* enemy_characterActor = gPhysicsSDK->createRigidDynamic(enemy_characterPosition);
 	enemy_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	PxShape* triggerShape;
+	enemy_characterActor->getShapes(&triggerShape, 1);
+	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
+	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
 	gScene->addActor(*enemy_characterActor);
+
+	// sceneDesc is an instance of 'PxSceneDesc'
+	sceneDesc.simulationEventCallback = &gContactReportCallback;
 
 	PxVec3 enemy2_characterPos = PxVec3(0.0);
 	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
 	PxTransform enemy2_characterPosition = PxTransform(enemy2_characterPos);
 	PxRigidDynamic* enemy2_characterActor = gPhysicsSDK->createRigidDynamic(enemy2_characterPosition);
 	enemy2_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	enemy2_characterActor->getShapes(&triggerShape, 1);
+	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
+	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
 	gScene->addActor(*enemy2_characterActor);
 
 	PxVec3 enemy3_characterPos = PxVec3(0.0);
@@ -172,6 +183,9 @@ int main(void)
 	PxTransform enemy3_characterPosition = PxTransform(enemy3_characterPos);
 	PxRigidDynamic* enemy3_characterActor = gPhysicsSDK->createRigidDynamic(enemy3_characterPosition);
 	enemy3_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	enemy3_characterActor->getShapes(&triggerShape, 1);
+	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
+	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
 	gScene->addActor(*enemy3_characterActor);
 
 

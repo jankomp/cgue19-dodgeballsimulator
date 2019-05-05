@@ -9,7 +9,6 @@
 
 
 class settings
-{
 public:
 	settings();
 	//settings(PlayerCharacter *playP, Camera *cam, float deltaT);
