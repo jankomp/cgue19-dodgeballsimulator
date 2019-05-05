@@ -8,7 +8,7 @@
 
 
 
-class settings
+class settings{
 public:
 	settings();
 	//settings(PlayerCharacter *playP, Camera *cam, float deltaT);
@@ -28,6 +28,5 @@ public:
 	 bool headUpDisplay();
 	 float getDeltaTime();
 	 void setDeltaTime(float toSet);
-
 };
 
