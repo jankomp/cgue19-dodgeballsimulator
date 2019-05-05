@@ -16,6 +16,10 @@ void allEnemies::increaseScore() {
 	score = score + 1;
 }
 
+void allEnemies::draw(Shader &gameShader) {
+
+}
+
 allEnemies::~allEnemies()
 {
 }
