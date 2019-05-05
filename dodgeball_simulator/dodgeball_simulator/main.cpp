@@ -34,6 +34,7 @@ enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 bool ballcaught = false;
+int countBallIdle = 0;
 
 allEnemies allEn;
 
@@ -294,35 +295,41 @@ int main(void)
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y; direction.z = grafic.z;
 			direction *= 10.0;
 			ballActor->addForce(direction);
-		}
-		else {
-			ballActor->clearForce();
-		}
-
-		if (enemy_character.shootingBall()) {
-			glm::vec3 enemyPos = enemy_character.getPosition();
-			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
-			direction *= 30.0;
+		}else if (enemy_character.shootingBall()) {
+			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
+			glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
+			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			direction *= 30.0;
 			ballActor->addForce(direction);
 		}else if (enemy2_character.shootingBall()) {
+			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy2_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);	
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
-			direction *= 30.0;
+			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
+			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			direction *= 30.0;
 			ballActor->addForce(direction);
 		} else if (enemy3_character.shootingBall()) {
+			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy3_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(player.getPosition() - enemyPos);
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.92; direction.z = grafic.z;
+			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
+			float aimCorrection = glm::length(playerPos - enemyPos) / 40.0;
+			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;
 			direction *= 30.0;
 			ballActor->addForce(direction);
 		} else{
 			ballActor->clearForce();
+			if (ballActor->getLinearVelocity().magnitude() < 0.5) {
+				if (countBallIdle++ > 60) {
+					ballActor->putToSleep();
+					countBallIdle = 0;
+				}
+			}
 		}
+
+		
 
 		// input
 		// -----
