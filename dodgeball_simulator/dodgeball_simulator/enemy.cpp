@@ -88,10 +88,6 @@ void enemy::hasball(bool possession) {
 	hasBall = possession;
 }
 
-int enemy::getScore() {
-	return score;
-}
-
 bool enemy::getActive() {
 	return active;
 }

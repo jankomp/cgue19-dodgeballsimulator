@@ -103,9 +103,9 @@ void PlayerCharacter::increaseScore() {
 	score = score + 1;
 }
 
-void PlayerCharacter::hit() {
+void PlayerCharacter::hit(allEnemies *allEn) {
 	lifes = lifes - 1;
-	//scoreEnemy = scoreEnemy + 1;
+	allEn->increaseScore();
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 	TextRenderer text;
 	text.Load("fonts/arial.ttf", 80);
