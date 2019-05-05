@@ -264,11 +264,21 @@ int main(void)
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 				ballcaught = false;
 			}
-			else if (enemy_character.gethasball()) {
-				
+			else {
+				glm::vec3 enemyPos;
+				if (enemy_character.gethasball()) {
+					glm::vec3 enemyPos = enemy_character.getPosition();
+				}
+				else if (enemy2_character.gethasball()) {
+					glm::vec3 enemyPos = enemy2_character.getPosition();
+				}
+				else if (enemy3_character.gethasball()) {
+					glm::vec3 enemyPos = enemy3_character.getPosition();
+				}
+				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
+				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
+				ballcaught = false;
 			}
-			else if (enemy2_character.gethasball()) {}
-			else if (enemy3_character.gethasball()) {}
 		}
 
 		if (player.shootingBall()) {
