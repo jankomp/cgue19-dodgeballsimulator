@@ -72,7 +72,7 @@ void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
 }
 
 void PlayerCharacter::shootBall(glm::vec3 direction) {
-	if (true) {
+	if (hasBall) {
 		count = 120;
 		shooting = true;
 		ball->flyBall(position, direction);
@@ -87,8 +87,12 @@ bool PlayerCharacter::shootingBall() {
 	return returnVal;
 }
 
-void PlayerCharacter::hasball(bool possession) {
+void PlayerCharacter::sethasball(bool possession) {
 	hasBall = possession;
+}
+
+bool PlayerCharacter::gethasball() {
+	return hasBall;
 }
 
 int PlayerCharacter::getLifes() {

@@ -39,7 +39,8 @@ public:
 	void updatePlayerCharacter(glm::vec3 newPos);
 	void shootBall(glm::vec3 direction);
 	bool shootingBall();
-	void hasball(bool posession);
+	void sethasball(bool posession);
+	bool gethasball();
 	int getScore();
 	int getLifes();
 	void hit();

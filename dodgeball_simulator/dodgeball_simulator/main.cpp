@@ -104,7 +104,7 @@ int main(void)
 	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 
-	Model ball("modells/ball/ball.obj");
+	Model ballModel("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 
 	Model spieler("modells/junge_rot/Lt_boy.obj");
@@ -187,7 +187,7 @@ int main(void)
 	gScene->addActor(*roofActor);
 
 	//creating sphere (ball)
-	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, 2.0f));
+	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
 	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
 	gScene->addActor(*ballActor);
@@ -236,10 +236,10 @@ int main(void)
 		gScene->simulate(deltaTime);
 		gScene->fetchResults(true);
 
-		if (ballActor->isSleeping()) {
+		if (ballActor->isSleeping() && !ballcaught) {
 			ballcaught = true;
 			if (ballActor->getGlobalPose().p.z <= 0) {
-				player.hasball(true);
+				player.sethasball(true);
 			}
 			else {
 				int random = rand() % 3;
@@ -252,6 +252,18 @@ int main(void)
 						break;
 				}
 			}
+		}
+
+		if (ball.isShot()) {
+			if (player.gethasball()) {
+				glm::vec3 playerPos = player.getPosition();
+				playerPos.y += 2.0;	playerPos.z += 2.0;
+				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
+				ballcaught = false;
+			}
+			//else if (enemy_character.hasball) {}
+			//else if (enemy2_character.hasball) {}
+			//else if (enemy3_character.hasball) {}
 		}
 
 		if (player.shootingBall()) {
@@ -318,7 +330,7 @@ int main(void)
 				model_ball = glm::translate(model_ball, ballRenderPosition);
 				model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
 				gameShader.setMat4("model", model_ball);
-				ball.Draw(gameShader);
+				ballModel.Draw(gameShader);
 			}
 
 			//spieler

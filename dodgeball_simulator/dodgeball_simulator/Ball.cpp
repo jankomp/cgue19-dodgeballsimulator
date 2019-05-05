@@ -10,6 +10,11 @@ void Ball::drawBall(Shader* shader) {
 }
 
 void Ball::flyBall(vec3 startPos, vec3 direction) {
+	shot = true;
+}
 
-
+bool Ball::isShot() {
+	bool returnValue = shot;
+	shot = false;
+	return returnValue;
 }
