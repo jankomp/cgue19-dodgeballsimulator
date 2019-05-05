@@ -14,7 +14,7 @@
 #include "text_renderer.h"
 #include "enemy.h"
 #include "allEnemies.h"
-#include "CollisionCallback.h"
+//#include "CollisionCallback.h"
 
 
 using namespace physx;
@@ -165,8 +165,8 @@ int main(void)
 	gScene->addActor(*enemy_characterActor);
 
 	// sceneDesc is an instance of 'PxSceneDesc'
-    CollisionCallback gContactReportCallback;
-	sceneDesc.simulationEventCallback = &gContactReportCallback;
+    /*CollisionCallback gContactReportCallback;
+	sceneDesc.simulationEventCallback = &gContactReportCallback;*/
 
 	PxVec3 enemy2_characterPos = PxVec3(0.0);
 	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
