@@ -5,22 +5,15 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
-
-#include <string>
 #include <fstream>
 #include <sstream>
 #include <iostream>
 #include <vector>
-
-#include <vector>
 #include <string>
-#include <fstream>
-#include <sstream>
-#include "glm/glm.hpp"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include <iostream>
-//#include <GL/GL.h>
+
+#include "glm/glm.hpp"
 #include "shader.h"
 
 using namespace std;

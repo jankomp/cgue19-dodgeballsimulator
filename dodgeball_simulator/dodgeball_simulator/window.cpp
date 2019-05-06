@@ -47,8 +47,6 @@ int window::genWindow()
 	if (err != GLEW_OK) {
 		std::printf("Failed to init GLEW");
 	}
-
-
 }
 
 GLFWwindow* window::getWindow()

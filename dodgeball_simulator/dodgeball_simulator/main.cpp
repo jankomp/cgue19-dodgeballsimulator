@@ -244,7 +244,7 @@ int main(void)
 				player.sethasball(true);
 			}
 			else {
-				//give the ball to a randomly elected enemy
+				//give the ball to a randomly selected enemy
 				bool enemyfound = false;
 				ball.shot = true;
 				while (!enemyfound) {
@@ -353,21 +353,20 @@ int main(void)
 		
 
 		// input
-		// -----
 		s.processInput(gameWindow.getWindow());
 
 
 		/* Render here */
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		//glClear(GL_COLOR_BUFFER_BIT );
 
 
 		// view/projection transformations
 		glm::mat4 view = camera.getWorldToViewMat();
 
+		//startscreen
 		if (s.getScreen() == 1) {
-			//startscreen
+			
 			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 			textShader.use();
 			textShader.setMat4("projection", proj2);
@@ -377,11 +376,11 @@ int main(void)
 
 		}
 
+		//gamescreen
 		if (s.getScreen() == 2) {
-			//gamescreen
+			
 			gameShader.use();
 		
-
 			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 			textShader.use();
 			textShader.setMat4("projection", proj2);
@@ -480,32 +479,26 @@ int main(void)
 
 		//lost screen
 		if (s.getScreen() == 3) {
-			title.RenderText(textShader, "YOU LOST", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 		}
 
 		//won screen
 		if (s.getScreen() == 4) {
-			title.RenderText(textShader, "YOU WON", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 		}
-
-
 
 		glEnable(GL_DEPTH_TEST);
 		glDisable(GL_CULL_FACE);
-
-
 
 		/* Swap front and back buffers */
 		glfwSwapBuffers(gameWindow.getWindow());
 
 		/* Poll for and process events */
 		glfwPollEvents();
-
 	}
 
 	gScene->release();
 	gPhysicsSDK->release();
-	//gFoundation->release();
 
 	glfwTerminate();
 	return 0;

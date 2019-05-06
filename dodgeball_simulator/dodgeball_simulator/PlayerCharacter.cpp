@@ -11,17 +11,17 @@ PlayerCharacter::PlayerCharacter(glm::vec3 startPos, Ball* newBall)
 	lifes = 3;
 }
 
-void PlayerCharacter::rotate(float rotation, float deltaTime) {
+void PlayerCharacter::rotate(float rotation, float deltaTime) 
+{
 	front.x = cos(glm::radians(rotation));
 	front.z = sin(glm::radians(rotation));
 
 	right = glm::normalize(glm::cross(front, glm::vec3(0.0f, 1.0f, 0.0f)));
-
 }
 
 
-void PlayerCharacter::move(bool running, Movement direction, float deltaTime) {
-
+void PlayerCharacter::move(bool running, Movement direction, float deltaTime) 
+{
 	float movementSpeed;
 	if (running) {
 		movementSpeed = 20;
@@ -59,15 +59,16 @@ void PlayerCharacter::move(bool running, Movement direction, float deltaTime) {
 			position.x = newx;
 		}
 	}
-	
 	//std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
 }
 
-glm::vec3 PlayerCharacter::getPosition() {
+glm::vec3 PlayerCharacter::getPosition() 
+{
 	return position;
 }
 
-void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
+void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) 
+{
 	position = newPos;
 }
 
@@ -80,7 +81,8 @@ void PlayerCharacter::shootBall()
 	}
 }
 
-bool PlayerCharacter::shootingBall(float deltaTime) {
+bool PlayerCharacter::shootingBall(float deltaTime) 
+{
 	bool returnVal = shooting;
 	count -= deltaTime;
 	if (count < 0) {
@@ -89,24 +91,19 @@ bool PlayerCharacter::shootingBall(float deltaTime) {
 	return returnVal;
 }
 
-void PlayerCharacter::sethasball(bool possession) {
+void PlayerCharacter::sethasball(bool possession) 
+{
 	hasBall = possession;
 }
 
-bool PlayerCharacter::gethasball() {
+bool PlayerCharacter::gethasball() 
+{
 	return hasBall;
 }
 
-int PlayerCharacter::getLifes() {
+int PlayerCharacter::getLifes() 
+{
 	return lifes;
-}
-
-int PlayerCharacter::getScore() {
-	return score;
-}
-
-void PlayerCharacter::increaseScore() {
-	score = score + 1;
 }
 
 void PlayerCharacter::hit() 

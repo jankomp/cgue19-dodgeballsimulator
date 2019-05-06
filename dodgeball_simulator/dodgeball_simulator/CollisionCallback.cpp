@@ -12,11 +12,10 @@ CollisionCallback::CollisionCallback(PlayerCharacter* newPlayer, enemy* newEnemy
 }
 
 
-CollisionCallback::~CollisionCallback()
-{
-}
+CollisionCallback::~CollisionCallback() {}
 
-void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count) {
+void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count) 
+{
 	if(firstCollision){
 	//loop through all trigger-pairs of PhysX simulation
 		for (PxU32 i = 0; i < 1; i++)

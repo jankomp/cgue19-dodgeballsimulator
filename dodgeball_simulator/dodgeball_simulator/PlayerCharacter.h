@@ -8,8 +8,6 @@
 #include "ball.h"
 #include "text_renderer.h"
 #include "main.h"
-//#include <PxPhysicsAPI.h>
-
 
 enum Movement {
 	FORWARD,
@@ -26,16 +24,13 @@ class PlayerCharacter
 	float speed;
 	bool running;
 	bool hasBall;
-	int score;
 	int lifes;
 
 public:
 	PlayerCharacter(glm::vec3 startPos, Ball* newBall);
+	Ball* ball;
 
 	glm::vec3 getPosition();
-	glm::mat4 getModelMat();
-
-	Ball* ball;
 
 	void rotate(float rotation, float deltaTime);
 	void move(bool running,  Movement direction, float deltaTime);
@@ -44,10 +39,8 @@ public:
 	bool shootingBall(float deltaTime);
 	void sethasball(bool posession);
 	bool gethasball();
-	int getScore();
 	int getLifes();
 	void hit();
-	void increaseScore();
 
 private:
 	bool shooting;

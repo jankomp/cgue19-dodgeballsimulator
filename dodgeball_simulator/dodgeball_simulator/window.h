@@ -5,8 +5,8 @@
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <GL/GL.h>
-#include "settings.h"
 
+#include "settings.h"
 
 class window
 {

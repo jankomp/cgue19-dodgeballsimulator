@@ -73,11 +73,8 @@ void enemy::move(float deltaTime)
 	}
 
 	//std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
-
 	counter = counter + 1;
 }
-
-
 
 glm::vec3 enemy::getPosition() 
 {
@@ -107,7 +104,6 @@ bool enemy::getActive()
 void enemy::hit () 
 {
 	active = false;
-	//player->increaseScore();
 	scorePlayer = scorePlayer + 1;
 }
 

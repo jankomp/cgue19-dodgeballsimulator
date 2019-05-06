@@ -5,7 +5,6 @@
 
 #include "text_renderer.h"
 
-
 TextRenderer::TextRenderer() {};
 
 void TextRenderer::Load(std::string font, GLuint fontSize)
@@ -78,12 +77,10 @@ void TextRenderer::Load(std::string font, GLuint fontSize)
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-
 }
 
 void TextRenderer::RenderText(Shader &shader, std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec3 color)
 {
-
 	glEnable(GL_CULL_FACE);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
