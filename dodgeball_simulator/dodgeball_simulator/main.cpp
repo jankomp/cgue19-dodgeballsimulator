@@ -350,16 +350,12 @@ int main(void)
 			}
 		}
 
-		
-
 		// input
 		s.processInput(gameWindow.getWindow());
-
 
 		/* Render here */
 		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 
 		// view/projection transformations
 		glm::mat4 view = camera.getWorldToViewMat();

@@ -7,7 +7,7 @@ c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cp
 c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(337): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
      Bibliothek "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Release\dodgeball_simulator.lib" und Objekt "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Release\dodgeball_simulator.exp" werden erstellt.
   Code wird generiert.
-  1 of 1432 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+  2 of 1432 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
