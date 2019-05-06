@@ -167,7 +167,7 @@ int main(void)
 	enemy_characterPos.x = enemy_character.getPosition().x;	enemy_characterPos.y = enemy_character.getPosition().y;	enemy_characterPos.z = enemy_character.getPosition().z;
 	PxTransform enemy_characterPosition = PxTransform(enemy_characterPos);
 	PxRigidDynamic* enemy_characterActor = gPhysicsSDK->createRigidDynamic(enemy_characterPosition);
-	PxShape* triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.4f, 3.0f, 0.6f)), *mMaterial);
+	PxShape* triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.2f, 3.0f, 0.6f)), *mMaterial);
 	filterData.word0 = 1;	filterData.word1 = 0; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
@@ -178,7 +178,7 @@ int main(void)
 	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
 	PxTransform enemy2_characterPosition = PxTransform(enemy2_characterPos);
 	PxRigidDynamic* enemy2_characterActor = gPhysicsSDK->createRigidDynamic(enemy2_characterPosition);
-	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.4f, 3.0f, 0.6f)), *mMaterial);
+	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.2f, 3.0f, 0.6f)), *mMaterial);
 	filterData.word0 = 1;	filterData.word1 = 1; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
@@ -189,7 +189,7 @@ int main(void)
 	enemy3_characterPos.x = enemy3_character.getPosition().x;	enemy3_characterPos.y = enemy3_character.getPosition().y;	enemy3_characterPos.z = enemy3_character.getPosition().z;
 	PxTransform enemy3_characterPosition = PxTransform(enemy3_characterPos);
 	PxRigidDynamic* enemy3_characterActor = gPhysicsSDK->createRigidDynamic(enemy3_characterPosition);
-	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.4f, 3.0f, 0.6f)), *mMaterial);
+	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.2f, 3.0f, 0.6f)), *mMaterial);
 	filterData.word0 = 1;	filterData.word1 = 2; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
