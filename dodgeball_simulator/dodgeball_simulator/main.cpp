@@ -31,6 +31,7 @@ enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 bool ballcaught = false;
+bool firstCollision = false;
 int countBallIdle = 0;
 
 allEnemies allEn;
@@ -78,9 +79,9 @@ int main(void)
 	static PxDefaultAllocator gDefaultAllocatorCallback;
 	static PxFoundation* gFoundation = NULL;
 	//Creating foundation for PhysX
-	gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
+	/*gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
 	if (!gFoundation)
-		printf("PxCreateFoundation failed!");
+		printf("PxCreateFoundation failed!");*/
 
 	static PxPhysics* gPhysicsSDK = NULL;
 	//Creating instance of PhysX SDK
@@ -97,8 +98,12 @@ int main(void)
 	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
 	sceneDesc.cpuDispatcher = PxDefaultCpuDispatcherCreate(1);
 	sceneDesc.filterShader = PxDefaultSimulationFilterShader;
-	gScene = gPhysicsSDK->createScene(sceneDesc);
+	// Set Instance of CollisionCallback as SimulationEventCallback of Scene
+	CollisionCallback gContactReportCallback(&player, &enemy_character, &enemy2_character, &enemy3_character);
+	sceneDesc.simulationEventCallback = &gContactReportCallback;
 
+	gScene = gPhysicsSDK->createScene(sceneDesc);
+		
 	//Creating material
 	PxMaterial* mMaterial =
 		//static friction, dynamic friction, restitution
@@ -140,7 +145,9 @@ int main(void)
 	//creating sphere (ball)
 	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
-	ballActor->attachShape(*gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial));
+	PxShape* ballShape = gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial);
+	PxFilterData filterData; filterData.word0 = 0;	filterData.word1 = 0; ballShape->setSimulationFilterData(filterData);
+	ballActor->attachShape(*ballShape);
 	gScene->addActor(*ballActor);
 
 	//creating box (player)
@@ -148,7 +155,11 @@ int main(void)
 	playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
 	PxTransform playerPosition = PxTransform(playerPos);
 	PxRigidDynamic* playerActor = gPhysicsSDK->createRigidDynamic(playerPosition);
-	playerActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
+	PxShape* playerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(2.0f, 4.0f, 2.0f)), *mMaterial);
+	filterData.word0 = 2;	filterData.word1 = 0; playerShape->setSimulationFilterData(filterData);
+	playerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
+	playerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
+	playerActor->attachShape(*playerShape);
 	gScene->addActor(*playerActor);
 
 	//creating boxes (enemys)
@@ -156,37 +167,34 @@ int main(void)
 	enemy_characterPos.x = enemy_character.getPosition().x;	enemy_characterPos.y = enemy_character.getPosition().y;	enemy_characterPos.z = enemy_character.getPosition().z;
 	PxTransform enemy_characterPosition = PxTransform(enemy_characterPos);
 	PxRigidDynamic* enemy_characterActor = gPhysicsSDK->createRigidDynamic(enemy_characterPosition);
-	enemy_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
-	PxShape* triggerShape;
-	enemy_characterActor->getShapes(&triggerShape, 1);
+	PxShape* triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(2.0f, 4.0f, 2.0f)), *mMaterial);
+	filterData.word0 = 1;	filterData.word1 = 0; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
+	enemy_characterActor->attachShape(*triggerShape);
 	gScene->addActor(*enemy_characterActor);
-
-	// sceneDesc is an instance of 'PxSceneDesc'
-    CollisionCallback gContactReportCallback;
-	sceneDesc.simulationEventCallback = &gContactReportCallback;
 
 	PxVec3 enemy2_characterPos = PxVec3(0.0);
 	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
 	PxTransform enemy2_characterPosition = PxTransform(enemy2_characterPos);
 	PxRigidDynamic* enemy2_characterActor = gPhysicsSDK->createRigidDynamic(enemy2_characterPosition);
-	enemy2_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
-	enemy2_characterActor->getShapes(&triggerShape, 1);
+	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(2.0f, 4.0f, 2.0f)), *mMaterial);
+	filterData.word0 = 1;	filterData.word1 = 1; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
+	enemy2_characterActor->attachShape(*triggerShape);
 	gScene->addActor(*enemy2_characterActor);
 
 	PxVec3 enemy3_characterPos = PxVec3(0.0);
 	enemy3_characterPos.x = enemy3_character.getPosition().x;	enemy3_characterPos.y = enemy3_character.getPosition().y;	enemy3_characterPos.z = enemy3_character.getPosition().z;
 	PxTransform enemy3_characterPosition = PxTransform(enemy3_characterPos);
 	PxRigidDynamic* enemy3_characterActor = gPhysicsSDK->createRigidDynamic(enemy3_characterPosition);
-	enemy3_characterActor->attachShape(*gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial));
-	enemy3_characterActor->getShapes(&triggerShape, 1);
+	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.0f, 1.0f)), *mMaterial);
+	filterData.word0 = 1;	filterData.word1 = 2; triggerShape->setSimulationFilterData(filterData);
 	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
 	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
+	enemy3_characterActor->attachShape(*triggerShape);
 	gScene->addActor(*enemy3_characterActor);
-
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -219,7 +227,7 @@ int main(void)
 		lastFrame = currentFrame;
 		s.setDeltaTime(helpFloat);
 		float fps = 1.0f / s.getDeltaTime();
-		cout << "fps: " << fps << endl;
+		//cout << "fps: " << fps << endl;
 
 		//advance the PhysX simulation by one step
 		gScene->simulate(s.getDeltaTime());
@@ -231,15 +239,19 @@ int main(void)
 				player.sethasball(true);
 			}
 			else {
+				bool enemyfound = false;
 				ball.shot = true;
-				int random = rand() % 3;
-				switch(random) {
-					case 0: enemy_character.sethasball(true);
-						break;
-					case 1: enemy2_character.sethasball(true);
-						break;
-					case 2: enemy3_character.sethasball(true);
-						break;
+				while (!enemyfound) {
+					int random = rand() % 3;
+					if (random == 0 && enemy_character.getActive()) {
+						enemy_character.sethasball(true); enemyfound = true;
+					}
+					else if (random == 1 && enemy2_character.getActive()) {
+						enemy2_character.sethasball(true); enemyfound = true;
+					}
+					else if (random == 2 && enemy3_character.getActive()) {
+						enemy3_character.sethasball(true); enemyfound = true;
+					}
 				}
 			}
 		}
@@ -247,33 +259,34 @@ int main(void)
 
 		if (ball.isShot()) {
 			if (player.gethasball()) {
-				glm::vec3 playerPos = player.getPosition();
-				playerPos.y += 2.0;	playerPos.z += 2.0;
+				glm::vec3 playerPos = player.getPosition() + camera.getViewDirection();
+				playerPos.y += 2.0;	
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 				ballcaught = false;
 				player.sethasball(false);
 			}
-			else if (enemy_character.gethasball()) {
+			else if (enemy_character.getActive() && enemy_character.gethasball()) {
 				glm::vec3 enemyPos = enemy_character.getPosition();
 				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 				ballcaught = false;
 				enemy_character.shootBall();
 			}
-			else if (enemy2_character.gethasball()) {
+			else if (enemy2_character.getActive() && enemy2_character.gethasball()) {
 				glm::vec3 enemyPos = enemy2_character.getPosition();
 				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 				ballcaught = false;
 				enemy2_character.shootBall();
 			}
-			else if (enemy3_character.gethasball()) {
+			else if (enemy3_character.getActive() && enemy3_character.gethasball()) {
 				glm::vec3 enemyPos = enemy3_character.getPosition();
 				enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 				ballcaught = false;
 				enemy3_character.shootBall();
 			}
+			firstCollision = true;
 		}
 
 		if (player.shootingBall()) {
@@ -441,10 +454,10 @@ int main(void)
 					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				}
 
-				std::string strScoreEnemy = std::to_string(player.getScore());
-				std::string strScorePlayer = std::to_string(allEn.getScore());
+				std::string strScoreEnemy = std::to_string(scoreEnemy);
+				std::string strScorePlayer = std::to_string(scorePlayer);
 
-				spielstand.RenderText(textShader, strScoreEnemy + ":" + strScorePlayer, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				spielstand.RenderText(textShader, strScorePlayer + ":" + strScoreEnemy, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				if(player.gethasball())
 					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 			}

@@ -6,6 +6,7 @@ Camera::Camera(PlayerCharacter *newPlayer, glm::vec3 startPosCam) : viewDirectio
 {
 	player = newPlayer;
 	cameraPosition = startPosCam;
+	cameraRotation = startPosCam;
 }
 
 Camera::Camera() : viewDirection(0.0f, 0.0f, -1.0f), UP(0.0f, 1.0f, 0.0f), distance(3.0), mouseSensitivity(0.75) {}
@@ -45,7 +46,7 @@ void Camera::rotate(double phi, double theta, float deltaTime)
 	
 	cameraRotation = glm::vec3(x, y + 2.0, z);
 	cameraPosition = playerPos + cameraRotation;
-	std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
+	//std::cout << "Camera: " << cameraPosition.x << "," << cameraPosition.y << "," << cameraPosition.z << std::endl;
 }
 
 void Camera::sidewaysMotion() {
