@@ -1,5 +1,6 @@
 #ifndef CAMERA_H
 #define CAMERA_H
+
 #include "PlayerCharacter.h"
 
 class Camera

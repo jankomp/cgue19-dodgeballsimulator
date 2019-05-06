@@ -3,33 +3,33 @@
 extern int SCR_WIDTH;
 extern int SCR_HEIGHT;
 
+extern enemy enemy_character;
+extern enemy enemy2_character;
+extern enemy enemy3_character;
+
 bool running = false;
 PlayerCharacter *player;
 Camera *camera;
 extern float deltaTime = 0.0f;
-int screen = 2;
+int screen = 1;
 bool head_up_display = true;
 bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 
-extern enemy enemy_character;
-extern enemy enemy2_character;
-extern enemy enemy3_character;
-
-settings::settings(PlayerCharacter *playP, Camera *cam) {
+settings::settings(PlayerCharacter *playP, Camera *cam) 
+{
 	player = playP;
 	camera = cam;
 }
 
-settings::settings() {
-
-}
+settings::settings() {}
 
 void settings::processInput(GLFWwindow *window)
 {
-	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
+	}
 
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
 		running = true;
@@ -57,7 +57,6 @@ void settings::processInput(GLFWwindow *window)
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
 		screen = 2;
-		
 		camera->camReset(player, camera->getPosition());
 		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
 		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
@@ -75,7 +74,6 @@ void settings::processInput(GLFWwindow *window)
 }
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
 void settings::framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
 	// make sure the viewport matches the new window dimensions; note that width and 
@@ -84,11 +82,9 @@ void settings::framebuffer_size_callback(GLFWwindow* window, int width, int heig
 }
 
 // glfw: whenever the mouse moves, this callback is called
-// -------------------------------------------------------
 void settings::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 {
-	if (firstMouse)
-	{
+	if (firstMouse) {
 		lastX = xpos;
 		lastY = ypos;
 		firstMouse = false;
@@ -106,7 +102,6 @@ void settings::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 void settings::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		//player->shootBall(camera.getViewDirection);
 		player->shootBall();
 	}
 	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
@@ -114,7 +109,6 @@ void settings::mouse_button_callback(GLFWwindow* window, int button, int action,
 }
 
 // glfw: whenever the mouse scroll wheel scrolls, this callback is called
-// ----------------------------------------------------------------------
 void settings::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	//camera.ProcessMouseScroll(yoffset);
@@ -140,6 +134,7 @@ void settings::setDeltaTime(float toSet)
 	deltaTime = toSet;
 }
 
-void settings::setScreen(int scr) {
+void settings::setScreen(int scr) 
+{
 	screen = scr;
 }

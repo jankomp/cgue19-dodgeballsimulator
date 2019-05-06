@@ -1,16 +1,17 @@
 #include "Ball.h"
 
-
 Ball::Ball(vec3 newPosition)
 {
 	position = newPosition;
 }
 
-void Ball::flyBall() {
+void Ball::flyBall() 
+{
 	shot = true;
 }
 
-bool Ball::isShot() {
+bool Ball::isShot() 
+{
 	bool returnValue = shot;
 	shot = false;
 	return returnValue;

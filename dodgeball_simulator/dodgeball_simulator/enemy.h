@@ -1,11 +1,13 @@
-#pragma once
+#ifndef ENEMY_H
+#define ENEMY_H
+
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
+
 #include "text_renderer.h"
 #include "PlayerCharacter.h"
 //#include <PxPhysicsAPI.h>
-
-
 
 class enemy
 {
@@ -23,10 +25,8 @@ class enemy
 
 public:
 	enemy(glm::vec3 startPos, Ball* ball);
-
 	glm::vec3 getPosition();
-	glm::mat4 getModelMat();
-
+	
 	void rotate(float rotation, float deltaTime);
 	void move(float deltaTime);
 	void setPosition(glm::vec3 newPos);
@@ -43,3 +43,4 @@ private:
 	
 };
 
+#endif

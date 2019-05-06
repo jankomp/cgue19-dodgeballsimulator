@@ -1,20 +1,14 @@
-/*******************************************************************
-** This code is part of Breakout.
-**
-** Breakout is free software: you can redistribute it and/or modify
-** it under the terms of the CC BY 4.0 license as published by
-** Creative Commons, either version 4 of the License, or (at your
-** option) any later version.
-******************************************************************/
+// Quelle: https://learnopengl.com/In-Practice/Text-Rendering
+
 #ifndef TEXT_RENDERER_H
 #define TEXT_RENDERER_H
 
 #include <map>
-
+#include <iostream>
+#include <glm/gtc/matrix_transform.hpp>
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 
-//#include "texture.h"
 #include "shader.h"
 
 

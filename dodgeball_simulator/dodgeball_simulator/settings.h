@@ -1,12 +1,14 @@
-#pragma once
-#include "camera.h"
+#ifndef SETTINGS_H
+#define SETTINGS_H
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 #include <GL/GL.h>
+
+#include "camera.h"
 #include "PlayerCharacter.h"
 #include "enemy.h"
-
 
 class settings 
 {
@@ -27,3 +29,4 @@ public:
 	 void setScreen(int scr);
 };
 
+#endif

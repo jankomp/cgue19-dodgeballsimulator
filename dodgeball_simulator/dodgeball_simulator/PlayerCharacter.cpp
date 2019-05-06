@@ -1,5 +1,4 @@
 #include "PlayerCharacter.h"
-#include <iostream>
 
 extern int scoreEnemy;
 
@@ -72,12 +71,12 @@ void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
 	position = newPos;
 }
 
-void PlayerCharacter::shootBall() {
+void PlayerCharacter::shootBall() 
+{
 	if (hasBall) {
 		count = 1.0;
 		shooting = true;
 		ball->flyBall();
-		//hasBall = false;
 	}
 }
 
@@ -110,11 +109,8 @@ void PlayerCharacter::increaseScore() {
 	score = score + 1;
 }
 
-void PlayerCharacter::hit() {
+void PlayerCharacter::hit() 
+{
 	lifes = lifes - 1;
 	scoreEnemy = scoreEnemy + 1;
-	Shader textShader("shaders/text.vert", "shaders/text.frag");
-	TextRenderer text;
-	text.Load("fonts/arial.ttf", 80);
-	text.RenderText(textShader, "-1", ((float)1920 / 2) - 20, ((float)1800 / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 }

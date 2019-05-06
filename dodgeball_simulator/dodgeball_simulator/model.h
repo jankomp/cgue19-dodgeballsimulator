@@ -1,3 +1,5 @@
+// Quelle: https://learnopengl.com/Model-Loading/Model
+
 #ifndef MODEL_H
 #define MODEL_H
 

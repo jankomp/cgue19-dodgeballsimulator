@@ -1,3 +1,5 @@
+// Quelle: https://learnopengl.com/Getting-started/Shaders
+
 #ifndef SHADER_H
 #define SHADER_H
 

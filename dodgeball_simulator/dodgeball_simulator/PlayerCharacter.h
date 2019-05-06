@@ -1,11 +1,13 @@
 #ifndef PLAYER_CHARACTER_H
 #define PLAYER_CHARACTER_H
 
-#include "main.h"
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <iostream>
+
 #include "ball.h"
 #include "text_renderer.h"
+#include "main.h"
 //#include <PxPhysicsAPI.h>
 
 

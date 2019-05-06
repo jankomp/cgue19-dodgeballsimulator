@@ -25,13 +25,10 @@ int window::genWindow()
 	if (!glfwInit())
 		return -1;
 
-
-
 	if (!gameWindow)
 	{
 		glfwTerminate();
 		std::printf("Failed to create window");
-		//exit;
 	}
 
 	/* Make the window's context current */
@@ -49,7 +46,6 @@ int window::genWindow()
 	// If GLEW wasn't initialized
 	if (err != GLEW_OK) {
 		std::printf("Failed to init GLEW");
-		//exit;
 	}
 
 

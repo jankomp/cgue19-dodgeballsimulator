@@ -1,5 +1,4 @@
 #include "enemy.h"
-#include <iostream>
 
 extern int scorePlayer;
 
@@ -14,16 +13,16 @@ enemy::enemy(glm::vec3 startPos, Ball* newBall)
 	ball = newBall;
 }
 
-void enemy::rotate(float rotation, float deltaTime) {
+void enemy::rotate(float rotation, float deltaTime) 
+{
 	front.x = cos(glm::radians(rotation));
 	front.z = sin(glm::radians(rotation));
 
 	right = glm::normalize(glm::cross(front, glm::vec3(0.0f, 1.0f, 0.0f)));
-
 }
 
-void enemy::move(float deltaTime) {
-
+void enemy::move(float deltaTime) 
+{
 	if (counter % 100 == 1) {
 		runOrNot = rand() % 2;
 		dir = rand() % 4;
@@ -54,7 +53,7 @@ void enemy::move(float deltaTime) {
 			else
 				dir = 0;
 			break;
-			}
+		}
 		case 2: {
 			float newx = position.x + velocity;
 			if (newx <= 12.5)
@@ -62,7 +61,7 @@ void enemy::move(float deltaTime) {
 			else
 				dir = 3;
 			break;
-			}
+		}
 		case 3: {
 			float newx = position.x - velocity;
 			if (newx >= -12.5)
@@ -70,7 +69,7 @@ void enemy::move(float deltaTime) {
 			else
 				dir = 2;
 			break;
-			}
+		}
 	}
 
 	//std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
@@ -80,38 +79,41 @@ void enemy::move(float deltaTime) {
 
 
 
-glm::vec3 enemy::getPosition() {
+glm::vec3 enemy::getPosition() 
+{
 	return position;
 }
 
-void enemy::setPosition(glm::vec3 newPos) {
+void enemy::setPosition(glm::vec3 newPos) 
+{
 	position = newPos;
 }
 
-void enemy::sethasball(bool possession) {
+void enemy::sethasball(bool possession) 
+{
 	hasBall = possession;
 }
 
-bool enemy::gethasball() {
+bool enemy::gethasball() 
+{
 	return hasBall;
 }
 
-bool enemy::getActive() {
+bool enemy::getActive() 
+{
 	return active;
 }
 
-void enemy::hit () {
+void enemy::hit () 
+{
 	active = false;
 	//player->increaseScore();
 	scorePlayer = scorePlayer + 1;
-	Shader textShader("shaders/text.vert", "shaders/text.frag");
-	TextRenderer text;
-	text.Load("fonts/arial.ttf", 80);
-	text.RenderText(textShader, "+1", ((float)1920 / 2) - 20, ((float)1800 / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 }
 
 
-void enemy::shootBall() {
+void enemy::shootBall() 
+{
 	if (hasBall) {
 		count = 1.0;
 		shooting = true;
@@ -120,7 +122,8 @@ void enemy::shootBall() {
 	}
 }
 
-bool enemy::shootingBall(float deltaTime) {
+bool enemy::shootingBall(float deltaTime) 
+{
 	bool returnVal = shooting;
 	count -= deltaTime;
 	if (count < 0) {
