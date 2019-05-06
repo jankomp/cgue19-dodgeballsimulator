@@ -13,36 +13,34 @@
 #include "Camera.h"
 #include "text_renderer.h"
 #include "enemy.h"
-#include "allEnemies.h"
 #include "CollisionCallback.h"
 
 using namespace physx;
 using namespace std;
 
 
-// settings
+//window settings
 extern int SCR_WIDTH = 1920;
 extern int SCR_HEIGHT = 1800;
 
-// player & camera
+//ball
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
-PlayerCharacter player(glm::vec3(0.0, 0.0, -4.5), &ball);
-enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
-enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
-enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 bool ballcaught = false;
 bool firstCollision = false;
 int countBallIdle = 0;
 
-allEnemies allEn;
-
+//player & camera
+PlayerCharacter player(glm::vec3(0.0, 0.0, -4.5), &ball);
 glm::vec3 camPos = glm::vec3(0.0f, 2.0f, -6.5f);
-
 Camera camera(&player, camPos);
 
-float helpFloat = 0;
-int scoreEnemy = 0, scorePlayer = 0;
+//enemies
+enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
+enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
+enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 
+//scores
+int scoreEnemy = 0, scorePlayer = 0;
 
 // timing
 float lastFrame = 0.0f;
@@ -50,18 +48,16 @@ float lastFrame = 0.0f;
 
 int main(void)
 {
-
 	window gameWindow;
 	gameWindow.genWindow();
-
-
+	
+	//modelle laden
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
-	Shader hudShader("shaders/basic.vert", "shaders/basic.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 
+	//modelle laden
 	Model ballModel("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
-
 	Model spieler("modells/junge_rot/Lt_boy.obj");
 	Model gegner("modells/junge_blau/Lt_boy.obj");
 
@@ -228,7 +224,7 @@ int main(void)
 		// per-frame time logic
 		// --------------------
 		float currentFrame = glfwGetTime();
-		helpFloat = currentFrame - lastFrame;
+		float helpFloat = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 		s.setDeltaTime(helpFloat);
 		float fps = 1.0f / s.getDeltaTime();

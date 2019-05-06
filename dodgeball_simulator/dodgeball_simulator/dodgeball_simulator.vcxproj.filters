@@ -2046,9 +2046,6 @@
     <ClInclude Include="enemy.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="allEnemies.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="settings.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -2082,9 +2079,6 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="enemy.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
-    <ClCompile Include="allEnemies.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="settings.cpp">
