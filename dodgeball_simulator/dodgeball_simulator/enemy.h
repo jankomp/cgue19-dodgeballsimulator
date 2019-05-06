@@ -35,10 +35,10 @@ public:
 	bool getActive();
 	void hit();
 	bool shooting;
-	int count;
+	float count;
 
 	void shootBall();
-	bool shootingBall();
+	bool shootingBall(float deltaTime);
 private:
 	
 };

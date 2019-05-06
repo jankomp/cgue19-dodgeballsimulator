@@ -39,7 +39,7 @@ public:
 	void move(bool running,  Movement direction, float deltaTime);
 	void updatePlayerCharacter(glm::vec3 newPos);
 	void shootBall();
-	bool shootingBall();
+	bool shootingBall(float deltaTime);
 	void sethasball(bool posession);
 	bool gethasball();
 	int getScore();
@@ -49,7 +49,7 @@ public:
 
 private:
 	bool shooting;
-	int count;
+	float count;
 };
 
 #endif

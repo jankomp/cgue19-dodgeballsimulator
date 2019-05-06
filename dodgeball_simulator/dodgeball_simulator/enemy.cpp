@@ -113,16 +113,17 @@ void enemy::hit () {
 
 void enemy::shootBall() {
 	if (hasBall) {
-		count = 120;
+		count = 1.0;
 		shooting = true;
 		ball->flyBall();
 		hasBall = false;
 	}
 }
 
-bool enemy::shootingBall() {
+bool enemy::shootingBall(float deltaTime) {
 	bool returnVal = shooting;
-	if (count-- < 0) {
+	count -= deltaTime;
+	if (count < 0) {
 		shooting = false;
 	}
 	return returnVal;

@@ -307,36 +307,36 @@ int main(void)
 		}
 
 		//get from where ball i shot and add force to the ball as long as the character is shooting (120 loop iterations)
-		if (player.shootingBall()) {
+		if (player.shootingBall(s.getDeltaTime())) {
 			glm::vec3 grafic = camera.getViewDirection();
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.75; direction.z = grafic.z;
 			direction *= 14.0;
 			ballActor->addForce(direction);
-		}else if (enemy_character.shootingBall()) {
+		}else if (enemy_character.shootingBall(s.getDeltaTime())) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
-			direction *= 30.0;
+			direction *= 26.5;
 			ballActor->addForce(direction);
-		}else if (enemy2_character.shootingBall()) {
+		}else if (enemy2_character.shootingBall(s.getDeltaTime())) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy2_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
-			direction *= 30.0;
+			direction *= 26.5;
 			ballActor->addForce(direction);
-		} else if (enemy3_character.shootingBall()) {
+		} else if (enemy3_character.shootingBall(s.getDeltaTime())) {
 			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 			glm::vec3 enemyPos = enemy3_character.getPosition();
 			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
 			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 48.0;
+			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;
-			direction *= 30.0;
+			direction *= 26.5;
 			ballActor->addForce(direction);
 		} else{
 			//if nobody is shooting anymore clear the forces acting on the ball

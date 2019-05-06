@@ -74,16 +74,17 @@ void PlayerCharacter::updatePlayerCharacter(glm::vec3 newPos) {
 
 void PlayerCharacter::shootBall() {
 	if (hasBall) {
-		count = 120;
+		count = 1.0;
 		shooting = true;
 		ball->flyBall();
 		//hasBall = false;
 	}
 }
 
-bool PlayerCharacter::shootingBall() {
+bool PlayerCharacter::shootingBall(float deltaTime) {
 	bool returnVal = shooting;
-	if (count-- < 0) {
+	count -= deltaTime;
+	if (count < 0) {
 		shooting = false;
 	}
 	return returnVal;
