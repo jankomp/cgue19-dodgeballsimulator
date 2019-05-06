@@ -860,7 +860,6 @@ PhysXCommon_static_32.lib
     <ClCompile Include="window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="glut32.dll" />
     <None Include="libraries\assimp_4.1.0\include\assimp\color4.inl" />
     <None Include="libraries\assimp_4.1.0\include\assimp\material.inl" />
     <None Include="libraries\assimp_4.1.0\include\assimp\matrix3x3.inl" />

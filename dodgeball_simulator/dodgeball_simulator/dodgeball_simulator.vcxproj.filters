@@ -2092,7 +2092,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="glut32.dll" />
     <None Include="libraries\assimp_4.1.0\include\assimp\color4.inl">
       <Filter>Headerdateien</Filter>
     </None>
