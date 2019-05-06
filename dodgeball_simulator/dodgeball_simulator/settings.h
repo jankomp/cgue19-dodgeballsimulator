@@ -20,11 +20,6 @@ public:
 	static void processInput(GLFWwindow *window);
 	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 
-	 //void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-	 //void mouse_callback(GLFWwindow* window, double xpos, double ypos);
-	 //void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
-	 //void processInput(GLFWwindow *window);
-	 //void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
 	 int getScreen();
 	 bool headUpDisplay();
 	 float getDeltaTime();
