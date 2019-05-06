@@ -5,9 +5,7 @@
 
 using namespace glm;
 
-class Shader;
-class Model;
-
+//class that contains the information if the ball is being shot right now
 class Ball
 {
 public:
@@ -16,8 +14,6 @@ public:
 	vec3 position;
 	vec3 direction;
 
-	void updatePosition(vec3 newPosition);
-	void drawBall(Shader* shader);
 	void flyBall();
 	bool isShot();
 
