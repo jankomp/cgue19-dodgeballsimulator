@@ -69,7 +69,7 @@ void settings::processInput(GLFWwindow *window)
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
-		head_up_display = true;
+		head_up_display = !head_up_display;
 	}
 
 }
