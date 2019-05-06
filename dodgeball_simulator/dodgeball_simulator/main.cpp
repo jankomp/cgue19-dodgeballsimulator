@@ -60,8 +60,7 @@ int main(void)
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 	Model spieler("modells/junge_rot/Lt_boy.obj");
 	Model gegner("modells/junge_blau/Lt_boy.obj");
-
-
+	
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -74,7 +73,8 @@ int main(void)
 	static PxDefaultErrorCallback gDefaultErrorCallback;
 	static PxDefaultAllocator gDefaultAllocatorCallback;
 	static PxFoundation* gFoundation = NULL;
-	//Creating foundation for PhysX
+
+	//Creating foundation for PhysX - vorl. ausgeklammert, weil foundation anscheinend schon existiert
 	/*gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
 	if (!gFoundation)
 		printf("PxCreateFoundation failed!");*/
@@ -97,7 +97,7 @@ int main(void)
 	// Set Instance of CollisionCallback as SimulationEventCallback of Scene
 	CollisionCallback gContactReportCallback(&player, &enemy_character, &enemy2_character, &enemy3_character);
 	sceneDesc.simulationEventCallback = &gContactReportCallback;
-
+	//create the scene with the corresponding scene description
 	gScene = gPhysicsSDK->createScene(sceneDesc);
 		
 	//Creating material
@@ -142,6 +142,7 @@ int main(void)
 	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
 	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
 	PxShape* ballShape = gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial);
+		//set filter data for collision detection (to detect what object is hit)
 	PxFilterData filterData; filterData.word0 = 0;	filterData.word1 = 0; ballShape->setSimulationFilterData(filterData);
 	ballActor->attachShape(*ballShape);
 	gScene->addActor(*ballActor);
@@ -194,28 +195,29 @@ int main(void)
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+	//load fonts
 	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
 	title.Load("fonts/arial.ttf", 140);
 	text.Load("fonts/arial.ttf", 80);
 	spielstand.Load("fonts/arial.ttf", 150);
 	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
-
 	ballSchrift.Load("fonts/Balls.ttf", 68);
 
+	//projection matrix
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-
 
 	//turnhalle
 	glm::mat4 model_turnhalle = glm::mat4(1.0f);
 	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	
-
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
 	{
+		//settings = all the callbacks of mouse and keyboard
 		settings s(&player, &camera);
 
+		//gamewon, gamelost screens
 		if (scoreEnemy == 3)
 			s.setScreen(3);
 		if (scorePlayer == 3)
@@ -234,12 +236,15 @@ int main(void)
 		gScene->simulate(s.getDeltaTime());
 		gScene->fetchResults(true);
 
+		//if the ball is idle it goes to a player in whos field it currently is
 		if (ballActor->isSleeping() && !ballcaught) {
 			ballcaught = true;
+			//detect in which field the ball is
 			if (ballActor->getGlobalPose().p.z <= 0) {
 				player.sethasball(true);
 			}
 			else {
+				//give the ball to a randomly elected enemy
 				bool enemyfound = false;
 				ball.shot = true;
 				while (!enemyfound) {
@@ -257,9 +262,10 @@ int main(void)
 			}
 		}
 
-
+		//ball is shot, when the player presses the left mouse-button or immediatly when an enemy gets the ball
 		if (ball.isShot()) {
 			if (player.gethasball()) {
+				//start the ball a little bit in front of the player, so it doesn't collide with itself
 				glm::vec3 playerPos = player.getPosition() + camera.getViewDirection();
 				playerPos.y += 2.0;	
 				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
@@ -267,6 +273,7 @@ int main(void)
 				player.sethasball(false);
 			}
 			else if (enemy_character.getActive() && enemy_character.gethasball()) {
+				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
 				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 				glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;
 				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
@@ -276,6 +283,7 @@ int main(void)
 				enemy_character.shootBall();
 			}
 			else if (enemy2_character.getActive() && enemy2_character.gethasball()) {
+				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
 				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 				glm::vec3 enemyPos = enemy2_character.getPosition();	enemyPos.y += 2.0;
 				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
@@ -285,6 +293,7 @@ int main(void)
 				enemy2_character.shootBall();
 			}
 			else if (enemy3_character.getActive() && enemy3_character.gethasball()) {
+				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
 				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
 				glm::vec3 enemyPos = enemy3_character.getPosition();	enemyPos.y += 2.0;
 				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
@@ -293,9 +302,11 @@ int main(void)
 				ballcaught = false;
 				enemy3_character.shootBall();
 			}
+			//selt first collision (global variable) to true -> next collision counts
 			firstCollision = true;
 		}
 
+		//get from where ball i shot and add force to the ball as long as the character is shooting (120 loop iterations)
 		if (player.shootingBall()) {
 			glm::vec3 grafic = camera.getViewDirection();
 			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.75; direction.z = grafic.z;
@@ -328,7 +339,9 @@ int main(void)
 			direction *= 30.0;
 			ballActor->addForce(direction);
 		} else{
+			//if nobody is shooting anymore clear the forces acting on the ball
 			ballActor->clearForce();
+			//if the ball is hardly moving it gets send to sleep so that it goes to a character
 			if (ballActor->getLinearVelocity().magnitude() < 0.5) {
 				if (countBallIdle++ > 60) {
 					ballActor->putToSleep();
@@ -341,7 +354,6 @@ int main(void)
 
 		// input
 		// -----
-
 		s.processInput(gameWindow.getWindow());
 
 
@@ -352,11 +364,10 @@ int main(void)
 
 
 		// view/projection transformations
-
 		glm::mat4 view = camera.getWorldToViewMat();
 
 		if (s.getScreen() == 1) {
-
+			//startscreen
 			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 			textShader.use();
 			textShader.setMat4("projection", proj2);
@@ -367,7 +378,7 @@ int main(void)
 		}
 
 		if (s.getScreen() == 2) {
-
+			//gamescreen
 			gameShader.use();
 		
 
@@ -397,24 +408,23 @@ int main(void)
 				ballModel.Draw(gameShader);
 			}
 
+			/* update the PysX positions to the new model positions*/
 			//spieler
 			playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
 			playerActor->setGlobalPose(PxTransform(playerPos));
-
 			//enemies
 			enemy_characterActor->setGlobalPose(PxTransform(PxVec3(enemy_character.getPosition().x, enemy_character.getPosition().y, enemy_character.getPosition().z)));
 			enemy2_characterActor->setGlobalPose(PxTransform(PxVec3(enemy2_character.getPosition().x, enemy2_character.getPosition().y, enemy2_character.getPosition().z)));
 			enemy3_characterActor->setGlobalPose(PxTransform(PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z)));
-
-
+			
+			//draw player
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
 			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 			gameShader.setMat4("model", model_spieler);
 			spieler.Draw(gameShader);
 
-
-
+			//draw the enemies (if active)
 			if (enemy_character.getActive()) {
 				glm::mat4 model_gegner = glm::mat4(1.0f);
 				enemy_character.move(s.getDeltaTime());
@@ -424,8 +434,6 @@ int main(void)
 				gameShader.setMat4("model", model_gegner);
 				gegner.Draw(gameShader);
 			}
-
-
 			if (enemy2_character.getActive())
 			{
 				glm::mat4 model_gegner2 = glm::mat4(1.0f);
@@ -436,7 +444,6 @@ int main(void)
 				gameShader.setMat4("model", model_gegner2);
 				gegner.Draw(gameShader);
 			}
-
 			if (enemy3_character.getActive())
 			{
 				glm::mat4 model_gegner3 = glm::mat4(1.0f);
@@ -448,7 +455,7 @@ int main(void)
 				gegner.Draw(gameShader);
 			}
 
-		
+			//draw hud
 			if (s.headUpDisplay()) {
 
 				switch (player.getLifes())
