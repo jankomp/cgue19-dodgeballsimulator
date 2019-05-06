@@ -1,9 +1,9 @@
-/*#pragma once
-#include "physics.h"
+#pragma once
+#include <physx/PxPhysicsAPI.h>
 
 using namespace physx;
 
-class CollisionCallback: PxSimulationEventCallback
+class CollisionCallback: public PxSimulationEventCallback
 {
 public:
 	CollisionCallback();
@@ -22,5 +22,3 @@ public:
 	void onAdvance(const PxRigidBody*const* bodyBuffer, const PxTransform* poseBuffer, const PxU32 count);
 
 };
-
-*/

@@ -1,4 +1,4 @@
-/*#include "CollisionCallback.h"
+#include "CollisionCallback.h"
 #include <iostream>
 
 
@@ -51,4 +51,3 @@ void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count) {
 
 	void CollisionCallback::onAdvance(const PxRigidBody*const* bodyBuffer, const PxTransform* poseBuffer, const PxU32 count) {};
 
-	*/
