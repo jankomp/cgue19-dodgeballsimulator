@@ -29,5 +29,6 @@ public:
 	 bool headUpDisplay();
 	 float getDeltaTime();
 	 void setDeltaTime(float toSet);
+	 void setScreen(int scr);
 };
 

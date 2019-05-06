@@ -139,3 +139,7 @@ void settings::setDeltaTime(float toSet)
 {
 	deltaTime = toSet;
 }
+
+void settings::setScreen(int scr) {
+	screen = scr;
+}
