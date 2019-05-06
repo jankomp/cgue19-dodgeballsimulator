@@ -1,4 +1,35 @@
-﻿     Bibliothek "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Release\dodgeball_simulator.lib" und Objekt "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Release\dodgeball_simulator.exp" werden erstellt.
+﻿  Ball.cpp
+  Camera.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.cpp(18): warning C4244: "=": Konvertierung von "double" in "T", möglicher Datenverlust
+          with
+          [
+              T=float
+          ]
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.cpp(29): warning C4244: "+=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.cpp(30): warning C4244: "+=": Konvertierung von "double" in "float", möglicher Datenverlust
+  CollisionCallback.cpp
+  enemy.cpp
+  glm.cpp
+  main.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(144): warning C4305: "Argument": Verkürzung von "double" in "physx::PxReal"
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(228): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(312): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(319): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(328): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(337): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+  PlayerCharacter.cpp
+  settings.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(92): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(93): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(97): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(98): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(100): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(101): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+  stb_image.cpp
+  text_renderer.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\text_renderer.cpp(234): warning C4838: Konvertierung von "FT_Pos" zu "GLuint" erfordert eine einschränkende Konvertierung
+  window.cpp
+     Bibliothek "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Release\dodgeball_simulator.lib" und Objekt "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Release\dodgeball_simulator.exp" werden erstellt.
   Code wird generiert.
 c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\window.cpp(56): warning C4715: "window::genWindow": Nicht alle Codepfade geben einen Wert zurück.
   All 1433 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
