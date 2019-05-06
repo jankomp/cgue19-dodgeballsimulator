@@ -5,7 +5,7 @@
 #include <iostream>
 #include <GL/GL.h>
 #include "PlayerCharacter.h"
-
+#include "enemy.h"
 
 
 class settings 

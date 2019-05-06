@@ -13,7 +13,9 @@ bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 
-
+extern enemy enemy_character;
+extern enemy enemy2_character;
+extern enemy enemy3_character;
 
 settings::settings(PlayerCharacter *playP, Camera *cam) {
 	player = playP;
@@ -57,9 +59,9 @@ void settings::processInput(GLFWwindow *window)
 		screen = 2;
 		
 		camera->camReset(player, camera->getPosition());
-		//enemy_character.updateEnemy(glm::vec3(0.0, 0.0, 6.0));
-		//enemy2_character.updateEnemy(glm::vec3(-3.0, 0.0, 3.5));
-		//enemy3_character.updateEnemy(glm::vec3(3.0, 0.0, 3.5));
+		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
+		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
+		enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
