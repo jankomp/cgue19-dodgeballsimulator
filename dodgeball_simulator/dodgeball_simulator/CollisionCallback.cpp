@@ -42,9 +42,8 @@ void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count)
 					player->hit();
 				}
 			}
-			firstCollision = false;
-			std::cout << "on Trigger" << std::endl;
 		}
+		firstCollision = false;
 	}
 }
 	void CollisionCallback::onConstraintBreak(PxConstraintInfo* constraints, PxU32 count) {};
