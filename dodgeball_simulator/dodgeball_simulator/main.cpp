@@ -103,7 +103,7 @@ int main(void)
 	//Creating material
 	PxMaterial* mMaterial =
 		//static friction, dynamic friction, restitution
-		gPhysicsSDK->createMaterial(0.5, 0.5, 0.5);
+		gPhysicsSDK->createMaterial(0.5, 0.5, 0.35);
 
 	//1-Creating static plane (floor)
 	PxTransform floorPos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
@@ -302,7 +302,7 @@ int main(void)
 				ballcaught = false;
 				enemy3_character.shootBall();
 			}
-			//selt first collision (global variable) to true -> next collision counts
+			//set firstCollision (global variable) to true -> next collision counts
 			firstCollision = true;
 		}
 

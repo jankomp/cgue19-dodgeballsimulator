@@ -56,11 +56,13 @@ void settings::processInput(GLFWwindow *window)
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
-		screen = 2;
-		camera->camReset(player, camera->getPosition());
-		enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
-		enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
-		enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
+		if (screen == 1) {
+			screen = 2;
+			camera->camReset(player, camera->getPosition());
+			enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
+			enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
+			enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
+		}
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
