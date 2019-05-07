@@ -17,7 +17,7 @@ class enemy
 	bool running;
 	int runOrNot;
 	int dir;
-	int counter;
+	float counter;
 	bool hasBall;
 	bool active;
 	Ball* ball;

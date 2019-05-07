@@ -2,7 +2,8 @@
 
 extern int scorePlayer;
 
-int runOrNot = 0, dir = 0, counter = 0;
+int runOrNot = 0, dir = 0;
+float counter = 0.0;
 
 enemy::enemy(glm::vec3 startPos, Ball* newBall)
 {
@@ -23,9 +24,11 @@ void enemy::rotate(float rotation, float deltaTime)
 
 void enemy::move(float deltaTime) 
 {
-	if (counter % 100 == 1) {
+	counter += deltaTime;
+	if (counter > 1.0f) {
 		runOrNot = rand() % 2;
 		dir = rand() % 4;
+		counter = 0.0;
 	}
 	
 	float movementSpeed;
@@ -71,9 +74,6 @@ void enemy::move(float deltaTime)
 			break;
 		}
 	}
-
-	//std::cout << "Player: " << position.x << "," << position.y << "," << position.z << std::endl;
-	counter = counter + 1;
 }
 
 glm::vec3 enemy::getPosition() 
