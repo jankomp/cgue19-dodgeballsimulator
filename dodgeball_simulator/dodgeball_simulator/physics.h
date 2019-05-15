@@ -2,24 +2,24 @@
 #include <PhysX/PxPhysics.h>
 #include <PhysX/PxPhysicsAPI.h>
 
-physx::PxFoundation* foundation;
-physx::PxPhysics* physics;
-physx::PxScene* scene;
+#include "PlayerCharacter.h"
+#include "enemy.h"
+#include "Camera.h"
+#include "CollisionCallback.h"
 
-physx::PxDefaultAllocator gDefaultAllocatorCallback;
-physx::PxDefaultErrorCallback gDefaultErrorCallback;
 
-bool initPhysics() {
-	foundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
-	if (foundation == nullptr) {
-		return false;
-	}
+class physics {
+	public:
+		physics(PlayerCharacter* player, enemy* enemy_character, enemy* enemy2_character, enemy* enemy3_character);
 
-	physics = PxCreatePhysics(PX_PHYSICS_VERSION, *foundation, physx::PxTolerancesScale());
+		bool initPhysics();
+		void setupScene();
+		void releaseScene();
 
-	if (physics == nullptr) {
-		return false;
-	}
-
-	return true;
-}
+		void stepPhysicSimulation(float deltaTime);
+		void dealBall(PlayerCharacter* player, Ball* ball, enemy* enemy_character, enemy* enemy2_character, enemy* enemy3_character);
+		void simulateBallShot(float deltaTime, PlayerCharacter* player, Ball* ball, enemy* enemy_character, enemy* enemy2_character, enemy* enemy3_character, Camera* camera);
+		physx::PxVec3 getBallPos();
+		void setPlayerPos(physx::PxVec3 playerPos);
+		void setEnemyPositions(physx::PxVec3 enmy1Pos, physx::PxVec3 enmy2Pos, physx::PxVec3 enmy3Pos);
+};

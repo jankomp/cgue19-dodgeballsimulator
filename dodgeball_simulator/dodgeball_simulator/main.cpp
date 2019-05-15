@@ -13,7 +13,6 @@
 #include "Camera.h"
 #include "text_renderer.h"
 #include "enemy.h"
-#include "CollisionCallback.h"
 
 using namespace physx;
 using namespace std;
@@ -25,9 +24,8 @@ extern int SCR_HEIGHT = 1800;
 
 //ball
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
-bool ballcaught = false;
-bool firstCollision = false;
-int countBallIdle = 0;
+//bool ballcaught = false;
+//bool firstCollision = false;
 
 //player & camera
 PlayerCharacter player(glm::vec3(0.0, 0.0, -4.5), &ball);
@@ -65,134 +63,13 @@ int main(void)
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	initPhysics();
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	//Physx
-	static PxDefaultErrorCallback gDefaultErrorCallback;
-	static PxDefaultAllocator gDefaultAllocatorCallback;
-	static PxFoundation* gFoundation = NULL;
+	physics p(&player, &enemy_character, &enemy2_character, &enemy3_character);
+	//p.initPhysics();
+	p.setupScene();
 
-	//Creating foundation for PhysX - vorl. ausgeklammert, weil foundation anscheinend schon existiert
-	/*gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
-	if (!gFoundation)
-		printf("PxCreateFoundation failed!");*/
-
-	static PxPhysics* gPhysicsSDK = NULL;
-	//Creating instance of PhysX SDK
-	gPhysicsSDK = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale());
-	if (gPhysicsSDK == NULL)
-	{
-		cerr << "Error creating PhysX3 device, Exiting..." << endl;
-		exit(1);
-	}
-
-	PxScene* gScene = NULL;
-	//Creating scene
-	PxSceneDesc sceneDesc(gPhysicsSDK->getTolerancesScale());
-	sceneDesc.gravity = PxVec3(0.0f, -9.8f, 0.0f);
-	sceneDesc.cpuDispatcher = PxDefaultCpuDispatcherCreate(1);
-	sceneDesc.filterShader = PxDefaultSimulationFilterShader;
-	// Set Instance of CollisionCallback as SimulationEventCallback of Scene
-	CollisionCallback gContactReportCallback(&player, &enemy_character, &enemy2_character, &enemy3_character);
-	sceneDesc.simulationEventCallback = &gContactReportCallback;
-	//create the scene with the corresponding scene description
-	gScene = gPhysicsSDK->createScene(sceneDesc);
-		
-	//Creating material
-	PxMaterial* mMaterial =
-		//static friction, dynamic friction, restitution
-		gPhysicsSDK->createMaterial(0.5, 0.5, 0.35);
-
-	//1-Creating static plane (floor)
-	PxTransform floorPos = PxTransform(PxVec3(0.0f, 0.0f, 0.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
-	PxRigidStatic* gymActor = gPhysicsSDK->createRigidStatic(floorPos);
-	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*gymActor);
-
-	//Creating walls
-	PxTransform wall1Pos = PxTransform(PxVec3(0.0f, 0.0f, 27.0f), PxQuat(PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
-	gymActor = gPhysicsSDK->createRigidStatic(wall1Pos);
-	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*gymActor);
-
-	PxTransform wall2Pos = PxTransform(PxVec3(0.0f, 0.0f, -27.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 1.0f, 0.0f)));
-	gymActor = gPhysicsSDK->createRigidStatic(wall2Pos);
-	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*gymActor);
 	
-	PxTransform wall3Pos = PxTransform(PxVec3(-13.5f, 0.0f, 0.0f));
-	gymActor = gPhysicsSDK->createRigidStatic(wall3Pos);
-	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*gymActor);
-
-	PxTransform wall4Pos = PxTransform(PxVec3(13.5f, 0.0f, 0.0f), PxQuat(-PxPi, PxVec3(0.0f, 1.0f, 0.0f)));
-	gymActor = gPhysicsSDK->createRigidStatic(wall4Pos);
-	gymActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*gymActor);
-
-	//1-Creating static plane (roof)
-	PxTransform roofPos = PxTransform(PxVec3(0.0f,  12.0f, 0.0f), PxQuat(-PxHalfPi, PxVec3(0.0f, 0.0f, 1.0f)));
-	PxRigidStatic* roofActor = gPhysicsSDK->createRigidStatic(roofPos);
-	roofActor->attachShape(*gPhysicsSDK->createShape(PxPlaneGeometry(), *mMaterial));
-	gScene->addActor(*roofActor);
-
-	//creating sphere (ball)
-	PxTransform ballPos = PxTransform(PxVec3(2.0f, 2.0f, -1.0f));
-	PxRigidDynamic* ballActor = gPhysicsSDK->createRigidDynamic(ballPos);
-	PxShape* ballShape = gPhysicsSDK->createShape(PxSphereGeometry(0.2), *mMaterial);
-		//set filter data for collision detection (to detect what object is hit)
-	PxFilterData filterData; filterData.word0 = 0;	filterData.word1 = 0; ballShape->setSimulationFilterData(filterData);
-	ballActor->attachShape(*ballShape);
-	gScene->addActor(*ballActor);
-
-	//creating box (player)
-	PxVec3 playerPos = PxVec3(0.0);
-	playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
-	PxTransform playerPosition = PxTransform(playerPos);
-	PxRigidDynamic* playerActor = gPhysicsSDK->createRigidDynamic(playerPosition);
-	PxShape* playerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(2.0f, 4.0f, 2.0f)), *mMaterial);
-	filterData.word0 = 2;	filterData.word1 = 0; playerShape->setSimulationFilterData(filterData);
-	playerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
-	playerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
-	playerActor->attachShape(*playerShape);
-	gScene->addActor(*playerActor);
-
-	//creating boxes (enemys)
-	PxVec3 enemy_characterPos = PxVec3(0.0);
-	enemy_characterPos.x = enemy_character.getPosition().x;	enemy_characterPos.y = enemy_character.getPosition().y;	enemy_characterPos.z = enemy_character.getPosition().z;
-	PxTransform enemy_characterPosition = PxTransform(enemy_characterPos);
-	PxRigidDynamic* enemy_characterActor = gPhysicsSDK->createRigidDynamic(enemy_characterPosition);
-	PxShape* triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.3f, 0.5f)), *mMaterial);
-	filterData.word0 = 1;	filterData.word1 = 0; triggerShape->setSimulationFilterData(filterData);
-	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
-	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
-	enemy_characterActor->attachShape(*triggerShape);
-	gScene->addActor(*enemy_characterActor);
-
-	PxVec3 enemy2_characterPos = PxVec3(0.0);
-	enemy2_characterPos.x = enemy2_character.getPosition().x;	enemy2_characterPos.y = enemy2_character.getPosition().y;	enemy2_characterPos.z = enemy2_character.getPosition().z;
-	PxTransform enemy2_characterPosition = PxTransform(enemy2_characterPos);
-	PxRigidDynamic* enemy2_characterActor = gPhysicsSDK->createRigidDynamic(enemy2_characterPosition);
-	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.3f, 0.5f)), *mMaterial);
-	filterData.word0 = 1;	filterData.word1 = 1; triggerShape->setSimulationFilterData(filterData);
-	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
-	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
-	enemy2_characterActor->attachShape(*triggerShape);
-	gScene->addActor(*enemy2_characterActor);
-
-	PxVec3 enemy3_characterPos = PxVec3(0.0);
-	enemy3_characterPos.x = enemy3_character.getPosition().x;	enemy3_characterPos.y = enemy3_character.getPosition().y;	enemy3_characterPos.z = enemy3_character.getPosition().z;
-	PxTransform enemy3_characterPosition = PxTransform(enemy3_characterPos);
-	PxRigidDynamic* enemy3_characterActor = gPhysicsSDK->createRigidDynamic(enemy3_characterPosition);
-	triggerShape = gPhysicsSDK->createShape(PxBoxGeometry(PxVec3(1.0f, 2.3f, 0.5f)), *mMaterial);
-	filterData.word0 = 1;	filterData.word1 = 2; triggerShape->setSimulationFilterData(filterData);
-	triggerShape->setFlag(PxShapeFlag::eSIMULATION_SHAPE, false);
-	triggerShape->setFlag(PxShapeFlag::eTRIGGER_SHAPE, true);
-	enemy3_characterActor->attachShape(*triggerShape);
-	gScene->addActor(*enemy3_characterActor);
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//load fonts
@@ -232,123 +109,14 @@ int main(void)
 		float fps = 1.0f / s.getDeltaTime();
 		//cout << "fps: " << fps << endl;
 
-		//advance the PhysX simulation by one step
-		gScene->simulate(s.getDeltaTime());
-		gScene->fetchResults(true);
+		//advance the physx simulkation by one step
+		p.stepPhysicSimulation(s.getDeltaTime());
 
-		//if the ball is idle it goes to a player in whos field it currently is
-		if (ballActor->isSleeping() && !ballcaught) {
-			ballcaught = true;
-			//detect in which field the ball is
-			if (ballActor->getGlobalPose().p.z <= 0) {
-				player.sethasball(true);
-			}
-			else {
-				//give the ball to a randomly selected enemy
-				bool enemyfound = false;
-				ball.shot = true;
-				while (!enemyfound) {
-					int random = rand() % 3;
-					if (random == 0 && enemy_character.getActive()) {
-						enemy_character.sethasball(true); enemyfound = true;
-					}
-					else if (random == 1 && enemy2_character.getActive()) {
-						enemy2_character.sethasball(true); enemyfound = true;
-					}
-					else if (random == 2 && enemy3_character.getActive()) {
-						enemy3_character.sethasball(true); enemyfound = true;
-					}
-				}
-			}
-		}
+		//if the ball is idle give it to whichever team deserves it
+		p.dealBall(&player, &ball, &enemy_character, &enemy2_character, &enemy3_character);
 
-		//ball is shot, when the player presses the left mouse-button or immediatly when an enemy gets the ball
-		if (ball.isShot()) {
-			if (player.gethasball()) {
-				//start the ball a little bit in front of the player, so it doesn't collide with itself
-				glm::vec3 playerPos = player.getPosition() + camera.getViewDirection();
-				playerPos.y += 2.0;	
-				ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
-				ballcaught = false;
-				player.sethasball(false);
-			}
-			else if (enemy_character.getActive() && enemy_character.gethasball()) {
-				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
-				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-				glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;
-				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
-				enemyPos += shotdirection;
-				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
-				ballcaught = false;
-				enemy_character.shootBall();
-			}
-			else if (enemy2_character.getActive() && enemy2_character.gethasball()) {
-				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
-				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-				glm::vec3 enemyPos = enemy2_character.getPosition();	enemyPos.y += 2.0;
-				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
-				enemyPos += shotdirection;
-				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
-				ballcaught = false;
-				enemy2_character.shootBall();
-			}
-			else if (enemy3_character.getActive() && enemy3_character.gethasball()) {
-				//start the ball a little bit in front of the enemy, so it doesn't collide with itself
-				glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-				glm::vec3 enemyPos = enemy3_character.getPosition();	enemyPos.y += 2.0;
-				glm::vec3 shotdirection = glm::normalize(playerPos - enemyPos); shotdirection *= 2.5;
-				enemyPos += shotdirection;
-				ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
-				ballcaught = false;
-				enemy3_character.shootBall();
-			}
-			//set firstCollision (global variable) to true -> next collision counts
-			firstCollision = true;
-		}
-
-		//get from where ball i shot and add force to the ball as long as the character is shooting (120 loop iterations)
-		if (player.shootingBall(s.getDeltaTime())) {
-			glm::vec3 grafic = camera.getViewDirection();
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + 0.75; direction.z = grafic.z;
-			direction *= 14.0;
-			ballActor->addForce(direction);
-		}else if (enemy_character.shootingBall(s.getDeltaTime())) {
-			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-			glm::vec3 enemyPos = enemy_character.getPosition();	enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
-			direction *= 26.5;
-			ballActor->addForce(direction);
-		}else if (enemy2_character.shootingBall(s.getDeltaTime())) {
-			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-			glm::vec3 enemyPos = enemy2_character.getPosition();
-			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;			
-			direction *= 26.5;
-			ballActor->addForce(direction);
-		} else if (enemy3_character.shootingBall(s.getDeltaTime())) {
-			glm::vec3 playerPos = player.getPosition(); playerPos.y += 2.0;
-			glm::vec3 enemyPos = enemy3_character.getPosition();
-			enemyPos.y += 2.0;	enemyPos.z -= 2.0;
-			glm::vec3 grafic = glm::normalize(playerPos - enemyPos);
-			float aimCorrection = glm::length(playerPos - enemyPos) / 65.0;
-			PxVec3 direction; direction.x = grafic.x; direction.y = grafic.y + aimCorrection; direction.z = grafic.z;
-			direction *= 26.5;
-			ballActor->addForce(direction);
-		} else{
-			//if nobody is shooting anymore clear the forces acting on the ball
-			ballActor->clearForce();
-			//if the ball is hardly moving it gets send to sleep so that it goes to a character
-			if (ballActor->getLinearVelocity().magnitude() < 0.5) {
-				if (countBallIdle++ > 60) {
-					ballActor->putToSleep();
-					countBallIdle = 0;
-				}
-			}
-		}
+		//simulate the shooting of the ball
+		p.simulateBallShot(s.getDeltaTime(), &player, &ball, &enemy_character, &enemy2_character, &enemy3_character, &camera);
 
 		// input
 		s.processInput(gameWindow.getWindow());
@@ -392,9 +160,9 @@ int main(void)
 			turnhalle.Draw(gameShader);
 		
 			//ball
-			if (!ballcaught) {
+			if (!ball.caught) {
 				glm::mat4 model_ball = glm::mat4(1.0f);
-				PxVec3 ballPhysixPosition = ballActor->getGlobalPose().p;
+				PxVec3 ballPhysixPosition = p.getBallPos();
 				glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
 				ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
 				model_ball = glm::translate(model_ball, ballRenderPosition);
@@ -405,13 +173,14 @@ int main(void)
 
 			/* update the PysX positions to the new model positions*/
 			//spieler
+			PxVec3 playerPos = PxVec3();
 			playerPos.x = player.getPosition().x;	playerPos.y = player.getPosition().y;	playerPos.z = player.getPosition().z;
-			playerActor->setGlobalPose(PxTransform(playerPos));
-			//enemies
-			enemy_characterActor->setGlobalPose(PxTransform(PxVec3(enemy_character.getPosition().x, enemy_character.getPosition().y, enemy_character.getPosition().z)));
-			enemy2_characterActor->setGlobalPose(PxTransform(PxVec3(enemy2_character.getPosition().x, enemy2_character.getPosition().y, enemy2_character.getPosition().z)));
-			enemy3_characterActor->setGlobalPose(PxTransform(PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z)));
+			p.setPlayerPos(playerPos);
 			
+			p.setEnemyPositions(PxVec3(enemy_character.getPosition().x, enemy_character.getPosition().y, enemy_character.getPosition().z),
+								PxVec3(enemy2_character.getPosition().x, enemy2_character.getPosition().y, enemy2_character.getPosition().z),
+								PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z));
+
 			//draw player
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
@@ -493,8 +262,7 @@ int main(void)
 		glfwPollEvents();
 	}
 
-	gScene->release();
-	gPhysicsSDK->release();
+	p.releaseScene();
 
 	glfwTerminate();
 	return 0;

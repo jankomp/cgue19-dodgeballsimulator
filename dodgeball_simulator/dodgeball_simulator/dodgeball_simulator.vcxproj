@@ -853,6 +853,7 @@ PhysXCommon_static_32.lib
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="physics.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="settings.cpp" />
     <ClCompile Include="stb_image.cpp" />

@@ -19,6 +19,8 @@ public:
 	CollisionCallback(PlayerCharacter* newPlayer, enemy* newEnemy1, enemy* newEnemy2, enemy* newEnemy3);
 	~CollisionCallback();
 
+	void setFirstCollision(bool value);
+
 	void onTrigger(PxTriggerPair* pairs, PxU32 count);
 	void onConstraintBreak(PxConstraintInfo* constraints, PxU32 count);
 	void onWake(PxActor** actors, PxU32 count);

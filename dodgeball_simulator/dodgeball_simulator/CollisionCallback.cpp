@@ -1,7 +1,7 @@
 #include "CollisionCallback.h"
 #include <iostream>
 
-extern bool firstCollision;
+bool firstCollision;
 
 CollisionCallback::CollisionCallback(PlayerCharacter* newPlayer, enemy* newEnemy1, enemy* newEnemy2, enemy* newEnemy3)
 {
@@ -13,6 +13,11 @@ CollisionCallback::CollisionCallback(PlayerCharacter* newPlayer, enemy* newEnemy
 
 
 CollisionCallback::~CollisionCallback() {}
+
+void CollisionCallback::setFirstCollision(bool value) {
+	firstCollision = value;
+}
+
 
 void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count) 
 {
