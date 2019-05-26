@@ -166,6 +166,7 @@ PhysXCommon_static_32.lib
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="bloom.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionCallback.h" />
     <ClInclude Include="enemy.h" />
@@ -848,6 +849,7 @@ PhysXCommon_static_32.lib
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Ball.cpp" />
+    <ClCompile Include="bloom.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CollisionCallback.cpp" />
     <ClCompile Include="enemy.cpp" />

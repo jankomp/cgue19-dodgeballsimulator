@@ -1,5 +1,6 @@
 #include "settings.h"
 
+
 extern int SCR_WIDTH;
 extern int SCR_HEIGHT;
 
@@ -11,6 +12,19 @@ bool running = false;
 PlayerCharacter *player;
 Camera *camera;
 extern float deltaTime = 0.0f;
+
+/* --------------------------------------------- */
+	// Load settings.ini
+	/* --------------------------------------------- */
+
+//INIReader reader("settings.ini");
+//
+//int window_width = reader.GetInteger("window", "width", 800);
+//int window_height = reader.GetInteger("window", "height", 800);
+//int refresh_rate = reader.GetInteger("window", "refresh_rate", 60);
+//bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
+//float brightness = reader.GetReal("window", "brightness", 1.0f);
+
 int screen = 1;
 bool head_up_display = true;
 bool firstMouse = true;
@@ -69,7 +83,7 @@ void settings::processInput(GLFWwindow *window)
 		camera->camReset(player, camera->getPosition());
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS) {
+	if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS && glfwGetKey(window, GLFW_KEY_H) == GLFW_RELEASE) {
 		head_up_display = !head_up_display;
 	}
 

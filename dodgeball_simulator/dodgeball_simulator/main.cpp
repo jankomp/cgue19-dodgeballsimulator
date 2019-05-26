@@ -13,9 +13,22 @@
 #include "Camera.h"
 #include "text_renderer.h"
 #include "enemy.h"
+#include "bloom.h"
 
 using namespace physx;
 using namespace std;
+
+
+
+	unsigned int pingpongFBO[2];
+	unsigned int pingpongColorbuffers[2];
+	unsigned int colorBuffers[2];
+	bool horizontal = true;
+	bool first_iteration = true;
+	unsigned int hdrFBO;
+	bool bloom = true;
+	bool bloomKeyPressed = false;
+	float exposure = 1.0f;
 
 
 //window settings
@@ -46,12 +59,19 @@ float lastFrame = 0.0f;
 
 int main(void)
 {
+
+
+
 	window gameWindow;
 	gameWindow.genWindow();
 	
 	//modelle laden
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
+	Shader bloomShader("shaders/bloom.vert", "shaders/bloom.frag");
+	Shader bloom2Shader("shaders/bloom2.vert", "shaders/bloom2.frag");
+	Shader blurShader("shaders/blur.vert", "shaders/blur.frag");
+	Shader lightShader("shaders/bloom.vert", "shaders/light.frag");
 
 	//modelle laden
 	Model ballModel("modells/ball/ball.obj");
@@ -72,6 +92,10 @@ int main(void)
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+	/*glGenFramebuffers(1, &hdrFBO);
+	glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);*/
+
 	//load fonts
 	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
 	title.Load("fonts/arial.ttf", 140);
@@ -87,6 +111,19 @@ int main(void)
 	glm::mat4 model_turnhalle = glm::mat4(1.0f);
 	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
+	Bloom toShine;
+	//toShine.framebuffer();
+
+	toShine.setLight();
+
+
+	bloomShader.use();
+	bloomShader.setInt("diffuseTexture", 0);
+	blurShader.use();
+	blurShader.setInt("image", 0);
+	bloom2Shader.use();
+	bloom2Shader.setInt("scene", 0);
+	bloom2Shader.setInt("bloomBlur", 1);
 	
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
@@ -158,6 +195,24 @@ int main(void)
 			//turnhalle
 			gameShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(gameShader);
+
+
+			//bloom element
+
+			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
+			//bloomShader.setVec3("viewPos", camera.getPosition());
+			//toShine.render2(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
+
+			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			//bloom2Shader.use();
+			//glActiveTexture(GL_TEXTURE0);
+			//toShine.bind1();
+			//glActiveTexture(GL_TEXTURE1);
+			//toShine.bind2();
+			//bloom2Shader.setInt("bloom", bloom);
+			//bloom2Shader.setFloat("exposure", exposure);
+			//toShine.renderQuad();
+		
 		
 			//ball
 			if (!ball.caught) {
@@ -217,6 +272,7 @@ int main(void)
 				model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
 				gameShader.setMat4("model", model_gegner3);
 				gegner.Draw(gameShader);
+
 			}
 
 			//draw hud
