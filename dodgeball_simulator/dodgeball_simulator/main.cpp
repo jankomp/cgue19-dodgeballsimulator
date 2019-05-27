@@ -14,6 +14,8 @@
 #include "text_renderer.h"
 #include "enemy.h"
 #include "bloom.h"
+//#include "Utils.h"
+
 
 using namespace physx;
 using namespace std;
@@ -50,12 +52,37 @@ enemy enemy_character(glm::vec3(0.0, 0.0, 6.0), &ball);
 enemy enemy2_character(glm::vec3(-3.0, 0.0, 3.5), &ball);
 enemy enemy3_character(glm::vec3(3.0, 0.0, 3.5), &ball);
 
+//video texture
+std::vector<glm::vec3> canvasVertices;
+std::vector <GLushort> canvasIndices;
+std::vector<glm::vec2> canvasUVcoords;
+
+//DDSImage crowd_test_texture = loadDDS("./modells/crowd/crowdtest.dds");
+
 //scores
 int scoreEnemy = 0, scorePlayer = 0;
 
 // timing
 float lastFrame = 0.0f;
 
+void genCrowdCanvas() {
+	canvasVertices.push_back(glm::vec3(-5, 9, 13.49));
+	canvasVertices.push_back(glm::vec3(9, 9, 13.49));
+	canvasVertices.push_back(glm::vec3(9, 0, 13.49));
+	canvasVertices.push_back(glm::vec3(-5, 0, 13.49));
+
+	canvasIndices.push_back(0);
+	canvasIndices.push_back(1);
+	canvasIndices.push_back(2);
+	canvasIndices.push_back(2);
+	canvasIndices.push_back(3);
+	canvasIndices.push_back(0);
+
+	canvasUVcoords.push_back(glm::vec2(0, 1));
+	canvasUVcoords.push_back(glm::vec2(1, 1));
+	canvasUVcoords.push_back(glm::vec2(1, 0));
+	canvasUVcoords.push_back(glm::vec2(0, 0));
+}
 
 int main(void)
 {
@@ -110,6 +137,28 @@ int main(void)
 	//turnhalle
 	glm::mat4 model_turnhalle = glm::mat4(1.0f);
 	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+
+	//canvas for the video texture
+	genCrowdCanvas();
+
+	GLuint canvasVertexArrayObject, zvbo[3];
+	glGenVertexArrays(1, &canvasVertexArrayObject);
+	glBindVertexArray(canvasVertexArrayObject);
+	glGenBuffers(3, zvbo);
+
+	glBindBuffer(GL_ARRAY_BUFFER, zvbo[0]);
+	glBufferData(GL_ARRAY_BUFFER, canvasVertices.size() * sizeof(glm::vec3), canvasVertices.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, zvbo[1]);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, canvasIndices.size() * sizeof(GLushort), canvasIndices.data(), GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ARRAY_BUFFER, zvbo[2]);
+	glBufferData(GL_ARRAY_BUFFER, canvasUVcoords.size() * sizeof(glm::vec2), canvasUVcoords.data(), GL_STATIC_DRAW);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glBindVertexArray(0);
 
 	Bloom toShine;
 	//toShine.framebuffer();
@@ -196,6 +245,19 @@ int main(void)
 			gameShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(gameShader);
 
+			//draw the crowd
+			//glCompressedTexImage2D(GL_TEXTURE_2D, 0, crowd_test_texture.format, crowd_test_texture.width, crowd_test_texture.height, 0, crowd_test_texture.size, crowd_test_texture.image);
+			//glGenerateMipmap(GL_TEXTURE_2D);
+
+			glBindVertexArray(canvasVertexArrayObject);
+			glDrawElements(
+				GL_TRIANGLES,      // mode
+				canvasIndices.size(),// count
+				GL_UNSIGNED_SHORT,   // type
+				(void*)0           // element array buffer offset
+			);
+			glBindVertexArray(0);
+
 
 			//bloom element
 
@@ -274,6 +336,7 @@ int main(void)
 				gegner.Draw(gameShader);
 
 			}
+
 
 			//draw hud
 			if (s.headUpDisplay()) {
