@@ -9,6 +9,7 @@
 #include "camera.h"
 #include "PlayerCharacter.h"
 #include "enemy.h"
+#include "bloom.h"
 //#include "INIReader.h"
 
 class settings 

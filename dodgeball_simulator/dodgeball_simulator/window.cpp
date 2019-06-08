@@ -3,6 +3,7 @@
 extern int SCR_WIDTH;
 extern int SCR_HEIGHT;
 
+
 int window::genWindow()
 {
 	settings s;

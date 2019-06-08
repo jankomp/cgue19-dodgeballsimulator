@@ -6,7 +6,9 @@
 #include <iostream>
 #include <GL/GL.h>
 
+
 #include "settings.h"
+
 
 class window
 {

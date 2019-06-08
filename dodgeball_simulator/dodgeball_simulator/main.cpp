@@ -20,7 +20,9 @@
 using namespace physx;
 using namespace std;
 
+unsigned int loadTexture(const char *path, bool gammaCorrection);
 
+Bloom toShine;
 
 	unsigned int pingpongFBO[2];
 	unsigned int pingpongColorbuffers[2];
@@ -105,6 +107,10 @@ int main(void)
 	Model turnhalle("modells/turnhalle/turnhalle.obj");
 	Model spieler("modells/junge_rot/Lt_boy.obj");
 	Model gegner("modells/junge_blau/Lt_boy.obj");
+
+
+	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
+
 	
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -160,10 +166,10 @@ int main(void)
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glBindVertexArray(0);
 
-	Bloom toShine;
+	//Bloom toShine;
+	//toShine.setLight();
 	//toShine.framebuffer();
 
-	toShine.setLight();
 
 
 	bloomShader.use();
@@ -235,6 +241,26 @@ int main(void)
 			textShader.use();
 			textShader.setMat4("projection", proj2);
 
+			//bloom element
+
+
+			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera);
+			////bloomShader.setVec3("viewPos", camera.getPosition());
+			//toShine.render2(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
+
+			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			//bloom2Shader.use();
+			//glActiveTexture(GL_TEXTURE0);
+			//toShine.bind1();
+			//glActiveTexture(GL_TEXTURE1);
+			//toShine.bind2();
+			//bloom2Shader.setInt("bloom", bloom);
+			//bloom2Shader.setFloat("exposure", exposure);
+			//toShine.renderQuad();
+
+
+
+
 			gameShader.use();
 			gameShader.setMat4("projection", projection);
 			gameShader.setMat4("view", view);
@@ -258,22 +284,9 @@ int main(void)
 			);
 			glBindVertexArray(0);
 
-
-			//bloom element
-
-			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
+			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera);
 			//bloomShader.setVec3("viewPos", camera.getPosition());
 			//toShine.render2(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
-
-			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			//bloom2Shader.use();
-			//glActiveTexture(GL_TEXTURE0);
-			//toShine.bind1();
-			//glActiveTexture(GL_TEXTURE1);
-			//toShine.bind2();
-			//bloom2Shader.setInt("bloom", bloom);
-			//bloom2Shader.setFloat("exposure", exposure);
-			//toShine.renderQuad();
 		
 		
 			//ball
@@ -338,6 +351,8 @@ int main(void)
 			}
 
 
+
+
 			//draw hud
 			if (s.headUpDisplay()) {
 
@@ -385,4 +400,50 @@ int main(void)
 
 	glfwTerminate();
 	return 0;
+}
+
+unsigned int loadTexture(char const * path, bool gammaCorrection)
+{
+	unsigned int textureID;
+	glGenTextures(1, &textureID);
+
+	int width, height, nrComponents;
+	unsigned char *data = stbi_load(path, &width, &height, &nrComponents, 0);
+	if (data)
+	{
+		GLenum internalFormat;
+		GLenum dataFormat;
+		if (nrComponents == 1)
+		{
+			internalFormat = dataFormat = GL_RED;
+		}
+		else if (nrComponents == 3)
+		{
+			internalFormat = gammaCorrection ? GL_SRGB : GL_RGB;
+			dataFormat = GL_RGB;
+		}
+		else if (nrComponents == 4)
+		{
+			internalFormat = gammaCorrection ? GL_SRGB_ALPHA : GL_RGBA;
+			dataFormat = GL_RGBA;
+		}
+
+		glBindTexture(GL_TEXTURE_2D, textureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, dataFormat, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		stbi_image_free(data);
+	}
+	else
+	{
+		std::cout << "Texture failed to load at path: " << path << std::endl;
+		stbi_image_free(data);
+	}
+
+	return textureID;
 }

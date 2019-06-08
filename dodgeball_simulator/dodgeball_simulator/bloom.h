@@ -11,7 +11,7 @@ public:
 	~Bloom();
 	void framebuffer();
 	void setLight();
-	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view);
+	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view, unsigned int woodText, Camera *camera);
 	void render2(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view);
 	//void render();
 	void renderCube();
@@ -37,7 +37,7 @@ private:
 	std::vector<glm::vec3> lightPositions;
 	std::vector<glm::vec3> lightColors;
 
-	unsigned int hdrFBO;
+	GLuint fbo;
 	
 
 

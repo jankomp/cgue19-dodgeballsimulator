@@ -25,11 +25,12 @@ extern float deltaTime = 0.0f;
 //bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
 //float brightness = reader.GetReal("window", "brightness", 1.0f);
 
-int screen = 1;
+int screen = 2;
 bool head_up_display = true;
 bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
+extern Bloom toShine;
 
 settings::settings(PlayerCharacter *playP, Camera *cam) 
 {
@@ -76,6 +77,8 @@ void settings::processInput(GLFWwindow *window)
 			enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
 			enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
 			enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
+			toShine.setLight();
+			toShine.framebuffer();
 		}
 	}
 
