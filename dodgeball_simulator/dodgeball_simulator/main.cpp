@@ -15,6 +15,9 @@
 #include "enemy.h"
 #include "bloom.h"
 //#include "Utils.h"
+#include "ParticleGenerator.h"
+
+//extern float deltaTime;
 
 
 using namespace physx;
@@ -101,6 +104,14 @@ int main(void)
 	Shader bloom2Shader("shaders/bloom2.vert", "shaders/bloom2.frag");
 	Shader blurShader("shaders/blur.vert", "shaders/blur.frag");
 	Shader lightShader("shaders/bloom.vert", "shaders/light.frag");
+	Shader particleShader("shaders/particle.vert", "shaders/particle.frag");
+
+
+
+
+
+
+
 
 	//modelle laden
 	Model ballModel("modells/ball/ball.obj");
@@ -110,7 +121,7 @@ int main(void)
 
 
 	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
-
+	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
@@ -179,7 +190,13 @@ int main(void)
 	bloom2Shader.use();
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
-	
+
+	//ParticleGenerator particles;
+	//particles.setVBO(particleShader, projection);
+
+	glm::mat4 view;
+	float helpFloat;
+
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
 	{
@@ -195,7 +212,7 @@ int main(void)
 		// per-frame time logic
 		// --------------------
 		float currentFrame = glfwGetTime();
-		float helpFloat = currentFrame - lastFrame;
+		helpFloat = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 		s.setDeltaTime(helpFloat);
 		float fps = 1.0f / s.getDeltaTime();
@@ -218,7 +235,7 @@ int main(void)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// view/projection transformations
-		glm::mat4 view = camera.getWorldToViewMat();
+		view = camera.getWorldToViewMat();
 
 		//startscreen
 		if (s.getScreen() == 1) {
@@ -242,6 +259,7 @@ int main(void)
 			textShader.setMat4("projection", proj2);
 
 			//bloom element
+
 
 
 			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera);
@@ -381,9 +399,12 @@ int main(void)
 			title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 		}
 
+		
 		//won screen
 		if (s.getScreen() == 4) {
 			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+		
+			//particles.render(helpFloat, particleShader, projection, view);
 		}
 
 		glEnable(GL_DEPTH_TEST);
@@ -394,7 +415,13 @@ int main(void)
 
 		/* Poll for and process events */
 		glfwPollEvents();
+
+		//particles.del(helpFloat, particleShader, projection, view);
+
+		
 	}
+
+	//particles.del(helpFloat, particleShader, projection, view);
 
 	p.releaseScene();
 

@@ -11,7 +11,7 @@ extern enemy enemy3_character;
 bool running = false;
 PlayerCharacter *player;
 Camera *camera;
-extern float deltaTime = 0.0f;
+float deltaTime = 0.0f;
 
 /* --------------------------------------------- */
 	// Load settings.ini
@@ -25,7 +25,7 @@ extern float deltaTime = 0.0f;
 //bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
 //float brightness = reader.GetReal("window", "brightness", 1.0f);
 
-int screen = 2;
+int screen = 1;
 bool head_up_display = true;
 bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
@@ -77,8 +77,8 @@ void settings::processInput(GLFWwindow *window)
 			enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
 			enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
 			enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
-			toShine.setLight();
-			toShine.framebuffer();
+			//toShine.setLight();
+			//toShine.framebuffer();
 		}
 	}
 

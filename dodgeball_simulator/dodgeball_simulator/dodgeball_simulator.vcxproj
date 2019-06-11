@@ -840,6 +840,7 @@ PhysXCommon_static_32.lib
     <ClInclude Include="main.h" />
     <ClInclude Include="mesh.h" />
     <ClInclude Include="model.h" />
+    <ClInclude Include="ParticleGenerator.h" />
     <ClInclude Include="physics.h" />
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="settings.h" />
@@ -855,6 +856,7 @@ PhysXCommon_static_32.lib
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="libraries\glm_0.9.9.4\include\glm\detail\glm.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="ParticleGenerator.cpp" />
     <ClCompile Include="physics.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="settings.cpp" />

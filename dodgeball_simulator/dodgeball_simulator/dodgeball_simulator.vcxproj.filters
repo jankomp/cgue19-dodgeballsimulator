@@ -2058,6 +2058,9 @@
     <ClInclude Include="bloom.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleGenerator.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -2097,6 +2100,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="bloom.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleGenerator.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
