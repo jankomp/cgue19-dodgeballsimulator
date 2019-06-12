@@ -2069,9 +2069,6 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="stb_image.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerCharacter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -2103,6 +2100,9 @@
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="ParticleGenerator.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="stb_image.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>

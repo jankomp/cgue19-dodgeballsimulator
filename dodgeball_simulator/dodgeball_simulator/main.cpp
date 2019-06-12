@@ -16,6 +16,7 @@
 #include "bloom.h"
 //#include "Utils.h"
 #include "ParticleGenerator.h"
+ #include "stb_image.h"
 
 //extern float deltaTime;
 
@@ -62,7 +63,24 @@ std::vector<glm::vec3> canvasVertices;
 std::vector <GLushort> canvasIndices;
 std::vector<glm::vec2> canvasUVcoords;
 
-//DDSImage crowd_test_texture = loadDDS("./modells/crowd/crowdtest.dds");
+int width, height, nrChannels;
+unsigned char *crowdData_00 = stbi_load("modells/crowd/crowd_0.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_01 = stbi_load("modells/crowd/crowd_b_1.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_02 = stbi_load("modells/crowd/crowd_b_2.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_03 = stbi_load("modells/crowd/crowd_b_3.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_04 = stbi_load("modells/crowd/crowd_b_4.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_05 = stbi_load("modells/crowd/crowd_b_5.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_06 = stbi_load("modells/crowd/crowd_b_6.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_07 = stbi_load("modells/crowd/crowd_r_1.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_08 = stbi_load("modells/crowd/crowd_r_2.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_09 = stbi_load("modells/crowd/crowd_r_3.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_10 = stbi_load("modells/crowd/crowd_r_4.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_11 = stbi_load("modells/crowd/crowd_r_5.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_12 = stbi_load("modells/crowd/crowd_r_6.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_13 = stbi_load("modells/crowd/crowd_r_7.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_14 = stbi_load("modells/crowd/crowd_r_8.jpg", &width, &height, &nrChannels, 0);
+unsigned char *crowdData_15 = stbi_load("modells/crowd/crowd_r_9.jpg", &width, &height, &nrChannels, 0);
+float frameCounter = 0;
 
 //scores
 int scoreEnemy = 0, scorePlayer = 0;
@@ -71,10 +89,10 @@ int scoreEnemy = 0, scorePlayer = 0;
 float lastFrame = 0.0f;
 
 void genCrowdCanvas() {
-	canvasVertices.push_back(glm::vec3(-5, 9, 13.49));
-	canvasVertices.push_back(glm::vec3(9, 9, 13.49));
-	canvasVertices.push_back(glm::vec3(9, 0, 13.49));
-	canvasVertices.push_back(glm::vec3(-5, 0, 13.49));
+	canvasVertices.push_back(glm::vec3(-2, 6, 13.49));
+	canvasVertices.push_back(glm::vec3(6, 6, 13.49));
+	canvasVertices.push_back(glm::vec3(6, 1.5, 13.49));
+	canvasVertices.push_back(glm::vec3(-2, 1.5, 13.49));
 
 	canvasIndices.push_back(0);
 	canvasIndices.push_back(1);
@@ -83,11 +101,63 @@ void genCrowdCanvas() {
 	canvasIndices.push_back(3);
 	canvasIndices.push_back(0);
 
-	canvasUVcoords.push_back(glm::vec2(0, 1));
-	canvasUVcoords.push_back(glm::vec2(1, 1));
-	canvasUVcoords.push_back(glm::vec2(1, 0));
 	canvasUVcoords.push_back(glm::vec2(0, 0));
+	canvasUVcoords.push_back(glm::vec2(1, 0));
+	canvasUVcoords.push_back(glm::vec2(1, 1));
+	canvasUVcoords.push_back(glm::vec2(0, 1));
 }
+
+unsigned char *getCrowdFrame(int score, float deltaTime) {
+	if (score < 0) {
+		frameCounter += deltaTime;
+		if (frameCounter <= 0.08) {
+			return crowdData_01;
+		}else if (frameCounter <= 0.16) {
+			return crowdData_02;
+		}else if (frameCounter <= 0.24) {
+			return crowdData_03;
+		}else if (frameCounter <= 0.32) {
+			return crowdData_04;
+		}else if (frameCounter <= 0.4) {
+			return crowdData_05;
+		}else if (frameCounter <= 0.48) {
+			return crowdData_06;
+		}else if (frameCounter > 0.48) {
+			frameCounter = 0.0;
+			return crowdData_06;
+		}
+	}
+	else if (score > 0) {
+		frameCounter += deltaTime;
+		if (frameCounter <= 0.08) {
+			return crowdData_07;
+		}else if (frameCounter <= 0.16) {
+			return crowdData_08;
+		}else if (frameCounter <= 0.24) {
+			return crowdData_09;
+		}else if (frameCounter <= 0.32) {
+			return crowdData_10;
+		}else if (frameCounter <= 0.4) {
+			return crowdData_11;
+		}else if (frameCounter <= 0.48) {
+			return crowdData_12;
+		}else if (frameCounter <= 0.56) {
+			return crowdData_13;
+		}else if (frameCounter <= 0.64) {
+			return crowdData_14;
+		}else if (frameCounter <= 0.72) {
+			return crowdData_15;
+		}else if (frameCounter > 0.72) {
+			frameCounter = 0.0;
+			return crowdData_15;
+		}
+	}
+	else {
+		return crowdData_00;
+	}
+}
+
+
 
 int main(void)
 {
@@ -123,6 +193,11 @@ int main(void)
 	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
+
+	unsigned int crowdTexture;
+	glGenTextures(1, &crowdTexture);
+
+
 	//glEnable(GL_CULL_FACE);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_BLEND);
@@ -157,7 +232,7 @@ int main(void)
 
 	//canvas for the video texture
 	genCrowdCanvas();
-
+	
 	GLuint canvasVertexArrayObject, zvbo[3];
 	glGenVertexArrays(1, &canvasVertexArrayObject);
 	glBindVertexArray(canvasVertexArrayObject);
@@ -173,8 +248,8 @@ int main(void)
 
 	glBindBuffer(GL_ARRAY_BUFFER, zvbo[2]);
 	glBufferData(GL_ARRAY_BUFFER, canvasUVcoords.size() * sizeof(glm::vec2), canvasUVcoords.data(), GL_STATIC_DRAW);
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glBindVertexArray(0);
 
 	//Bloom toShine;
@@ -290,8 +365,12 @@ int main(void)
 			turnhalle.Draw(gameShader);
 
 			//draw the crowd
-			//glCompressedTexImage2D(GL_TEXTURE_2D, 0, crowd_test_texture.format, crowd_test_texture.width, crowd_test_texture.height, 0, crowd_test_texture.size, crowd_test_texture.image);
-			//glGenerateMipmap(GL_TEXTURE_2D);
+
+			glBindTexture(GL_TEXTURE_2D, crowdTexture);
+
+			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, crowdData);
+			glGenerateMipmap(GL_TEXTURE_2D);
 
 			glBindVertexArray(canvasVertexArrayObject);
 			glDrawElements(
