@@ -16,7 +16,7 @@
 #include "bloom.h"
 //#include "Utils.h"
 #include "ParticleGenerator.h"
- #include "stb_image.h"
+//#include "stb_image.h"
 
 
 static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam);
@@ -355,12 +355,11 @@ if (glDebugMessageCallback != NULL) {
 
 			//bloom element
 
+			std::vector <glm::vec3> vecPoints;
+			std::vector <unsigned int> vecIndices;
 
-
-			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera);
-			////bloomShader.setVec3("viewPos", camera.getPosition());
-			//toShine.render2(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view);
-
+			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera, vecPoints, vecIndices);
+			
 			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			//bloom2Shader.use();
 			//glActiveTexture(GL_TEXTURE0);

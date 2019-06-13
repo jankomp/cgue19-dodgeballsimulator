@@ -3,6 +3,9 @@
 #include "window.h"
 #include <vector>
 #include "Camera.h"
+//#include "model.h"
+#include <vector>
+#include <glm/glm.hpp>
 
 class Bloom
 {
@@ -11,8 +14,9 @@ public:
 	~Bloom();
 	void framebuffer();
 	void setLight();
-	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view, unsigned int woodText, Camera *camera);
+	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view, unsigned int woodText, Camera *camera, std::vector<glm::vec3> points, std::vector<unsigned int> indices);
 	void render2(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view);
+	void renderSphere(std::vector<glm::vec3> points, std::vector<unsigned int> indices);
 	//void render();
 	void renderCube();
 	void renderQuad();
@@ -29,6 +33,8 @@ private:
 	unsigned int pingpongColorbuffers[2];
 	unsigned int cubeVAO = 0;
 	unsigned int cubeVBO = 0;
+
+
 	unsigned int quadVAO = 0;
 	unsigned int quadVBO;
 	bool bloom = true;

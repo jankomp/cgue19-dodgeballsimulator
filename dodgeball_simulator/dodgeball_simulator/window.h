@@ -21,9 +21,6 @@ public:
 	GLFWwindow* getWindow();
 	bool run();
 	GLFWwindow* gameWindow;
-
-	//static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam);
-	//static std::string FormatDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity, const char* msg);
 };
 
 #endif
