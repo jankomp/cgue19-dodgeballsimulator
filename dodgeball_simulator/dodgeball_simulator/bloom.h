@@ -14,9 +14,10 @@ public:
 	~Bloom();
 	void framebuffer();
 	void setLight();
-	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view, unsigned int woodText, Camera *camera, std::vector<glm::vec3> points, std::vector<unsigned int> indices);
-	void render2(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view);
+	void render(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view, Camera *camera, std::vector<glm::vec3> points, std::vector<unsigned int> indices);
+	//void render2(Shader *blurShader, Shader *bloomShader, Shader *lightShader, Shader *bloom2Shader, glm::mat4 projection, glm::mat4 view);
 	void renderSphere(std::vector<glm::vec3> points, std::vector<unsigned int> indices);
+	void renderModel(std::vector<glm::vec3> points, std::vector<unsigned int> indices);
 	//void render();
 	void renderCube();
 	void renderQuad();
@@ -33,10 +34,13 @@ private:
 	unsigned int pingpongColorbuffers[2];
 	unsigned int cubeVAO = 0;
 	unsigned int cubeVBO = 0;
-
-
 	unsigned int quadVAO = 0;
 	unsigned int quadVBO;
+
+	unsigned int sphereVAO = 0;
+	unsigned int sphereVBO = 0;
+	unsigned int modelVAO = 0;
+	unsigned int modelVBO;
 	bool bloom = true;
 	bool bloomKeyPressed = false;
 	float exposure = 1.0f;
@@ -44,7 +48,8 @@ private:
 	std::vector<glm::vec3> lightColors;
 
 	GLuint fbo;
-	
+	unsigned int rboDepth;
+
 
 
 };

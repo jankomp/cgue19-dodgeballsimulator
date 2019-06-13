@@ -265,7 +265,7 @@ if (glDebugMessageCallback != NULL) {
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glBindVertexArray(0);
 
-	//Bloom toShine;
+	Bloom toShine;
 	//toShine.setLight();
 	//toShine.framebuffer();
 
@@ -358,7 +358,7 @@ if (glDebugMessageCallback != NULL) {
 			std::vector <glm::vec3> vecPoints;
 			std::vector <unsigned int> vecIndices;
 
-			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, woodTexture, &camera, vecPoints, vecIndices);
+			//toShine.render(&blurShader, &bloomShader, &lightShader, &bloom2Shader, projection, view, &camera, vecPoints, vecIndices);
 			
 			//glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 			//bloom2Shader.use();
@@ -463,7 +463,6 @@ if (glDebugMessageCallback != NULL) {
 				model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
 				gameShader.setMat4("model", model_gegner3);
 				gegner.Draw(gameShader);
-
 			}
 
 
