@@ -18,6 +18,10 @@
 #include "ParticleGenerator.h"
  #include "stb_image.h"
 
+
+static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam);
+static std::string FormatDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity, const char* msg);
+
 //extern float deltaTime;
 
 
@@ -166,6 +170,15 @@ int main(void)
 
 	window gameWindow;
 	gameWindow.genWindow();
+
+
+	// Debug callback
+if (glDebugMessageCallback != NULL) {
+	glDebugMessageCallback(DebugCallbackDefault, NULL);
+	glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+}
+
+
 	
 	//modelle laden
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
@@ -266,8 +279,11 @@ int main(void)
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
 
-	//ParticleGenerator particles;
-	//particles.setVBO(particleShader, projection);
+	//ParticleCreation particles;
+	//particles.loadParticle();
+
+	ParticleGenerator particles;
+	particles.setVBO(particleShader, projection);
 
 	glm::mat4 view;
 	float helpFloat;
@@ -312,12 +328,16 @@ int main(void)
 		// view/projection transformations
 		view = camera.getWorldToViewMat();
 
+		glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+		textShader.use();
+		textShader.setMat4("projection", proj2);
+
 		//startscreen
 		if (s.getScreen() == 1) {
 			
-			glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-			textShader.use();
-			textShader.setMat4("projection", proj2);
+			//glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+			//textShader.use();
+			//textShader.setMat4("projection", proj2);
 
 			title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
@@ -481,12 +501,14 @@ int main(void)
 		
 		//won screen
 		if (s.getScreen() == 4) {
+			
 			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 		
-			//particles.render(helpFloat, particleShader, projection, view);
+			//particles.calculateParticle(helpFloat, view, projection, particleShader);
 		}
 
 		glEnable(GL_DEPTH_TEST);
+		glDepthFunc(GL_LESS);
 		glDisable(GL_CULL_FACE);
 
 		/* Swap front and back buffers */
@@ -495,12 +517,10 @@ int main(void)
 		/* Poll for and process events */
 		glfwPollEvents();
 
-		//particles.del(helpFloat, particleShader, projection, view);
-
-		
 	}
 
-	//particles.del(helpFloat, particleShader, projection, view);
+	
+	//particles.del();
 
 	p.releaseScene();
 
@@ -552,4 +572,116 @@ unsigned int loadTexture(char const * path, bool gammaCorrection)
 	}
 
 	return textureID;
+}
+
+
+static std::string FormatDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity, const char* msg) {
+	std::stringstream stringStream;
+	std::string sourceString;
+	std::string typeString;
+	std::string severityString;
+
+	switch (source) {
+	case GL_DEBUG_CATEGORY_API_ERROR_AMD:
+	case GL_DEBUG_SOURCE_API: {
+		sourceString = "API";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_APPLICATION_AMD:
+	case GL_DEBUG_SOURCE_APPLICATION: {
+		sourceString = "Application";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_WINDOW_SYSTEM_AMD:
+	case GL_DEBUG_SOURCE_WINDOW_SYSTEM: {
+		sourceString = "Window System";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_SHADER_COMPILER_AMD:
+	case GL_DEBUG_SOURCE_SHADER_COMPILER: {
+		sourceString = "Shader Compiler";
+		break;
+	}
+	case GL_DEBUG_SOURCE_THIRD_PARTY: {
+		sourceString = "Third Party";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_OTHER_AMD:
+	case GL_DEBUG_SOURCE_OTHER: {
+		sourceString = "Other";
+		break;
+	}
+	default: {
+		sourceString = "Unknown";
+		break;
+	}
+	}
+
+	switch (type) {
+	case GL_DEBUG_TYPE_ERROR: {
+		typeString = "Error";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_DEPRECATION_AMD:
+	case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR: {
+		typeString = "Deprecated Behavior";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_UNDEFINED_BEHAVIOR_AMD:
+	case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR: {
+		typeString = "Undefined Behavior";
+		break;
+	}
+	case GL_DEBUG_TYPE_PORTABILITY_ARB: {
+		typeString = "Portability";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_PERFORMANCE_AMD:
+	case GL_DEBUG_TYPE_PERFORMANCE: {
+		typeString = "Performance";
+		break;
+	}
+	case GL_DEBUG_CATEGORY_OTHER_AMD:
+	case GL_DEBUG_TYPE_OTHER: {
+		typeString = "Other";
+		break;
+	}
+	default: {
+		typeString = "Unknown";
+		break;
+	}
+	}
+
+	switch (severity) {
+	case GL_DEBUG_SEVERITY_HIGH: {
+		severityString = "High";
+		break;
+	}
+	case GL_DEBUG_SEVERITY_MEDIUM: {
+		severityString = "Medium";
+		break;
+	}
+	case GL_DEBUG_SEVERITY_LOW: {
+		severityString = "Low";
+		break;
+	}
+	default: {
+		severityString = "Unknown";
+		break;
+	}
+	}
+
+	stringStream << "OpenGL Error: " << msg;
+	stringStream << " [Source = " << sourceString;
+	stringStream << ", Type = " << typeString;
+	stringStream << ", Severity = " << severityString;
+	stringStream << ", ID = " << id << "]";
+
+	return stringStream.str();
+}
+
+static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam) {
+	if (id == 131185 || id == 131218) return; // ignore performance warnings from nvidia
+	std::string error = FormatDebugOutput(source, type, id, severity, message);
+	std::cout << error << std::endl;
 }

@@ -12,6 +12,9 @@
 #include "bloom.h"
 //#include "INIReader.h"
 
+
+
+
 class settings 
 {
 public:
@@ -23,6 +26,7 @@ public:
 	static void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
 	static void processInput(GLFWwindow *window);
 	static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods);
+	
 
 	 int getScreen();
 	 bool headUpDisplay();

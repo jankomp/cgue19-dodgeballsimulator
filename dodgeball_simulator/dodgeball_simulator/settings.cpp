@@ -25,6 +25,8 @@ float deltaTime = 0.0f;
 //bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
 //float brightness = reader.GetReal("window", "brightness", 1.0f);
 
+
+
 int screen = 1;
 bool head_up_display = true;
 bool firstMouse = true;
@@ -157,3 +159,6 @@ void settings::setScreen(int scr)
 {
 	screen = scr;
 }
+
+
+
