@@ -18,11 +18,9 @@
 //#include "Utils.h"
 #include "ParticleGenerator.h"
 
-
 static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam);
 static std::string FormatDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity, const char* msg);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-
 unsigned int loadTexture(const char *path, bool gammaCorrection);
 void renderQuad();
 void renderCube();
@@ -32,12 +30,8 @@ using namespace std;
 
 
 //uniform float weight[7] = float[] (6*0.32032, 5*0.2270270270, 4*0.1945945946, 3*0.1216216216, 2*0.0540540541, 0.0162162162, 0.009923);
-
 //uniform float weight[7] = float[] (0.32032, 0.2270270270, 0.1945945946, 0.1216216216, 0.0540540541, 0.0162162162, 0.009923);
 //uniform float weight[5] = float[] (8*0.2270270270, 7*0.1945945946, 6*0.1216216216, 7*0.0540540541, 8*0.0162162162);
-
-
-
 
 
 //window settings
@@ -47,16 +41,22 @@ extern int SCR_WIDTH = 1280;
 extern int SCR_HEIGHT = 720;
 
 
-
+//bloom 
 bool bloom = true;
 bool bloomKeyPressed = false;
 float exposure = 1.0f;
 
+//scores
+int scoreEnemy = 0, scorePlayer = 0;
 
-////ball
+// timing
+float lastFrame = 0.0f;
+
+
+//ball
 Ball ball(glm::vec3(2.0f, 2.0f, 2.0f));
-////bool ballcaught = false;
-////bool firstCollision = false;
+//bool ballcaught = false;
+//bool firstCollision = false;
 
 //player & camera
 PlayerCharacter player(glm::vec3(0.0, 0.0, -4.5), &ball);
@@ -91,12 +91,6 @@ unsigned char *crowdData_13 = stbi_load("modells/crowd/crowd_r_7.jpg", &width, &
 unsigned char *crowdData_14 = stbi_load("modells/crowd/crowd_r_8.jpg", &width, &height, &nrChannels, 0);
 unsigned char *crowdData_15 = stbi_load("modells/crowd/crowd_r_9.jpg", &width, &height, &nrChannels, 0);
 float frameCounter = 0;
-
-//scores
-int scoreEnemy = 0, scorePlayer = 0;
-
-// timing
-float lastFrame = 0.0f;
 
 void genCrowdCanvas() {
 	canvasVertices.push_back(glm::vec3(-2, 6, 13.49));
@@ -189,7 +183,7 @@ int main(void)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//modelle laden
+	//load shader
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 	Shader bloomShader("shaders/bloom.vert", "shaders/bloom.frag");
@@ -198,23 +192,33 @@ int main(void)
 	Shader bloom2Shader("shaders/bloom2.vert", "shaders/bloom2.frag");
 	Shader particleShader("shaders/particle.vert", "shaders/particle.frag");
 
-
-	//modelle laden
+	//load modells
 	Model ballModel("modells/ball/ball.obj");
 	Model turnhalle("modells/turnhallemitloch/turnhalle.obj");
 	Model spieler("modells/junge_rot/Lt_boy.obj");
 	Model gegner("modells/junge_blau/Lt_boy.obj");
 
-
+	//load texture
 	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int stoneTexture = loadTexture("modells/turnhalle/grey01.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
+	//load fonts
+	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
+	title.Load("fonts/arial.ttf", 140);
+	text.Load("fonts/arial.ttf", 80);
+	spielstand.Load("fonts/arial.ttf", 150);
+	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
+	ballSchrift.Load("fonts/Balls.ttf", 68);
 
-	unsigned int crowdTexture;
-	glGenTextures(1, &crowdTexture);
 
+	
 
+	//ParticleCreation particles;
+	//particles.loadParticle();
+
+	//ParticleGenerator particles;
+	//particles.setVBO(particleShader, projection);
 	
 	
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -225,25 +229,9 @@ int main(void)
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-	//load fonts
-	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
-	title.Load("fonts/arial.ttf", 140);
-	text.Load("fonts/arial.ttf", 80);
-	spielstand.Load("fonts/arial.ttf", 150);
-	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
-	ballSchrift.Load("fonts/Balls.ttf", 68);
-
-	//projection matrix
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-	glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-
-	//turnhalle
-	glm::mat4 model_turnhalle = glm::mat4(1.0f);
-	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
+	unsigned int crowdTexture;
+	glGenTextures(1, &crowdTexture);
+	
 	//canvas for the video texture
 	genCrowdCanvas();
 	
@@ -266,9 +254,14 @@ int main(void)
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
 	glBindVertexArray(0);
 
-	//Bloom toShine;
-	//toShine.setLight();
-	//toShine.framebuffer();
+	glm::mat4 videomodel = glm::mat4(1.0f);
+	videomodel = glm::translate(videomodel, glm::vec3(-13.5f, 3.5f, 0.0));
+	videomodel = glm::rotate(videomodel, glm::radians(-90.0f), glm::normalize(glm::vec3(1.0, 0.0, 0.0)));
+	videomodel = glm::scale(videomodel, glm::vec3(0.01f, 5.0f, 2.5f));
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 	// configure (floating point) framebuffers
 	// ---------------------------------------
@@ -353,16 +346,19 @@ int main(void)
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
 
-	//ParticleCreation particles;
-	//particles.loadParticle();
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//ParticleGenerator particles;
-	//particles.setVBO(particleShader, projection);
+	//projection matrix
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+	glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
+
+	//turnhalle
+	glm::mat4 model_turnhalle = glm::mat4(1.0f);
+	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 	glm::mat4 view;
 	float helpFloat;
 
-	
 
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
@@ -397,9 +393,6 @@ int main(void)
 		textShader.use();
 		textShader.setMat4("projection", proj2);
 
-
-
-
 		
 		//startscreen
 		if (s.getScreen() == 1) {
@@ -421,11 +414,6 @@ int main(void)
 			//simulate the shooting of the ball
 			p.simulateBallShot(s.getDeltaTime(), &player, &ball, &enemy_character, &enemy2_character, &enemy3_character, &camera);
 
-
-			
-
-
-
 			/* update the PysX positions to the new model positions*/
 			//spieler
 			PxVec3 playerPos = PxVec3();
@@ -435,13 +423,6 @@ int main(void)
 			p.setEnemyPositions(PxVec3(enemy_character.getPosition().x, enemy_character.getPosition().y, enemy_character.getPosition().z),
 				PxVec3(enemy2_character.getPosition().x, enemy2_character.getPosition().y, enemy2_character.getPosition().z),
 				PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z));
-
-
-
-
-
-
-
 
 
 
@@ -467,26 +448,6 @@ int main(void)
 			bloomShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(bloomShader);
 
-
-		//	glActiveTexture(GL_TEXTURE0);
-		//	/*glBindTexture(GL_TEXTURE_2D, woodTexture);*/
-		//	glBindTexture(GL_TEXTURE_2D, crowdTexture);
-		//	// create one large cube that acts as the floor
-		//	model = glm::mat4(1.0f);
-		//	model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0));
-		//	model = glm::scale(model, glm::vec3(12.5f, 0.5f, 12.5f));
-		//	
-
-		///*	glBindTexture(GL_TEXTURE_2D, crowdTexture);
-		//	model = glm::mat4(1.0f);
-		//	model = glm::translate(model, glm::vec3(0.0f, 1.0f, 3.0));
-		//	model = glm::scale(model, glm::vec3(1.25,1,1));*/
-		//	bloomShader.setMat4("model", model);
-		//	//renderQuad();
-		//	renderCube();
-
-
-
 			////draw the crowd
 			glBindTexture(GL_TEXTURE_2D, crowdTexture);
 
@@ -496,15 +457,10 @@ int main(void)
 
 			glBindVertexArray(canvasVertexArrayObject);
 			glBindVertexArray(0);
-			model = glm::mat4(1.0f);
-			model = glm::translate(model, glm::vec3(-13.5f, 3.5f, 0.0));
-			model = glm::rotate(model, glm::radians(-90.0f), glm::normalize(glm::vec3(1.0, 0.0, 0.0)));
-			model = glm::scale(model, glm::vec3(0.01f, 5.0f, 2.5f));
-			bloomShader.setMat4("model", model);
-			bloomShader.setMat4("model", model);
+			
+			bloomShader.setMat4("model", videomodel);
+			bloomShader.setMat4("model", videomodel);
 			renderCube();
-
-
 
 			//ball
 			if (!ball.caught) {
@@ -518,14 +474,12 @@ int main(void)
 				ballModel.Draw(bloomShader);
 			}
 
-
 			//player
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
 			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 			bloomShader.setMat4("model", model_spieler);
 			spieler.Draw(bloomShader);
-
 
 			//draw the enemies (if active)
 			if (enemy_character.getActive()) {
@@ -604,96 +558,9 @@ int main(void)
 			bloom2Shader.setFloat("exposure", exposure);
 			renderQuad();
 			
-
 			std::cout << "bloom: " << (bloom ? "on" : "off") << "| exposure: " << exposure << std::endl;
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-
-
-
-
-
-			////GAME SHADER
-
-			//gameShader.use();
-			//gameShader.setMat4("projection", projection);
-			//gameShader.setMat4("view", view);
-
-			////// render the loaded model
-
-			////turnhalle
-			//gameShader.setMat4("model", model_turnhalle);
-			//turnhalle.Draw(gameShader);
-
-			////draw the crowd
-			//glBindTexture(GL_TEXTURE_2D, crowdTexture);
-
-			//unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
-			//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, crowdData);
-			//glGenerateMipmap(GL_TEXTURE_2D);
-
-			//glBindVertexArray(canvasVertexArrayObject);
-			//glDrawElements(
-			//	GL_TRIANGLES,      // mode
-			//	canvasIndices.size(),// count
-			//	GL_UNSIGNED_SHORT,   // type
-			//	(void*)0           // element array buffer offset
-			//);
-			//glBindVertexArray(0);
-
-			////ball
-			//if (!ball.caught) {
-			//	glm::mat4 model_ball = glm::mat4(1.0f);
-			//	PxVec3 ballPhysixPosition = p.getBallPos();
-			//	glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
-			//	ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
-			//	model_ball = glm::translate(model_ball, ballRenderPosition);
-			//	model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
-			//	gameShader.setMat4("model", model_ball);
-			//	ballModel.Draw(gameShader);
-			//}
-
-			////draw player
-			//glm::mat4 model_spieler = glm::mat4(1.0f);
-			//model_spieler = glm::translate(model_spieler, player.getPosition());
-			//model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
-			//gameShader.setMat4("model", model_spieler);
-			//spieler.Draw(gameShader);
-
-			////draw the enemies (if active)
-			//if (enemy_character.getActive()) {
-			//	glm::mat4 model_gegner = glm::mat4(1.0f);
-			//	enemy_character.move(s.getDeltaTime());
-			//	model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
-			//	model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			//	model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
-			//	gameShader.setMat4("model", model_gegner);
-			//	gegner.Draw(gameShader);
-			//}
-			//if (enemy2_character.getActive())
-			//{
-			//	glm::mat4 model_gegner2 = glm::mat4(1.0f);
-			//	enemy2_character.move(s.getDeltaTime());
-			//	model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
-			//	model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			//	model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
-			//	gameShader.setMat4("model", model_gegner2);
-			//	gegner.Draw(gameShader);
-			//}
-			//if (enemy3_character.getActive())
-			//{
-			//	glm::mat4 model_gegner3 = glm::mat4(1.0f);
-			//	enemy3_character.move(s.getDeltaTime());
-			//	model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
-			//	model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			//	model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
-			//	gameShader.setMat4("model", model_gegner3);
-			//	gegner.Draw(gameShader);
-			//}
-
-
 
 
 			//draw hud
@@ -702,7 +569,6 @@ int main(void)
 				glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 				textShader.use();
 				textShader.setMat4("projection", proj2);
-
 
 				switch (player.getLifes())
 				{
@@ -1151,6 +1017,97 @@ void renderCube()
 			//gameShader.setMat4("model", model_spieler);
 			//spieler.Draw(gameShader);
 
+
+			////draw the enemies (if active)
+			//if (enemy_character.getActive()) {
+			//	glm::mat4 model_gegner = glm::mat4(1.0f);
+			//	enemy_character.move(s.getDeltaTime());
+			//	model_gegner = glm::translate(model_gegner, enemy_character.getPosition());
+			//	model_gegner = glm::rotate(model_gegner, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			//	model_gegner = glm::scale(model_gegner, glm::vec3(0.3f, 0.3f, 0.3f));
+			//	gameShader.setMat4("model", model_gegner);
+			//	gegner.Draw(gameShader);
+			//}
+			//if (enemy2_character.getActive())
+			//{
+			//	glm::mat4 model_gegner2 = glm::mat4(1.0f);
+			//	enemy2_character.move(s.getDeltaTime());
+			//	model_gegner2 = glm::translate(model_gegner2, enemy2_character.getPosition());
+			//	model_gegner2 = glm::rotate(model_gegner2, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			//	model_gegner2 = glm::scale(model_gegner2, glm::vec3(0.3f, 0.3f, 0.3f));
+			//	gameShader.setMat4("model", model_gegner2);
+			//	gegner.Draw(gameShader);
+			//}
+			//if (enemy3_character.getActive())
+			//{
+			//	glm::mat4 model_gegner3 = glm::mat4(1.0f);
+			//	enemy3_character.move(s.getDeltaTime());
+			//	model_gegner3 = glm::translate(model_gegner3, enemy3_character.getPosition());
+			//	model_gegner3 = glm::rotate(model_gegner3, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			//	model_gegner3 = glm::scale(model_gegner3, glm::vec3(0.3f, 0.3f, 0.3f));
+			//	gameShader.setMat4("model", model_gegner3);
+			//	gegner.Draw(gameShader);
+			//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+////GAME SHADER
+
+			//gameShader.use();
+			//gameShader.setMat4("projection", projection);
+			//gameShader.setMat4("view", view);
+
+			////// render the loaded model
+
+			////turnhalle
+			//gameShader.setMat4("model", model_turnhalle);
+			//turnhalle.Draw(gameShader);
+
+			////draw the crowd
+			//glBindTexture(GL_TEXTURE_2D, crowdTexture);
+
+			//unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
+			//glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, crowdData);
+			//glGenerateMipmap(GL_TEXTURE_2D);
+
+			//glBindVertexArray(canvasVertexArrayObject);
+			//glDrawElements(
+			//	GL_TRIANGLES,      // mode
+			//	canvasIndices.size(),// count
+			//	GL_UNSIGNED_SHORT,   // type
+			//	(void*)0           // element array buffer offset
+			//);
+			//glBindVertexArray(0);
+
+			////ball
+			//if (!ball.caught) {
+			//	glm::mat4 model_ball = glm::mat4(1.0f);
+			//	PxVec3 ballPhysixPosition = p.getBallPos();
+			//	glm::vec3 ballRenderPosition = glm::vec3(2.0f, 2.0f, 0.0f);
+			//	ballRenderPosition.x = ballPhysixPosition.x; ballRenderPosition.y = ballPhysixPosition.y; ballRenderPosition.z = ballPhysixPosition.z;
+			//	model_ball = glm::translate(model_ball, ballRenderPosition);
+			//	model_ball = glm::scale(model_ball, glm::vec3(0.2f, 0.2f, 0.2f));
+			//	gameShader.setMat4("model", model_ball);
+			//	ballModel.Draw(gameShader);
+			//}
+
+			////draw player
+			//glm::mat4 model_spieler = glm::mat4(1.0f);
+			//model_spieler = glm::translate(model_spieler, player.getPosition());
+			//model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
+			//gameShader.setMat4("model", model_spieler);
+			//spieler.Draw(gameShader);
 
 			////draw the enemies (if active)
 			//if (enemy_character.getActive()) {

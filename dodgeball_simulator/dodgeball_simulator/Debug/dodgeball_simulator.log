@@ -576,6 +576,6 @@
   Hinweis: Einlesen der Datei:     c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_exponential.inl
   Hinweis: Einlesen der Datei:    c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\quaternion.inl
   Hinweis: Einlesen der Datei:   c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\norm.inl
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(382): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(168): warning C4715: "getCrowdFrame": Nicht alle Codepfade geben einen Wert zurück.
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(378): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(162): warning C4715: "getCrowdFrame": Nicht alle Codepfade geben einen Wert zurück.
   dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe
