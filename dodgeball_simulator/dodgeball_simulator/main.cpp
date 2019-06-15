@@ -23,7 +23,7 @@ static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id,
 static std::string FormatDebugOutput(GLenum source, GLenum type, GLuint id, GLenum severity, const char* msg);
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
-//unsigned int loadTexture(const char *path, bool gammaCorrection);
+unsigned int loadTexture(const char *path, bool gammaCorrection);
 void renderQuad();
 void renderCube();
 
@@ -206,7 +206,7 @@ int main(void)
 	Model gegner("modells/junge_blau/Lt_boy.obj");
 
 
-	//unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
+	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int stoneTexture = loadTexture("modells/turnhalle/grey01.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
@@ -331,13 +331,16 @@ int main(void)
 	lightPositions.push_back(glm::vec3(-13.0f, 2.0f, -3.0f));
 	lightPositions.push_back(glm::vec3(0.0f, 5.5f, 25.0f));
 	lightPositions.push_back(glm::vec3(0.0f, 5.5f, -25.0f));
+	lightPositions.push_back(glm::vec3(0.0f, 2.5f, 3.0f));
+	lightPositions.push_back(glm::vec3(0.0f, 2.5f, -3.0f));
 	// colors
 	std::vector<glm::vec3> lightColors;
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
-	
+	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
+	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 
 
 	// shader configuration
@@ -446,8 +449,6 @@ int main(void)
 			// -----------------------------------------------
 			glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			//glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-			//glm::mat4 view = camera.getWorldToViewMat();
 			glm::mat4 model = glm::mat4(1.0f);
 			bloomShader.use();
 			bloomShader.setMat4("projection", projection);
@@ -467,7 +468,26 @@ int main(void)
 			turnhalle.Draw(bloomShader);
 
 
-			//draw the crowd
+		//	glActiveTexture(GL_TEXTURE0);
+		//	/*glBindTexture(GL_TEXTURE_2D, woodTexture);*/
+		//	glBindTexture(GL_TEXTURE_2D, crowdTexture);
+		//	// create one large cube that acts as the floor
+		//	model = glm::mat4(1.0f);
+		//	model = glm::translate(model, glm::vec3(0.0f, 1.0f, 0.0));
+		//	model = glm::scale(model, glm::vec3(12.5f, 0.5f, 12.5f));
+		//	
+
+		///*	glBindTexture(GL_TEXTURE_2D, crowdTexture);
+		//	model = glm::mat4(1.0f);
+		//	model = glm::translate(model, glm::vec3(0.0f, 1.0f, 3.0));
+		//	model = glm::scale(model, glm::vec3(1.25,1,1));*/
+		//	bloomShader.setMat4("model", model);
+		//	//renderQuad();
+		//	renderCube();
+
+
+
+			////draw the crowd
 			glBindTexture(GL_TEXTURE_2D, crowdTexture);
 
 			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
@@ -475,13 +495,14 @@ int main(void)
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			glBindVertexArray(canvasVertexArrayObject);
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				canvasIndices.size(),// count
-				GL_UNSIGNED_SHORT,   // type
-				(void*)0           // element array buffer offset
-			);
 			glBindVertexArray(0);
+			model = glm::mat4(1.0f);
+			model = glm::translate(model, glm::vec3(-13.5f, 3.5f, 0.0));
+			model = glm::rotate(model, glm::radians(-90.0f), glm::normalize(glm::vec3(1.0, 0.0, 0.0)));
+			model = glm::scale(model, glm::vec3(0.01f, 5.0f, 2.5f));
+			bloomShader.setMat4("model", model);
+			bloomShader.setMat4("model", model);
+			renderCube();
 
 
 
