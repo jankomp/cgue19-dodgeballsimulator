@@ -394,16 +394,8 @@ int main(void)
 		textShader.setMat4("projection", proj2);
 
 		
-		//startscreen
-		if (s.getScreen() == 1) {
-
-			title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-			text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-
-		}
-
-		//gamescreen
-		if (s.getScreen() == 2) {
+		//start and gamescreen
+		if (s.getScreen() == 1 || s.getScreen() == 2) {
 
 			//advance the physx simulkation by one step
 			p.stepPhysicSimulation(s.getDeltaTime());
@@ -424,8 +416,6 @@ int main(void)
 				PxVec3(enemy2_character.getPosition().x, enemy2_character.getPosition().y, enemy2_character.getPosition().z),
 				PxVec3(enemy3_character.getPosition().x, enemy3_character.getPosition().y, enemy3_character.getPosition().z));
 
-
-
 			// 1. render scene into floating point framebuffer
 			// -----------------------------------------------
 			glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
@@ -435,7 +425,6 @@ int main(void)
 			bloomShader.setMat4("projection", projection);
 			bloomShader.setMat4("view", view);
 			glActiveTexture(GL_TEXTURE0);
-			//glBindTexture(GL_TEXTURE_2D, woodTexture);
 			// set lighting uniforms
 			for (unsigned int i = 0; i < lightPositions.size(); i++)
 			{
@@ -527,6 +516,37 @@ int main(void)
 				lightShader.setVec3("lightColor", lightColors[i]);
 				renderCube();
 			}
+
+			if (s.getScreen() == 1) 
+			{
+				title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+				text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+
+			}
+
+			//draw hud
+			if (s.getScreen() == 2 && s.headUpDisplay())
+			{
+
+				switch (player.getLifes())
+				{
+				case 3:
+					herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				case 2:
+					herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				case 1:
+					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				}
+
+				std::string strScoreEnemy = std::to_string(scoreEnemy);
+				std::string strScorePlayer = std::to_string(scorePlayer);
+
+				spielstand.RenderText(textShader, strScorePlayer + ":" + strScoreEnemy, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				if(player.gethasball())
+					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+			}
+
+
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 			// 2. blur bright fragments with two-pass Gaussian Blur 
@@ -561,32 +581,6 @@ int main(void)
 			std::cout << "bloom: " << (bloom ? "on" : "off") << "| exposure: " << exposure << std::endl;
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-
-			//draw hud
-			if (s.headUpDisplay()) {
-
-				glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-				textShader.use();
-				textShader.setMat4("projection", proj2);
-
-				switch (player.getLifes())
-				{
-				case 3:
-					herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				case 2:
-					herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				case 1:
-					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				}
-
-				std::string strScoreEnemy = std::to_string(scoreEnemy);
-				std::string strScorePlayer = std::to_string(scorePlayer);
-
-				spielstand.RenderText(textShader, strScorePlayer + ":" + strScoreEnemy, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-				if(player.gethasball())
-					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
-			}
 
 		}
 
