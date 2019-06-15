@@ -7,7 +7,7 @@
 
 #include "ball.h"
 #include "text_renderer.h"
-#include "main.h"
+
 
 enum Movement {
 	FORWARD,

@@ -1,7 +1,6 @@
 // Quelle: https://learnopengl.com/code_viewer_gh.php?code=src/5.advanced_lighting/7.bloom/bloom.cpp
 
-#version 430 core
-
+#version 330 core
 out vec4 FragColor;
 
 in vec2 TexCoords;
@@ -10,6 +9,9 @@ uniform sampler2D image;
 
 uniform bool horizontal;
 uniform float weight[5] = float[] (0.2270270270, 0.1945945946, 0.1216216216, 0.0540540541, 0.0162162162);
+//uniform float weight[7] = float[] (0.29843, 0.2270270270, 0.1945945946, 0.1216216216, 0.0540540541, 0.0162162162, 0.00623984);
+//uniform float weight[7] = float[] (0.00598, 0.060626, 0.241843, 0.383103, 0.241843, 0.060626, 0.00598);
+
 
 void main()
 {             

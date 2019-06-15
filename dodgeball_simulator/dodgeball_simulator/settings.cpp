@@ -27,7 +27,7 @@ float deltaTime = 0.0f;
 
 
 
-int screen = 1;
+int screen = 2;
 bool head_up_display = true;
 bool firstMouse = true;
 float lastX = SCR_WIDTH / 2.0f;
