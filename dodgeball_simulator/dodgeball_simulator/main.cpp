@@ -29,16 +29,9 @@ using namespace physx;
 using namespace std;
 
 
-//uniform float weight[7] = float[] (6*0.32032, 5*0.2270270270, 4*0.1945945946, 3*0.1216216216, 2*0.0540540541, 0.0162162162, 0.009923);
-//uniform float weight[7] = float[] (0.32032, 0.2270270270, 0.1945945946, 0.1216216216, 0.0540540541, 0.0162162162, 0.009923);
-//uniform float weight[5] = float[] (8*0.2270270270, 7*0.1945945946, 6*0.1216216216, 7*0.0540540541, 8*0.0162162162);
-
-
 //window settings
-//extern int SCR_WIDTH = 1920;
-//extern int SCR_HEIGHT = 1800;
-extern int SCR_WIDTH = 1280;
-extern int SCR_HEIGHT = 720;
+extern int SCR_WIDTH;
+extern int SCR_HEIGHT;
 
 
 //bloom 
@@ -265,7 +258,7 @@ int main(void)
 
 	// configure (floating point) framebuffers
 	// ---------------------------------------
-	unsigned int hdrFBO, hdrFBO2;
+	unsigned int hdrFBO;
 	glGenFramebuffers(1, &hdrFBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
 	// create 2 floating point color buffers (1 for normal rendering, other for brightness treshold values)
@@ -430,7 +423,7 @@ int main(void)
 			bloomShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(bloomShader);
 
-			////draw the crowd
+			//draw the crowd
 			glBindTexture(GL_TEXTURE_2D, crowdTexture);
 
 			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
@@ -545,12 +538,12 @@ int main(void)
 				title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			}
 
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 			// 2. blur bright fragments with two-pass Gaussian Blur 
 			// --------------------------------------------------
 			bool horizontal = true, first_iteration = true;
-			unsigned int amount = 10; // HERE
+			unsigned int amount = 14; // HERE
 			blurShader.use();
 			for (unsigned int i = 0; i < amount; i++)
 			{
@@ -610,7 +603,7 @@ int main(void)
 	}
 
 	
-	particles.del();
+	//particles.del();
 
 	p.releaseScene();
 

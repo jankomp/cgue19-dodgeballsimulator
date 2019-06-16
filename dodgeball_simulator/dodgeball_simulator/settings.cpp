@@ -1,8 +1,11 @@
 #include "settings.h"
 
-
-extern int SCR_WIDTH;
-extern int SCR_HEIGHT;
+//extern int SCR_WIDTH = 1920;
+//extern int SCR_HEIGHT = 1800;
+//extern int SCR_WIDTH = 1280;
+//extern int SCR_HEIGHT = 768;
+extern int SCR_WIDTH = 1920;
+extern int SCR_HEIGHT = 1400;
 
 extern enemy enemy_character;
 extern enemy enemy2_character;

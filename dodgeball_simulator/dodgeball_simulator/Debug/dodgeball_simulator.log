@@ -331,12 +331,10 @@
   Hinweis: Einlesen der Datei:     c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\type_ptr.inl
   Hinweis: Einlesen der Datei:    c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.h
   Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vector
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(107): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(108): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(112): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(113): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(115): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(116): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(720,5): warning MSB8015: Keine der Quelldateien ist auf dem neuesten Stand: Aufgrund ungültiger Inhalt von "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\dodgeball_simulator\Debug\dodgebal.073F733C.tlog\link.command.1.tlog" wird eine Neuerstellung aller Quelldateien erzwungen.
-C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppCommon.targets(720,5): warning MSB8015: Keine der Quelldateien ist auf dem neuesten Stand: Aufgrund ungültiger Inhalt von "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\dodgeball_simulator\Debug\dodgebal.073F733C.tlog\link.command.1.tlog" wird eine Neuerstellung aller Quelldateien erzwungen.
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(110): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(111): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(115): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(116): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(118): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\settings.cpp(119): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
   dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe
