@@ -79,8 +79,6 @@ void settings::processInput(GLFWwindow *window)
 			enemy_character.setPosition(glm::vec3(0.0, 0.0, 6.0));
 			enemy2_character.setPosition(glm::vec3(-3.0, 0.0, 3.5));
 			enemy3_character.setPosition(glm::vec3(3.0, 0.0, 3.5));
-			//toShine.setLight();
-			//toShine.framebuffer();
 		}
 	}
 

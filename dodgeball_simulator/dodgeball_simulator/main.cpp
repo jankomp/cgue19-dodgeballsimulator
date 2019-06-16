@@ -212,15 +212,15 @@ int main(void)
 	ballSchrift.Load("fonts/Balls.ttf", 68);
 
 
-	
+	//projection matrix
+	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
+	glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
 
-	//ParticleCreation particles;
-	//particles.loadParticle();
+	//turnhalle
+	glm::mat4 model_turnhalle = glm::mat4(1.0f);
+	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-	//ParticleGenerator particles;
-	//particles.setVBO(particleShader, projection);
-	
-	
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	physics p(&player, &enemy_character, &enemy2_character, &enemy3_character);
 	//p.initPhysics();
@@ -265,7 +265,7 @@ int main(void)
 
 	// configure (floating point) framebuffers
 	// ---------------------------------------
-	unsigned int hdrFBO;
+	unsigned int hdrFBO, hdrFBO2;
 	glGenFramebuffers(1, &hdrFBO);
 	glBindFramebuffer(GL_FRAMEBUFFER, hdrFBO);
 	// create 2 floating point color buffers (1 for normal rendering, other for brightness treshold values)
@@ -324,16 +324,14 @@ int main(void)
 	lightPositions.push_back(glm::vec3(-13.0f, 2.0f, -3.0f));
 	lightPositions.push_back(glm::vec3(0.0f, 5.5f, 25.0f));
 	lightPositions.push_back(glm::vec3(0.0f, 5.5f, -25.0f));
-	lightPositions.push_back(glm::vec3(0.0f, 2.5f, 3.0f));
-	lightPositions.push_back(glm::vec3(0.0f, 2.5f, -3.0f));
+
 	// colors
 	std::vector<glm::vec3> lightColors;
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
 	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
-	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
-	lightColors.push_back(glm::vec3(5.0f, 5.0f, 5.0f));
+
 
 
 	// shader configuration
@@ -348,17 +346,12 @@ int main(void)
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	//projection matrix
-	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-	glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
-
-	//turnhalle
-	glm::mat4 model_turnhalle = glm::mat4(1.0f);
-	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-
 	glm::mat4 view;
 	float helpFloat;
 
+	ParticleGenerator particles;
+	particles.setVBO(particleShader, projection);
+	
 
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
@@ -546,6 +539,11 @@ int main(void)
 					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 			}
 
+			//lost screen
+			if (s.getScreen() == 3)
+			{
+				title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			}
 
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -584,16 +582,19 @@ int main(void)
 
 		}
 
-		//lost screen
-		if (s.getScreen() == 3) {
-			title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-		}
+
 
 		
 		//won screen
 		if (s.getScreen() == 4) {
-			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-			//particles.calculateParticle(helpFloat, view, projection, particleShader);
+
+
+			particles.calculateParticle(helpFloat, view, projection, particleShader);
+
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+			//title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+
 		}
 
 		glEnable(GL_DEPTH_TEST);
@@ -609,7 +610,7 @@ int main(void)
 	}
 
 	
-	//particles.del();
+	particles.del();
 
 	p.releaseScene();
 
