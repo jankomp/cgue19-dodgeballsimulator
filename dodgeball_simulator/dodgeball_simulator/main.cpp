@@ -584,7 +584,7 @@ int main(void)
 
 			particles.calculateParticle(helpFloat, view, projection, particleShader);
 
-			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 			//title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
@@ -603,7 +603,7 @@ int main(void)
 	}
 
 	
-	//particles.del();
+	particles.del();
 
 	p.releaseScene();
 

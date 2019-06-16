@@ -85,6 +85,12 @@ void settings::processInput(GLFWwindow *window)
 		}
 	}
 
+	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+		if (screen == 1) {
+			screen = 4;
+		}
+	}
+
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
 		camera->camReset(player, camera->getPosition());
 	}

@@ -504,6 +504,10 @@ void ParticleGenerator::del()
 
 void ParticleGenerator::calculateParticle(float deltaTime, glm::mat4 view, glm::mat4 projectionView, Shader particleShader) {
 
+	//GLuint VertexArrayID;
+	//glGenVertexArrays(1, &VertexArrayID);
+	glBindVertexArray(VertexArrayID);
+
 	int newparticles = (int)(deltaTime*1000.0);
 	if (newparticles > (int)(0.016f*1000.0))
 		newparticles = (int)(0.016f*1000.0);
