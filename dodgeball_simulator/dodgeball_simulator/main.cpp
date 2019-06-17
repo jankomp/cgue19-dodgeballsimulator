@@ -86,24 +86,6 @@ unsigned char *crowdData_14 = stbi_load("modells/crowd/crowd_r_8.jpg", &width, &
 unsigned char *crowdData_15 = stbi_load("modells/crowd/crowd_r_9.jpg", &width, &height, &nrChannels, 0);
 float frameCounter = 0;
 
-void genCrowdCanvas() {
-	canvasVertices.push_back(glm::vec3(-2, 6, 13.49));
-	canvasVertices.push_back(glm::vec3(6, 6, 13.49));
-	canvasVertices.push_back(glm::vec3(6, 1.5, 13.49));
-	canvasVertices.push_back(glm::vec3(-2, 1.5, 13.49));
-
-	canvasIndices.push_back(0);
-	canvasIndices.push_back(1);
-	canvasIndices.push_back(2);
-	canvasIndices.push_back(2);
-	canvasIndices.push_back(3);
-	canvasIndices.push_back(0);
-
-	canvasUVcoords.push_back(glm::vec2(0, 0));
-	canvasUVcoords.push_back(glm::vec2(1, 0));
-	canvasUVcoords.push_back(glm::vec2(1, 1));
-	canvasUVcoords.push_back(glm::vec2(0, 1));
-}
 
 unsigned char *getCrowdFrame(int score, float deltaTime) {
 	if (score < 0) {
@@ -194,6 +176,12 @@ int main(void)
 
 	//load texture
 	unsigned int woodTexture = loadTexture("modells/turnhalle/wood.jpg", true); // note that we're loading the texture as an SRGB texture
+	//loadLightmap
+	int lmWidth, lmHeight, lmNrChannels;
+	unsigned char *lightMap = stbi_load("modells/turnhallemitloch/lightmap.jpg", &lmWidth, &lmHeight, &lmNrChannels, 0);
+
+	unsigned int lightMapTexture;
+	glGenTextures(1, &lightMapTexture);
 	//unsigned int stoneTexture = loadTexture("modells/turnhalle/grey01.jpg", true); // note that we're loading the texture as an SRGB texture
 	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
@@ -226,27 +214,6 @@ int main(void)
 	unsigned int crowdTexture;
 	glGenTextures(1, &crowdTexture);
 	
-	//canvas for the video texture
-	genCrowdCanvas();
-	
-	GLuint canvasVertexArrayObject, zvbo[3];
-	glGenVertexArrays(1, &canvasVertexArrayObject);
-	glBindVertexArray(canvasVertexArrayObject);
-	glGenBuffers(3, zvbo);
-
-	glBindBuffer(GL_ARRAY_BUFFER, zvbo[0]);
-	glBufferData(GL_ARRAY_BUFFER, canvasVertices.size() * sizeof(glm::vec3), canvasVertices.data(), GL_STATIC_DRAW);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, zvbo[1]);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, canvasIndices.size() * sizeof(GLushort), canvasIndices.data(), GL_STATIC_DRAW);
-
-	glBindBuffer(GL_ARRAY_BUFFER, zvbo[2]);
-	glBufferData(GL_ARRAY_BUFFER, canvasUVcoords.size() * sizeof(glm::vec2), canvasUVcoords.data(), GL_STATIC_DRAW);
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
-	glBindVertexArray(0);
 
 	glm::mat4 videomodel = glm::mat4(1.0f);
 	videomodel = glm::translate(videomodel, glm::vec3(-13.5f, 3.5f, 0.0));
@@ -337,6 +304,7 @@ int main(void)
 	bloom2Shader.use();
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
+	bloom2Shader.setInt("lightMap", 2);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -430,9 +398,6 @@ int main(void)
 			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, crowdData);
 			glGenerateMipmap(GL_TEXTURE_2D);
-
-			glBindVertexArray(canvasVertexArrayObject);
-			glBindVertexArray(0);
 			
 			bloomShader.setMat4("model", videomodel);
 			bloomShader.setMat4("model", videomodel);
@@ -566,6 +531,8 @@ int main(void)
 			glBindTexture(GL_TEXTURE_2D, colorBuffers[0]);
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, pingpongColorbuffers[!horizontal]);
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, lightMapTexture);
 			bloom2Shader.setInt("bloom", bloom);
 			bloom2Shader.setFloat("exposure", exposure);
 			renderQuad();
