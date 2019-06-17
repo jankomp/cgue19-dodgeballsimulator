@@ -15,6 +15,7 @@
 #include "text_renderer.h"
 #include "enemy.h"
 #include "bloom.h"
+#include "INIReader.h"
 //#include "Utils.h"
 #include "ParticleGenerator.h"
 
@@ -160,7 +161,7 @@ int main(void)
 {
 
 	window gameWindow;
-	gameWindow.genWindow();
+	gameWindow.genWindow(SCR_WIDTH,SCR_HEIGHT);
 
 	glfwSetFramebufferSizeCallback(gameWindow.getWindow(), framebuffer_size_callback);
 

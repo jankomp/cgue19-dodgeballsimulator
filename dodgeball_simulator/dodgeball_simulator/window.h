@@ -16,11 +16,15 @@
 
 class window
 {
+	
 public:
-	int genWindow();
+
+
+	int genWindow(int SCR_WIDTH, int SCR_HEIGHT);
 	GLFWwindow* getWindow();
 	bool run();
 	GLFWwindow* gameWindow;
+	int refresh_rate;
 };
 
 #endif

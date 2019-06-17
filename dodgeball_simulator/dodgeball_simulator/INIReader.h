@@ -158,10 +158,10 @@ inline static char* find_chars_or_comment(const char* s, const char* chars)
 }
 
 /* Version of strncpy that ensures dest (size bytes) is null-terminated. */
-inline static char* strncpy0(char* dest, const char* src, size_t size)
+inline static char* strncpy0(char* dest, size_t numElements, const char* src, size_t size)
 {
-    strncpy(dest, src, size);
-    dest[size - 1] = '\0';
+	strncpy_s(dest, numElements, src, size);
+	dest[size - 1] = '\0';
     return dest;
 }
 
@@ -231,7 +231,7 @@ inline int ini_parse_stream(ini_reader reader, void* stream, ini_handler handler
             end = find_chars_or_comment(start + 1, "]");
             if (*end == ']') {
                 *end = '\0';
-                strncpy0(section, start + 1, sizeof(section));
+				strncpy0(section, sizeof(section), start + 1, sizeof(section));
                 *prev_name = '\0';
             }
             else if (!error) {
@@ -254,7 +254,7 @@ inline int ini_parse_stream(ini_reader reader, void* stream, ini_handler handler
                 rstrip(value);
 
                 /* Valid name[=:]value pair found, call handler */
-                strncpy0(prev_name, name, sizeof(prev_name));
+                strncpy0(prev_name, sizeof(prev_name), name, sizeof(prev_name));
                 if (!handler(user, section, name, value) && !error)
                     error = lineno;
             }
@@ -289,7 +289,7 @@ inline int ini_parse(const char* filename, ini_handler handler, void* user)
     FILE* file;
     int error;
 
-    file = fopen(filename, "r");
+	fopen_s(&file, filename, "r");
     if (!file)
         return -1;
     error = ini_parse_file(file, handler, user);

@@ -1,11 +1,7 @@
 #include "window.h"
 
-extern int SCR_WIDTH;
-extern int SCR_HEIGHT;
 
-int refresh_rate = 60;
-
-int window::genWindow()
+int window::genWindow(int SCR_WIDTH, int SCR_HEIGHT)
 {
 	settings s;
 
@@ -17,10 +13,10 @@ int window::genWindow()
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	/*glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
+	glfwWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	glfwWindowHint(GLFW_REFRESH_RATE, refresh_rate);
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
-	glfwWindowHint(GLFW_SAMPLES, 4);*/
+	glfwWindowHint(GLFW_SAMPLES, 4);
 
 #ifdef __APPLE__
 	glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X

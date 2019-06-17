@@ -361,6 +361,7 @@ PhysXCommon_static_32.lib
     <ClInclude Include="include\PhysX\vehicle\PxVehicleWheels.h" />
     <ClInclude Include="include\PxPhysicsAPI.h" />
     <ClInclude Include="include\stb_image.h" />
+    <ClInclude Include="INIReader.h" />
     <ClInclude Include="libraries\assimp_4.1.0\include\assimp\ai_assert.h" />
     <ClInclude Include="libraries\assimp_4.1.0\include\assimp\anim.h" />
     <ClInclude Include="libraries\assimp_4.1.0\include\assimp\camera.h" />
@@ -1003,6 +1004,7 @@ PhysXCommon_static_32.lib
     <None Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_angle.inl" />
     <None Include="libraries\glm_0.9.9.4\include\glm\gtx\vector_query.inl" />
     <None Include="libraries\glm_0.9.9.4\include\glm\gtx\wrap.inl" />
+    <None Include="settings.ini" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

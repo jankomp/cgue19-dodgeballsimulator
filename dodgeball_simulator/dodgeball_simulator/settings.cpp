@@ -4,8 +4,8 @@
 //extern int SCR_HEIGHT = 1800;
 //extern int SCR_WIDTH = 1280;
 //extern int SCR_HEIGHT = 768;
-extern int SCR_WIDTH = 1920;
-extern int SCR_HEIGHT = 1400;
+//extern int SCR_WIDTH = 1920;
+//extern int SCR_HEIGHT = 1400;
 
 extern enemy enemy_character;
 extern enemy enemy2_character;
@@ -16,17 +16,20 @@ PlayerCharacter *player;
 Camera *camera;
 float deltaTime = 0.0f;
 
+
+
 /* --------------------------------------------- */
 	// Load settings.ini
 	/* --------------------------------------------- */
 
-//INIReader reader("settings.ini");
-//
-//int window_width = reader.GetInteger("window", "width", 800);
-//int window_height = reader.GetInteger("window", "height", 800);
-//int refresh_rate = reader.GetInteger("window", "refresh_rate", 60);
-//bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
-//float brightness = reader.GetReal("window", "brightness", 1.0f);
+
+INIReader reader("settings.ini");
+
+int SCR_WIDTH = reader.GetInteger("window", "width", 800);
+int SCR_HEIGHT = reader.GetInteger("window", "height", 800);
+int refresh_rate = reader.GetInteger("window", "refresh_rate", 60);
+bool fullscreen = reader.GetBoolean("window", "fullscreen", false);
+float brightness = reader.GetReal("window", "brightness", 1.0f);
 
 
 
