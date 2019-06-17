@@ -582,12 +582,19 @@ int main(void)
 		//won screen
 		if (s.getScreen() == 4) {
 
+			gameShader.use();
+			gameShader.setMat4("projection", projection);
+			gameShader.setMat4("view", view);
+			
+			//turnhalle
+			gameShader.setMat4("model", model_turnhalle);
+			turnhalle.Draw(gameShader);
 
+			//particle
 			particles.calculateParticle(helpFloat, view, projection, particleShader);
 
-			//glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-			//title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			//text
+			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 		}
 
