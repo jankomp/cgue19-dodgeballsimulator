@@ -277,18 +277,18 @@ int main(void)
 			std::cout << "Framebuffer not complete!" << std::endl;
 	}
 
-	// lighting info
-	// -------------
-	// positions
-	std::vector<glm::vec3> lightPositions;
-	lightPositions.push_back(glm::vec3(0.0f, 11.0f, 13.5f));
-	lightPositions.push_back(glm::vec3(0.0f, 11.0f, -13.5f));
-	
+	//// lighting info
+	//// -------------
+	//// positions
+	//std::vector<glm::vec3> lightPositions;
+	//lightPositions.push_back(glm::vec3(0.0f, 11.0f, 13.5f));
+	//lightPositions.push_back(glm::vec3(0.0f, 11.0f, -13.5f));
+	//
 
-	// colors
-	std::vector<glm::vec3> lightColors;
-	lightColors.push_back(glm::vec3(60.0f, 60.0f, 60.0f));
-	lightColors.push_back(glm::vec3(60.0f, 60.0f, 60.0f));
+	//// colors
+	//std::vector<glm::vec3> lightColors;
+	//lightColors.push_back(glm::vec3(60.0f, 60.0f, 60.0f));
+	//lightColors.push_back(glm::vec3(60.0f, 60.0f, 60.0f));
 	
 
 	// shader configuration
@@ -377,11 +377,11 @@ int main(void)
 			bloomShader.setMat4("view", view);
 			glActiveTexture(GL_TEXTURE0);
 			// set lighting uniforms
-			for (unsigned int i = 0; i < lightPositions.size(); i++)
+			/*for (unsigned int i = 0; i < lightPositions.size(); i++)
 			{
 				bloomShader.setVec3("lights[" + std::to_string(i) + "].Position", lightPositions[i]);
 				bloomShader.setVec3("lights[" + std::to_string(i) + "].Color", lightColors[i]);
-			}
+			}*/
 			bloomShader.setVec3("viewPos", camera.getPosition());
 
 			//turnhalle
@@ -450,12 +450,12 @@ int main(void)
 			}
 
 
-			// finally show all the light sources as bright cubes
-			lightShader.use();
-			lightShader.setMat4("projection", projection);
-			lightShader.setMat4("view", view);
+			//// finally show all the light sources as bright cubes
+			//lightShader.use();
+			//lightShader.setMat4("projection", projection);
+			//lightShader.setMat4("view", view);
 
-			for (unsigned int i = 0; i < lightPositions.size(); i++)
+			/*for (unsigned int i = 0; i < lightPositions.size(); i++)
 			{
 				model = glm::mat4(1.0f);
 				model = glm::translate(model, glm::vec3(lightPositions[i]));
@@ -463,13 +463,12 @@ int main(void)
 				lightShader.setMat4("model", model);
 				lightShader.setVec3("lightColor", lightColors[i]);
 				renderCube();
-			}
+			}*/
 
 			if (s.getScreen() == 1) 
 			{
 				title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 				text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
-
 			}
 
 			//draw hud
@@ -500,12 +499,13 @@ int main(void)
 				title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			}
 
+
 			//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 			// 2. blur bright fragments with two-pass Gaussian Blur 
 			// --------------------------------------------------
 			bool horizontal = true, first_iteration = true;
-			unsigned int amount = 14; // HERE
+			unsigned int amount = 10; // HERE
 			blurShader.use();
 			for (unsigned int i = 0; i < amount; i++)
 			{
@@ -527,8 +527,8 @@ int main(void)
 			glBindTexture(GL_TEXTURE_2D, colorBuffers[0]);
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, pingpongColorbuffers[!horizontal]);
-			glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, lightMapTexture);
+			/*glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, lightMapTexture);*/
 			bloom2Shader.setInt("bloom", bloom);
 			bloom2Shader.setFloat("exposure", exposure);
 			renderQuad();
@@ -548,10 +548,14 @@ int main(void)
 			gameShader.use();
 			gameShader.setMat4("projection", projection);
 			gameShader.setMat4("view", view);
-			
-			//turnhalle
-			gameShader.setMat4("model", model_turnhalle);
-			turnhalle.Draw(gameShader);
+
+			glm::mat4 model_spieler = glm::mat4(1.0f);
+			model_spieler = glm::translate(model_spieler, player.getPosition());
+			model_spieler = glm::rotate(model_spieler, glm::radians(180.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
+			gameShader.setMat4("model", model_spieler);
+			spieler.Draw(gameShader);
+
 
 			//particle
 			particles.calculateParticle(helpFloat, view, projection, particleShader);
