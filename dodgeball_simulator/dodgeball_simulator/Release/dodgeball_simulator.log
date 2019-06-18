@@ -1,2 +1,26 @@
-﻿  main.cpp
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp : fatal error C1041: Programmdatenbank "C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+﻿  Ball.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\ball.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  bloom.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\bloom.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  Camera.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  CollisionCallback.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\collisioncallback.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  enemy.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\enemy.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  glm.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\libraries\glm_0.9.9.4\include\glm\detail\glm.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  main.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  ParticleGenerator.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\particlegenerator.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  physics.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\physics.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  PlayerCharacter.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\playercharacter.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  settings.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  text_renderer.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\text_renderer.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben
+  window.cpp
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\window.cpp : fatal error C1041: Programmdatenbank "C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\Release\vc141.pdb" kann nicht geöffnet werden; verwenden Sie /FS, wenn mehrere CL.EXE in dieselbe .PDB-Datei schreiben

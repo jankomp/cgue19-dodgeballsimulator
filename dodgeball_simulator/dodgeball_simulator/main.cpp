@@ -526,6 +526,7 @@ int main(void)
 			gameShader.setMat4("projection", projection);
 			gameShader.setMat4("view", view);
 			gameShader.setFloat("settingsBrightness", helligkeit);
+			gameShader.setInt("lightMap", 1);
 
 			gameShader.setMat4("model", model_turnhalle);
 
