@@ -203,6 +203,16 @@ int main(void)
 	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
 
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+	//settings = all the callbacks of mouse and keyboard
+	settings s(&player, &camera);
+
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	physics p(&player, &enemy_character, &enemy2_character, &enemy3_character);
 	//p.initPhysics();
@@ -296,6 +306,7 @@ int main(void)
 	bloomShader.use();
 	bloomShader.setInt("diffuseTexture", 0);
 	bloomShader.setInt("lightMap", 1);
+	//bloomShader.setFloat("settingsBrightness", s.getBrightness());
 	blurShader.use();
 	blurShader.setInt("image", 0);
 	bloom2Shader.use();
@@ -315,8 +326,7 @@ int main(void)
 	while (gameWindow.run())
 	{
 
-		//settings = all the callbacks of mouse and keyboard
-		settings s(&player, &camera);
+		
 
 		//gamewon, gamelost screens
 		if (scoreEnemy == 3)
@@ -344,10 +354,13 @@ int main(void)
 		textShader.use();
 		textShader.setMat4("projection", proj2);
 
-		bloomShader.setFloat("settingsBrightness", s.getBrightness());
+		bloomShader.use();
+
+		float helligkeit = s.getBrightness();
+		bloomShader.setFloat("settingsBrightness", helligkeit);
 
 		//start and gamescreen
-		if (s.getScreen() == 1 || s.getScreen() == 2) {
+		if (s.getScreen() == 1 || s.getScreen() == 2 || s.getScreen() == 3) {
 
 			//advance the physx simulkation by one step
 			p.stepPhysicSimulation(s.getDeltaTime());
@@ -554,6 +567,7 @@ int main(void)
 			gameShader.use();
 			gameShader.setMat4("projection", projection);
 			gameShader.setMat4("view", view);
+			gameShader.setFloat("settingsBrightness", helligkeit);
 
 			gameShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(gameShader);

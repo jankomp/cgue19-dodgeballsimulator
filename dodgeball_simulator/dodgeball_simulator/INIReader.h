@@ -334,7 +334,7 @@ public:
     // Get a real (floating point double) value from INI file, returning
     // default_value if not found or not a valid floating point value
     // according to strtod().
-    double GetReal(std::string section, std::string name, double default_value);
+    float GetReal(std::string section, std::string name, float default_value);
 
     // Get a boolean value from INI file, returning default_value if not found or if
     // not a valid true/false value. Valid true values are "true", "yes", "on", "1",
@@ -397,7 +397,7 @@ inline long INIReader::GetInteger(string section, string name, long default_valu
     return end > value ? n : default_value;
 }
 
-inline double INIReader::GetReal(string section, string name, double default_value)
+inline float INIReader::GetReal(string section, string name, float default_value)
 {
     string valstr = Get(section, name, "");
     const char* value = valstr.c_str();
