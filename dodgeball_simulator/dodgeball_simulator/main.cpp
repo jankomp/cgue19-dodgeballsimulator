@@ -295,12 +295,12 @@ int main(void)
 // --------------------
 	bloomShader.use();
 	bloomShader.setInt("diffuseTexture", 0);
+	bloomShader.setInt("lightMap", 1);
 	blurShader.use();
 	blurShader.setInt("image", 0);
 	bloom2Shader.use();
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
-	bloom2Shader.setInt("lightMap", 2);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -385,6 +385,10 @@ int main(void)
 			bloomShader.setVec3("viewPos", camera.getPosition());
 
 			//turnhalle
+			glActiveTexture(GL_TEXTURE2);
+			glBindTexture(GL_TEXTURE_2D, lightMapTexture);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, lmWidth, lmHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, lightMap);
+			glGenerateMipmap(GL_TEXTURE_2D);
 			bloomShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(bloomShader);
 
@@ -527,8 +531,6 @@ int main(void)
 			glBindTexture(GL_TEXTURE_2D, colorBuffers[0]);
 			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, pingpongColorbuffers[!horizontal]);
-			/*glActiveTexture(GL_TEXTURE2);
-			glBindTexture(GL_TEXTURE_2D, lightMapTexture);*/
 			bloom2Shader.setInt("bloom", bloom);
 			bloom2Shader.setFloat("exposure", exposure);
 			renderQuad();

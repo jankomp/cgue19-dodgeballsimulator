@@ -17,11 +17,13 @@ struct Light {
 
 uniform Light lights[4];
 uniform sampler2D diffuseTexture;
+uniform sampler2D lightMap;
 uniform vec3 viewPos;
 
 void main()
 {           
     vec3 color = texture(diffuseTexture, fs_in.TexCoords).rgb;
+	vec3 lightMapColor = texture(lightMap, fs_in.TexCoords).rgb;
     vec3 normal = normalize(fs_in.Normal);
     // ambient
     vec3 ambient = 0.0 * color;
