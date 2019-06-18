@@ -31,6 +31,7 @@ public:
 	 int getScreen();
 	 bool headUpDisplay();
 	 float getDeltaTime();
+	 float getBrightness();
 	 void setDeltaTime(float toSet);
 	 void setScreen(int scr);
 };

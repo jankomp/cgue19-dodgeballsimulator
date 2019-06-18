@@ -344,7 +344,8 @@ int main(void)
 		textShader.use();
 		textShader.setMat4("projection", proj2);
 
-		
+		bloomShader.setFloat("settingsBrightness", s.getBrightness());
+
 		//start and gamescreen
 		if (s.getScreen() == 1 || s.getScreen() == 2) {
 
@@ -550,6 +551,9 @@ int main(void)
 			gameShader.use();
 			gameShader.setMat4("projection", projection);
 			gameShader.setMat4("view", view);
+
+			gameShader.setMat4("model", model_turnhalle);
+			turnhalle.Draw(gameShader);
 
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());

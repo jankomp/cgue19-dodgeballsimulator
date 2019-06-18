@@ -160,6 +160,11 @@ float settings::getDeltaTime()
 	return deltaTime;
 }
 
+float settings::getBrightness()
+{
+	return deltaTime;
+}
+
 void settings::setDeltaTime(float toSet)
 {
 	deltaTime = toSet;

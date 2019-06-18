@@ -19,6 +19,7 @@ uniform Light lights[4];
 uniform sampler2D diffuseTexture;
 uniform sampler2D lightMap;
 uniform vec3 viewPos;
+uniform float settingsBrightness;
 
 void main()
 {           
