@@ -386,14 +386,17 @@ int main(void)
 			bloomShader.setVec3("viewPos", camera.getPosition());
 
 			//turnhalle
-			glActiveTexture(GL_TEXTURE2);
+			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, lightMapTexture);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, lmWidth, lmHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, lightMap);
 			glGenerateMipmap(GL_TEXTURE_2D);
 			bloomShader.setMat4("model", model_turnhalle);
 			turnhalle.Draw(bloomShader);
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, 0);
 
 			//draw the crowd
+			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, crowdTexture);
 
 			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
