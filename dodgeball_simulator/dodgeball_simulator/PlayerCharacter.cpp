@@ -40,21 +40,21 @@ void PlayerCharacter::move(bool running, Movement direction, float deltaTime)
 	}
 	if (direction == BACKWARD) {
 		float newz = position.z - velocity;
-		if (newz >= -25.0)
+		if (newz >= -22.0)
 		{
 			position.z = newz;
 		}
 	}
 	if (direction == LEFT){
 		float newx = position.x + velocity;
-		if (newx <= 12.5)
+		if (newx <= 10.5)
 		{
 			position.x = newx;
 		}
 	}
 	if (direction == RIGHT){
 		float newx = position.x - velocity;
-		if (newx >= -12.5)
+		if (newx >= -10.5)
 		{
 			position.x = newx;
 		}
