@@ -386,8 +386,9 @@ int main(void)
 			//draw the crowd
 			glActiveTexture(GL_TEXTURE0);
 			glBindTexture(GL_TEXTURE_2D, crowdTexture);
-
-			unsigned char *crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
+			
+			unsigned char *crowdData = stbi_load("modells/crowd/crowd_0.jpg", &width, &height, &nrChannels, 0);
+			crowdData = getCrowdFrame(scorePlayer - scoreEnemy, helpFloat);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, crowdData);
 			glGenerateMipmap(GL_TEXTURE_2D);
 			

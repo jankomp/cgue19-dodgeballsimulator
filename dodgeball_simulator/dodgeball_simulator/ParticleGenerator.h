@@ -101,7 +101,6 @@ public:
 	void setVBO(Shader shader, glm::mat4 ProjectionMatrix);
 	void render(float delta, Shader shader, glm::mat4 ProjectionMatrix, glm::mat4 ViewMatrix);
 	void del();
-	void calculateParticle(float deltaTime, glm::mat4 view, glm::mat4 projectionView, Shader particleShader);
 
 private:
 	GLuint Texture;
