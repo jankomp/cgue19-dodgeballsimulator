@@ -1,7 +1,5 @@
 #include "ParticleGenerator.h"
 
-#pragma warning(disable:4996)
-
 #define FOURCC_DXT1 0x31545844 // Equivalent to "DXT1" in ASCII
 #define FOURCC_DXT3 0x33545844 // Equivalent to "DXT3" in ASCII
 #define FOURCC_DXT5 0x35545844 // Equivalent to "DXT5" in ASCII
@@ -15,19 +13,11 @@ GLuint ParticleGenerator::loadDDS(const char * imagepath) {
 	FILE *fp;
 
 	/* try to open the file */
-	//fp = _fsopen(imagepath, "rb", _SH_DENYWR);
-	fp = fopen(imagepath, "rb");
+	fopen_s(&fp, imagepath, "rb");
 	if (fp == NULL) {
 		printf("%s could not be opened.\n", imagepath); getchar();
 		return 0;
 	}
-
-
-
-
-
-
-
 
 	/* verify the type of file */
 	char filecode[4];
@@ -45,10 +35,6 @@ GLuint ParticleGenerator::loadDDS(const char * imagepath) {
 	unsigned int linearSize = *(unsigned int*)&(header[16]);
 	unsigned int mipMapCount = *(unsigned int*)&(header[24]);
 	unsigned int fourCC = *(unsigned int*)&(header[80]);
-
-
-
-
 
 	unsigned char * buffer;
 	unsigned int bufsize;
@@ -77,10 +63,6 @@ GLuint ParticleGenerator::loadDDS(const char * imagepath) {
 		return 0;
 	}
 
-
-
-
-
 	// Create one OpenGL texture
 	GLuint textureID;
 	glGenTextures(1, &textureID);
@@ -91,9 +73,6 @@ GLuint ParticleGenerator::loadDDS(const char * imagepath) {
 
 	unsigned int blockSize = (format == GL_COMPRESSED_RGBA_S3TC_DXT1_EXT) ? 8 : 16;
 	unsigned int offset = 0;
-
-
-
 
 	/* load the mipmaps */
 	for (unsigned int level = 0; level < mipMapCount && (width || height); ++level)
@@ -118,9 +97,9 @@ GLuint ParticleGenerator::loadDDS(const char * imagepath) {
 
 }
 
-ParticleGenerator::ParticleGenerator ()
+ParticleGenerator::ParticleGenerator()
 {
-	
+
 }
 
 // Finds a Particle in ParticlesContainer which isn't used yet.
@@ -173,7 +152,7 @@ void ParticleGenerator::setVBO(Shader shader, glm::mat4 ProjectionMatrix)
 		 -0.5f,  0.5f, 0.0f,
 		  0.5f,  0.5f, 0.0f,
 	};
-	
+
 	glGenBuffers(1, &billboard_vertex_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, billboard_vertex_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
@@ -195,36 +174,29 @@ void ParticleGenerator::setVBO(Shader shader, glm::mat4 ProjectionMatrix)
 void ParticleGenerator::render(float delta, Shader shader, glm::mat4 ProjectionMatrix, glm::mat4 ViewMatrix)
 {
 
-	//We will need the camera's position in order to sort the particles
-	//w.r.t the camera's distance.
-	//There should be a getCameraPosition() function in common/controls.cpp, 
-	//but this works too.
-	glm::vec3 CameraPosition(glm::inverse(ViewMatrix)[3]);
-
-	glm::mat4 ViewProjectionMatrix = ProjectionMatrix * ViewMatrix;
-
+	glBindVertexArray(VertexArrayID);
 
 	// Generate 10 new particule each millisecond,
 	// but limit this to 16 ms (60 fps), or if you have 1 long frame (1sec),
 	// newparticles will be huge and the next frame even longer.
-	int newparticles = (int)(delta*10000.0);
-	if (newparticles > (int)(0.016f*10000.0))
-		newparticles = (int)(0.016f*10000.0);
+	int newparticles = (int)(delta*1000.0);
+	if (newparticles > (int)(0.016f*1000.0))
+		newparticles = (int)(0.016f*1000.0);
 
 	for (int i = 0; i < newparticles; i++) {
 		int particleIndex = FindUnusedParticle();
 		ParticlesContainer[particleIndex].life = 5.0f; // This particle will live 5 seconds.
-		ParticlesContainer[particleIndex].pos = glm::vec3(0, 0, -20.0f);
+		ParticlesContainer[particleIndex].pos = glm::vec3(0.0, 7.0f, -10.0f); // HERE
 
 		float spread = 1.5f;
-		glm::vec3 maindir = glm::vec3(0.0f, 10.0f, 0.0f);
+		glm::vec3 maindir = glm::vec3(0.0f, -5.0f, 0.0f);
 		// Very bad way to generate a random direction; 
 		// See for instance http://stackoverflow.com/questions/5408276/python-uniform-spherical-distribution instead,
 		// combined with some user-controlled parameters (main direction, spread, etc)
 		glm::vec3 randomdir = glm::vec3(
-			(rand() % 2000 - 1000.0f) / 1000.0f,
-			(rand() % 2000 - 1000.0f) / 1000.0f,
-			(rand() % 2000 - 1000.0f) / 1000.0f
+			(rand() % 200 - 100.0f) / 100.0f,
+			(rand() % 200 - 100.0f) / 100.0f,
+			(rand() % 200 - 100.0f) / 100.0f
 		);
 
 		ParticlesContainer[particleIndex].speed = maindir + randomdir * spread;
@@ -236,11 +208,18 @@ void ParticleGenerator::render(float delta, Shader shader, glm::mat4 ProjectionM
 		ParticlesContainer[particleIndex].b = rand() % 256;
 		ParticlesContainer[particleIndex].a = (rand() % 256) / 3;
 
-		ParticlesContainer[particleIndex].size = (rand() % 1000) / 2000.0f + 0.1f;
+		ParticlesContainer[particleIndex].size = (rand() % 100) / 200.0f + 0.1f;
 
 	}
 
 
+	//We will need the camera's position in order to sort the particles
+	//w.r.t the camera's distance.
+	//There should be a getCameraPosition() function in common/controls.cpp, 
+	//but this works too.
+	glm::vec3 CameraPosition(glm::inverse(ViewMatrix)[3]);
+
+	glm::mat4 ViewProjectionMatrix = ProjectionMatrix * ViewMatrix;
 
 	// Simulate all particles
 	int ParticlesCount = 0;
@@ -255,7 +234,7 @@ void ParticleGenerator::render(float delta, Shader shader, glm::mat4 ProjectionM
 			if (p.life > 0.0f) {
 
 				// Simulate simple physics : gravity only, no collisions
-				p.speed += glm::vec3(0.0f, -9.81f, 0.0f) * (float)delta * 0.5f;
+				p.speed += glm::vec3(0.0f, 3.0f, 0.0f) * (float)delta * 0.6f;
 				p.pos += p.speed * (float)delta;
 				p.cameradistance = glm::length2(p.pos - CameraPosition);
 				//ParticlesContainer[i].pos += glm::vec3(0.0f,10.0f, 0.0f) * (float)delta;
@@ -285,48 +264,32 @@ void ParticleGenerator::render(float delta, Shader shader, glm::mat4 ProjectionM
 
 	SortParticles();
 
-
-	//printf("%d ",ParticlesCount);
-
-
 	// Update the buffers that OpenGL uses for rendering.
 	// There are much more sophisticated means to stream data from the CPU to the GPU, 
 	// but this is outside the scope of this tutorial.
 	// http://www.opengl.org/wiki/Buffer_Object_Streaming
 
-
 	glBindBuffer(GL_ARRAY_BUFFER, particles_position_buffer);
-	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLfloat), NULL, GL_STREAM_DRAW); // Buffer orphaning, a common way to improve streaming perf. See above link for details.
+	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLfloat), NULL, GL_STREAM_DRAW); // buffer orphaning, a common way to improve streaming perf.
 	glBufferSubData(GL_ARRAY_BUFFER, 0, ParticlesCount * sizeof(GLfloat) * 4, g_particule_position_size_data);
 
 	glBindBuffer(GL_ARRAY_BUFFER, particles_color_buffer);
-	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLubyte), NULL, GL_STREAM_DRAW); // Buffer orphaning, a common way to improve streaming perf. See above link for details.
+	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLubyte), NULL, GL_STREAM_DRAW); // buffer orphaning, a common way to improve streaming perf
 	glBufferSubData(GL_ARRAY_BUFFER, 0, ParticlesCount * sizeof(GLubyte) * 4, g_particule_color_data);
-
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// Use our shader
+	// Use the particleShader
 	shader.use();
-	//glUseProgram(programID);
 
 	// Bind our texture in Texture Unit 0
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, Texture);
-	// Set our "myTextureSampler" sampler to use Texture Unit 0
-	//glUniform1i(TextureID, 0);
-
-	//// Same as the billboards tutorial
-	//glUniform3f(CameraRight_worldspace_ID, ViewMatrix[0][0], ViewMatrix[1][0], ViewMatrix[2][0]);
-	//glUniform3f(CameraUp_worldspace_ID, ViewMatrix[0][1], ViewMatrix[1][1], ViewMatrix[2][1]);
-
 
 	shader.setVec3("CameraRight_worldspace", glm::vec3(ViewMatrix[0][0], ViewMatrix[1][0], ViewMatrix[2][0]));
 	shader.setVec3("CameraUp_worldspace", glm::vec3(ViewMatrix[0][1], ViewMatrix[1][1], ViewMatrix[2][1]));
-	shader.setMat4("VP", glm::mat4(ViewProjectionMatrix));
-
-	//glUniformMatrix4fv(ViewProjMatrixID, 1, GL_FALSE, &ViewProjectionMatrix[0][0]);
+	shader.setMat4("VP", glm::mat4(ProjectionMatrix));
 
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
@@ -383,6 +346,7 @@ void ParticleGenerator::render(float delta, Shader shader, glm::mat4 ProjectionM
 	glDisableVertexAttribArray(1);
 	glDisableVertexAttribArray(2);
 
+	glDisable(GL_BLEND);
 }
 
 
@@ -394,149 +358,7 @@ void ParticleGenerator::del()
 	glDeleteBuffers(1, &particles_color_buffer);
 	glDeleteBuffers(1, &particles_position_buffer);
 	glDeleteBuffers(1, &billboard_vertex_buffer);
-	//glDeleteProgram(shader.ID);
 	glDeleteTextures(1, &Texture);
 	glDeleteVertexArrays(1, &VertexArrayID);
 
 }
-
-
-
-
-
-
-
-void ParticleGenerator::calculateParticle(float deltaTime, glm::mat4 view, glm::mat4 projectionView, Shader particleShader) {
-
-	//GLuint VertexArrayID;
-	//glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-
-	int newparticles = (int)(deltaTime*1000.0);
-	if (newparticles > (int)(0.016f*1000.0))
-		newparticles = (int)(0.016f*1000.0);
-
-	for (int i = 0; i < newparticles; i++) {
-		int particleIndex = FindUnusedParticle();
-		ParticlesContainer[particleIndex].life = 5.0f; // This particle will live 5 seconds.
-		ParticlesContainer[particleIndex].pos = glm::vec3(0.0, 7.0f, -10.0f); // HERE
-
-
-		float spread = 2.0f;
-		glm::vec3 maindir = glm::vec3(0.0f, -5.0f, 0.0f);
-
-		glm::vec3 randomdir = glm::vec3(
-			(rand() % 200 - 100.0f) / 100.0f,
-			(rand() % 200 - 100.0f) / 100.0f,
-			(rand() % 200 - 100.0f) / 100.0f
-		);
-
-		ParticlesContainer[particleIndex].speed = maindir + randomdir * spread;
-
-		ParticlesContainer[particleIndex].r = rand() % 256;
-		ParticlesContainer[particleIndex].g = rand() % 256;
-		ParticlesContainer[particleIndex].b = rand() % 256;
-		ParticlesContainer[particleIndex].a = (rand() % 256) / 3;
-
-		ParticlesContainer[particleIndex].size = (rand() % 100) / 200.0f + 0.1f;
-
-	}
-
-	// Simulate all particles
-	int ParticlesCount = 0;
-	for (int i = 0; i < MaxParticles; i++) {
-
-		Particle& p = ParticlesContainer[i]; // shortcut
-
-		if (p.life > 0.0f) {
-
-			// Decrease life
-			p.life -= deltaTime;
-			if (p.life > 0.0f) {
-
-				// Simulate simple physics : gravity only, no collisions
-				p.speed += glm::vec3(0.0f, 3.0f, 0.0f) * (float)deltaTime * 0.6f;
-				p.pos += p.speed * (float)deltaTime;
-
-				glm::vec3 CameraPosition(glm::inverse(view)[3]);
-
-				p.cameradistance = glm::length2(p.pos - CameraPosition);
-				//ParticlesContainer[i].pos += glm::vec3(0.0f,10.0f, 0.0f) * (float)deltaTime;
-
-				// Fill the GPU buffer
-				g_particule_position_size_data[4 * ParticlesCount + 0] = p.pos.x;
-				g_particule_position_size_data[4 * ParticlesCount + 1] = p.pos.y;
-				g_particule_position_size_data[4 * ParticlesCount + 2] = p.pos.z;
-
-				g_particule_position_size_data[4 * ParticlesCount + 3] = p.size;
-
-				g_particule_color_data[4 * ParticlesCount + 0] = p.r;
-				g_particule_color_data[4 * ParticlesCount + 1] = p.g;
-				g_particule_color_data[4 * ParticlesCount + 2] = p.b;
-				g_particule_color_data[4 * ParticlesCount + 3] = p.a;
-
-			}
-			else {
-				// Particles that just died will be put at the end of the buffer in SortParticles();
-				p.cameradistance = -1.0f;
-			}
-
-			ParticlesCount++;
-
-		}
-	}
-
-	SortParticles();
-
-	glBindBuffer(GL_ARRAY_BUFFER, particles_position_buffer);
-	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLfloat), NULL, GL_STREAM_DRAW); // buffer orphaning, a common way to improve streaming perf.
-	glBufferSubData(GL_ARRAY_BUFFER, 0, ParticlesCount * sizeof(GLfloat) * 4, g_particule_position_size_data);
-
-	glBindBuffer(GL_ARRAY_BUFFER, particles_color_buffer);
-	glBufferData(GL_ARRAY_BUFFER, MaxParticles * 4 * sizeof(GLubyte), NULL, GL_STREAM_DRAW); // buffer orphaning, a common way to improve streaming perf
-	glBufferSubData(GL_ARRAY_BUFFER, 0, ParticlesCount * sizeof(GLubyte) * 4, g_particule_color_data);
-
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	particleShader.use();
-
-	glActiveTexture(GL_TEXTURE0);
-
-	glBindTexture(GL_TEXTURE_2D, Texture);
-
-	particleShader.setVec3("CameraRight_worldspace", glm::vec3(view[0][0], view[1][0], view[2][0]));
-	particleShader.setVec3("CameraUp_worldspace", glm::vec3(view[0][1], view[1][1], view[2][1]));
-	particleShader.setMat4("VP", glm::mat4(projectionView));
-
-
-	// 1rst attribute buffer : vertices
-	glEnableVertexAttribArray(0);
-	glBindBuffer(GL_ARRAY_BUFFER, billboard_vertex_buffer);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
-	// 2nd attribute buffer : positions of particles' centers
-	glEnableVertexAttribArray(1);
-	glBindBuffer(GL_ARRAY_BUFFER, particles_position_buffer);
-	glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
-	// 3rd attribute buffer : particles' colors
-	glEnableVertexAttribArray(2);
-	glBindBuffer(GL_ARRAY_BUFFER, particles_color_buffer);
-	glVertexAttribPointer(2, 4, GL_UNSIGNED_BYTE, GL_TRUE, 0, (void*)0);
-
-	glVertexAttribDivisor(0, 0); // particles vertices : always reuse the same 4 vertices -> 0
-	glVertexAttribDivisor(1, 1); // positions : one per quad (its center)                 -> 1
-	glVertexAttribDivisor(2, 1); // color : one per quad                                  -> 1
-
-	// Draw the particles!
-	glDrawArraysInstanced(GL_TRIANGLE_STRIP, 0, 4, ParticlesCount);
-
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
-	glDisableVertexAttribArray(2);
-
-	glDisable(GL_BLEND);
-
-}
-

@@ -549,7 +549,7 @@ int main(void)
 
 
 			//particle
-			particles.calculateParticle(helpFloat, view, projection, particleShader);
+			particles.render(helpFloat, particleShader, projection, view);
 
 			//text
 			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
