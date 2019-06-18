@@ -187,11 +187,11 @@ int main(void)
 	
 	//load fonts
 	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
-	title.Load("fonts/arial.ttf", 140);
-	text.Load("fonts/arial.ttf", 80);
-	spielstand.Load("fonts/arial.ttf", 150);
-	herzSchrift.Load("fonts/BonusHearts.ttf", 400);
-	ballSchrift.Load("fonts/Balls.ttf", 68);
+	title.Load("fonts/arial.ttf", SCR_WIDTH/ 15);
+	text.Load("fonts/arial.ttf", SCR_WIDTH / 24);
+	spielstand.Load("fonts/arial.ttf", SCR_WIDTH / 12);
+	herzSchrift.Load("fonts/BonusHearts.ttf", SCR_WIDTH / 5);
+	ballSchrift.Load("fonts/Balls.ttf", SCR_WIDTH / 25);
 
 
 	//projection matrix
@@ -449,7 +449,7 @@ int main(void)
 
 			if (s.getScreen() == 1) 
 			{
-				title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+				title.RenderText(textShader, "DODGEBALLSIMULATOR", 120, ((float)SCR_HEIGHT / 2) + (SCR_WIDTH / 12), 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 				text.RenderText(textShader, "press ENTER to start", ((float)SCR_WIDTH / 2) - 400, ((float)SCR_HEIGHT / 2) - 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			}
 
@@ -460,25 +460,25 @@ int main(void)
 				switch (player.getLifes())
 				{
 				case 3:
-					herzSchrift.RenderText(textShader, "o", 260, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+					herzSchrift.RenderText(textShader, "o", SCR_WIDTH /5, (float)SCR_HEIGHT - (SCR_WIDTH/ 10), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				case 2:
-					herzSchrift.RenderText(textShader, "o", 130, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+					herzSchrift.RenderText(textShader, "o", SCR_WIDTH / 10, (float)SCR_HEIGHT - (SCR_WIDTH / 10), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				case 1:
-					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - 240, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+					herzSchrift.RenderText(textShader, "o", 0, (float)SCR_HEIGHT - (SCR_WIDTH / 10), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				}
 
 				std::string strScoreEnemy = std::to_string(scoreEnemy);
 				std::string strScorePlayer = std::to_string(scorePlayer);
 
-				spielstand.RenderText(textShader, strScorePlayer + ":" + strScoreEnemy, ((float)SCR_WIDTH / 2) - 100, (float)SCR_HEIGHT - 162, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+				spielstand.RenderText(textShader, strScorePlayer + ":" + strScoreEnemy, ((float)SCR_WIDTH / 2) - (SCR_WIDTH / 10), (float)SCR_HEIGHT - (SCR_HEIGHT / 8), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 				if(player.gethasball())
-					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - 150, (float)SCR_HEIGHT - 140, 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
+					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - (SCR_WIDTH / 10), (float)SCR_HEIGHT - (SCR_HEIGHT / 8), 1.0f, glm::vec3(1.0f, 1.0f, 1.0f));
 			}
 
 			//lost screen
 			if (s.getScreen() == 3)
 			{
-				title.RenderText(textShader, "YOU LOST!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+				title.RenderText(textShader, "YOU LOST!", (SCR_WIDTH / 2) - (SCR_WIDTH / 8), SCR_HEIGHT*2 / 3, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 			}
 
 
@@ -553,7 +553,7 @@ int main(void)
 			particles.render(helpFloat, particleShader, projection, view);
 
 			//text
-			title.RenderText(textShader, "YOU WON!", 120, ((float)SCR_HEIGHT / 2) + 100, 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
+			title.RenderText(textShader, "YOU WON!", (SCR_WIDTH / 2) - (SCR_WIDTH / 8), ((float)SCR_HEIGHT*2/3), 1.0f, glm::vec3(1.0f, 0.0f, 0.0f));
 
 		}
 
