@@ -890,12 +890,12 @@ c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\iniread
   Hinweis: Einlesen der Datei:     c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_exponential.inl
   Hinweis: Einlesen der Datei:    c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\quaternion.inl
   Hinweis: Einlesen der Datei:   c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\norm.inl
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(306): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(432): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(443): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(308): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(434): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
 c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(445): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(461): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(528): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(447): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(463): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(530): warning C4244: "Argument": Konvertierung von "int" in "GLfloat", möglicher Datenverlust
   Code wird generiert...
-c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(135): warning C4715: "getCrowdFrame": Nicht alle Codepfade geben einen Wert zurück.
+c:\users\doris\desktop\ss2019\cg\dodgeball_simulator\dodgeball_simulator\main.cpp(137): warning C4715: "getCrowdFrame": Nicht alle Codepfade geben einen Wert zurück.
   dodgeball_simulator.vcxproj -> C:\Users\Doris\Desktop\SS2019\CG\dodgeball_simulator\Debug\dodgeball_simulator.exe

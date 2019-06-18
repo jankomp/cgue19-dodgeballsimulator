@@ -1,3 +1,5 @@
+// Quelle: http://www.opengl-tutorial.org/intermediate-tutorials/billboards-particles/particles-instancing/
+
 #ifndef PARTICLEGENERATOR_H
 #define PARTICLEGENERATOR_H
 
