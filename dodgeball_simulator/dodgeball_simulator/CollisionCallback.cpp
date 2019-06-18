@@ -2,6 +2,7 @@
 #include <iostream>
 
 bool firstCollision;
+bool playerShooting;
 
 CollisionCallback::CollisionCallback(PlayerCharacter* newPlayer, enemy* newEnemy1, enemy* newEnemy2, enemy* newEnemy3)
 {
@@ -16,6 +17,11 @@ CollisionCallback::~CollisionCallback() {}
 
 void CollisionCallback::setFirstCollision(bool value) {
 	firstCollision = value;
+}
+
+
+void CollisionCallback::setPlayerShooting(bool value) {
+	playerShooting = value;
 }
 
 
@@ -36,14 +42,14 @@ void CollisionCallback::onTrigger(PxTriggerPair* pairs, PxU32 count)
 			PxU32 word1mainTrigger = triggerFilterData.word1;
 
 			if (word0otherTrigger == 0) {
-				if (word0mainTrigger == 1) {
+				if (word0mainTrigger == 1 && playerShooting) {
 					switch (word1mainTrigger) {
 					case 0: enemy1->hit(); break;
 					case 1: enemy2->hit(); break;
 					case 2: enemy3->hit(); break;
 					}
 				}
-				else if (word0mainTrigger == 2) {
+				else if (word0mainTrigger == 2 && !playerShooting) {
 					player->hit();
 				}
 			}

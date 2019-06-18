@@ -205,6 +205,7 @@ void physics::simulateBallShot(float deltaTime, PlayerCharacter* player, Ball* b
 			playerPos.y += 2.0;
 			ballActor->setGlobalPose(PxTransform(PxVec3(playerPos.x, playerPos.y, playerPos.z)));
 			ball->caught = false;
+			gContactReportCallback.setPlayerShooting(true);
 			player->sethasball(false);
 		}
 		else if (enemy_character->getActive() && enemy_character->gethasball()) {
@@ -216,6 +217,7 @@ void physics::simulateBallShot(float deltaTime, PlayerCharacter* player, Ball* b
 			ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 			ball->caught = false;
 			enemy_character->shootBall();
+			gContactReportCallback.setPlayerShooting(false);
 		}
 		else if (enemy2_character->getActive() && enemy2_character->gethasball()) {
 			//start the ball a little bit in front of the enemy, so it doesn't collide with itself
@@ -226,6 +228,7 @@ void physics::simulateBallShot(float deltaTime, PlayerCharacter* player, Ball* b
 			ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 			ball->caught = false;
 			enemy2_character->shootBall();
+			gContactReportCallback.setPlayerShooting(false);
 		}
 		else if (enemy3_character->getActive() && enemy3_character->gethasball()) {
 			//start the ball a little bit in front of the enemy, so it doesn't collide with itself
@@ -236,6 +239,7 @@ void physics::simulateBallShot(float deltaTime, PlayerCharacter* player, Ball* b
 			ballActor->setGlobalPose(PxTransform(PxVec3(enemyPos.x, enemyPos.y, enemyPos.z)));
 			ball->caught = false;
 			enemy3_character->shootBall();
+			gContactReportCallback.setPlayerShooting(false);
 		}
 		//set firstCollision (global variable) to true -> next collision counts
 		gContactReportCallback.setFirstCollision(true);

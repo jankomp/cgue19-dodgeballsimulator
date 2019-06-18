@@ -20,7 +20,7 @@ public:
 	~CollisionCallback();
 
 	void setFirstCollision(bool value);
-
+	void setPlayerShooting(bool value);
 	void onTrigger(PxTriggerPair* pairs, PxU32 count);
 	void onConstraintBreak(PxConstraintInfo* constraints, PxU32 count);
 	void onWake(PxActor** actors, PxU32 count);
