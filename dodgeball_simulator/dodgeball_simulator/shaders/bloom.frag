@@ -50,6 +50,6 @@ void main()
         BrightColor = vec4(result, 1.0);
     else
         BrightColor = vec4(0.0, 0.0, 0.0, 1.0);
-	vec3 newLightMapColor = lightMapColor / 3;
+	vec3 newLightMapColor = lightMapColor / 3.75;
     FragColor = vec4(color + newLightMapColor, 1.0);
 }

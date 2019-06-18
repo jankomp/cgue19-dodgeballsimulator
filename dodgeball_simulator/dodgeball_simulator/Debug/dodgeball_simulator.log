@@ -1,585 +1,345 @@
-﻿  main.cpp
-  Hinweis: Einlesen der Datei: C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\GL/glew.h
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/glu.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\shared\winapifamily.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\shared\winpackagefamily.h
+﻿  settings.cpp
+  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.h
+  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\GL/glew.h
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/glu.h
+  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\shared\winapifamily.h
+  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\shared\winpackagefamily.h
+  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/gl.h
+  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\GLFW/glfw3.h
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stddef.h
+  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt.h
+  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime.h
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\sal.h
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\concurrencysal.h
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vadefs.h
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\stdint.h
   Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/gl.h
-  Hinweis: Einlesen der Datei: C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/glm.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/_fixes.hpp
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cmath
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\yvals.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\yvals_core.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xkeycheck.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\crtdefs.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime.h
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\sal.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\concurrencysal.h
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vadefs.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\crtdbg.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_new_debug.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_new.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\use_ansi.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdlib
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stdlib.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_malloc.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_search.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stddef.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstdlib.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\limits.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_math.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtgmath.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtr1common
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstddef
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../simd/platform.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdint
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\stdint.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\type_traits
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstddef
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\initializer_list
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\climits
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cfloat
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\float.h
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\limits
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ymath.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cwchar
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\wchar.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_memcpy_s.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\errno.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_string.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wconio.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_stdio_config.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wctype.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wdirect.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wio.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_share.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wprocess.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstdio.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstring.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wtime.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\sys/stat.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\sys/types.h
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\fwd.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/qualifier.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool2.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec2.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec2.inl
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\./compute_vector_relational.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool2_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float2_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double2_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int2_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint2_precision.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec3.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool3.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec3.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec3.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool3_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float3.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float3_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double3.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double3_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int3.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int3_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint3.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint3_precision.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec4.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool4.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec4.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec4.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool4_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float4.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float4_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double4.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double4_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/setup.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int4.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int4_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint4.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint4_precision.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x2.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x2.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x2.inl
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../matrix.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x3.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x3.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x3.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x3_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x3_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x4.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x4.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x4.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x4_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x4_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x2.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x2.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x2.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x2.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x2_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x2.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x2_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x3.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x3.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x3.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x3_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x3_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x4.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x4.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x4.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x4_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x4_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x2.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x2.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x2.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x2.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x2_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x2.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x2_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x3.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x3.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x3.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x3_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x3.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x3_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x4.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x4.hpp
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x4.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x4_precision.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x4.hpp
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x4_precision.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_matrix.inl
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../geometric.hpp
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_geometric.inl
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../exponential.hpp
-  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/type_vec1.hpp
-  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec1.inl
-  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_exponential.inl
-  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../vector_relational.hpp
-  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
-  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_vector_relational.inl
-  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\_vectorize.hpp
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
-  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
-  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../common.hpp
-  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/_fixes.hpp
-  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_common.inl
-  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\compute_common.hpp
-  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x2_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x2.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x2_precision.hpp
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\trigonometric.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_trigonometric.inl
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\packing.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_packing.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_half.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_half.inl
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\integer.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_integer.inl
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\intrin.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\intrin0.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\setjmp.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\immintrin.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\wmmintrin.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\nmmintrin.h
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\smmintrin.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\tmmintrin.h
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\pmmintrin.h
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\emmintrin.h
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmmintrin.h
-  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\mmintrin.h
-  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\malloc.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\zmmintrin.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ammintrin.h
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\mm3dnow.h
-  Hinweis: Einlesen der Datei: C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\GLFW/glfw3.h
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/gl.h
-  Hinweis: Einlesen der Datei: C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\iostream
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\istream
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ostream
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ios
-  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocnum
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdio
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stdio.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\streambuf
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xiosbase
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocale
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstring
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\string.h
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_memory.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\stdexcept
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\exception
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_exception.h
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\eh.h
-  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_terminate.h
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstring
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmemory0
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\new
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xutility
-  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\utility
-  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\iosfwd
-  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xatomic0.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\typeinfo
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_typeinfo.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocinfo
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocinfo.h
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\ctype.h
-  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\locale.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\memory
-  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmemory
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xfacet
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\system_error
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cerrno
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xcall_once.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xerrc.h
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\share.h
-  Hinweis: Einlesen der Datei: C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/GL.h
-  Hinweis: Einlesen der Datei: C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\ft2build.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\freetype/config/ftheader.h
-  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\window.h
+  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\iostream
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\istream
+  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ostream
+  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ios
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocnum
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\climits
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\yvals.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\yvals_core.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xkeycheck.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\crtdefs.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\crtdbg.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_new_debug.h
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_new.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\use_ansi.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\limits.h
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cmath
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdlib
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stdlib.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_malloc.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_search.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstdlib.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_math.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtgmath.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtr1common
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdio
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\stdio.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstdio.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_stdio_config.h
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\streambuf
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xiosbase
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocale
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstring
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\string.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_memory.h
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_memcpy_s.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\errno.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_string.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wstring.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\stdexcept
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\exception
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\type_traits
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstddef
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstddef
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\initializer_list
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\malloc.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_exception.h
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\eh.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_terminate.h
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstring
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmemory0
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cstdint
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\limits
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ymath.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cfloat
+  Hinweis: Einlesen der Datei:               C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\float.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cwchar
+  Hinweis: Einlesen der Datei:               C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\wchar.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wconio.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wctype.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wdirect.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wio.h
+  Hinweis: Einlesen der Datei:                 C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_share.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wprocess.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\corecrt_wtime.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\sys/stat.h
+  Hinweis: Einlesen der Datei:                 C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\sys/types.h
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\new
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xutility
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\utility
+  Hinweis: Einlesen der Datei:               C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\iosfwd
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xatomic0.h
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\intrin0.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\typeinfo
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vcruntime_typeinfo.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocinfo
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xlocinfo.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\ctype.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\locale.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\memory
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmemory
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xfacet
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\system_error
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cerrno
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xcall_once.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xerrc.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\share.h
   Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/GL.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/gtc/type_ptr.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/quaternion.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/constants.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/scalar_constants.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/setup.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\scalar_constants.inl
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\constants.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/matrix_transform.hpp
+  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.h
+  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\PlayerCharacter.h
+  Hinweis: Einlesen der Datei:    C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/glm.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/_fixes.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../simd/platform.h
+  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\fwd.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/qualifier.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool2.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec2.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec2.inl
+  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\./compute_vector_relational.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool2_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float2_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double2_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int2_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint2_precision.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec3.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool3.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec3.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec3.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool3_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float3.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float3_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double3.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double3_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int3.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int3_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint3.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint3_precision.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\vec4.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool4.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_vec4.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec4.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_bool4_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float4.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_float4_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double4.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_double4_precision.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/setup.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int4.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_int4_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint4.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/vector_uint4_precision.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x2.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x2.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x2.inl
+  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../matrix.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x3.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x3.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x3.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x3_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x3_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat2x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x4.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat2x4.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat2x4.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x4_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x4_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x2.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x2.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x2.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x2.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x2_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x2.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x2_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x3.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x3.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x3.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x3_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x3_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat3x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x4.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat3x4.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat3x4.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double3x4_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float3x4_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x2.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x2.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x2.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x2.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x2_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x2.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x2_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x3.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x3.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x3.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x3_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x3.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x3_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\mat4x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x4.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_mat4x4.hpp
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_mat4x4.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double4x4_precision.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x4.hpp
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float4x4_precision.hpp
+  Hinweis: Einlesen der Datei:          c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_matrix.inl
+  Hinweis: Einlesen der Datei:           c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../geometric.hpp
+  Hinweis: Einlesen der Datei:            c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_geometric.inl
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../exponential.hpp
+  Hinweis: Einlesen der Datei:              c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/type_vec1.hpp
+  Hinweis: Einlesen der Datei:               c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_vec1.inl
+  Hinweis: Einlesen der Datei:              c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_exponential.inl
+  Hinweis: Einlesen der Datei:               c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../vector_relational.hpp
+  Hinweis: Einlesen der Datei:                c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
+  Hinweis: Einlesen der Datei:                c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_vector_relational.inl
+  Hinweis: Einlesen der Datei:               c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\_vectorize.hpp
+  Hinweis: Einlesen der Datei:               C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cassert
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
+  Hinweis: Einlesen der Datei:             c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../common.hpp
+  Hinweis: Einlesen der Datei:              c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/_fixes.hpp
+  Hinweis: Einlesen der Datei:              c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_common.inl
+  Hinweis: Einlesen der Datei:               c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\compute_common.hpp
+  Hinweis: Einlesen der Datei:                c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_double2x2_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x2.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\./ext/matrix_float2x2_precision.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\trigonometric.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/setup.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_trigonometric.inl
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\packing.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_packing.inl
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_half.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_half.inl
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\integer.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail/func_integer.inl
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\intrin.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\setjmp.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\immintrin.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\wmmintrin.h
+  Hinweis: Einlesen der Datei:          C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\nmmintrin.h
+  Hinweis: Einlesen der Datei:           C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\smmintrin.h
+  Hinweis: Einlesen der Datei:            C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\tmmintrin.h
+  Hinweis: Einlesen der Datei:             C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\pmmintrin.h
+  Hinweis: Einlesen der Datei:              C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\emmintrin.h
+  Hinweis: Einlesen der Datei:               C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xmmintrin.h
+  Hinweis: Einlesen der Datei:                C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\mmintrin.h
+  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\zmmintrin.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ammintrin.h
+  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\mm3dnow.h
+  Hinweis: Einlesen der Datei:    C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/gtc/matrix_transform.hpp
   Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/matrix_projection.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../gtc/constants.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/scalar_constants.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/setup.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\scalar_constants.inl
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\constants.inl
   Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\matrix_projection.inl
   Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/matrix_clip_space.hpp
   Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\matrix_clip_space.inl
   Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/matrix_transform.hpp
   Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\matrix_transform.inl
   Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\matrix_transform.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_relational.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\vector_relational.inl
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_float.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_common.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../ext/quaternion_geometric.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_geometric.inl
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_common.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_float.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_quat.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../ext/quaternion_relational.hpp
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_relational.inl
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_quat.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_float_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_double.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_double_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_trigonometric.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_trigonometric.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_transform.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_transform.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\quaternion.inl
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\epsilon.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../detail/setup.hpp
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\epsilon.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/vec1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_bool1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_bool1_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_float1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_float1_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_double1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_double1_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_int1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_int1_precision.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_uint1.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_uint1_precision.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\type_ptr.inl
-  Hinweis: Einlesen der Datei:  C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\sstream
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\string
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstring_insert.h
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.h
-  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/GL.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\camera.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\PlayerCharacter.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\ball.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\text_renderer.h
-  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\map
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\tuple
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtree
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\shader.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\fstream
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\enemy.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\bloom.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\window.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vector
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\INIReader.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\set
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\algorithm
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cctype
-  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\physics.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\PhysX/PxConfig.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\PhysX/PxPhysics.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxPhysXConfig.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxPhysXCommonConfig.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/Px.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxSimpleTypes.h
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxPreprocessor.h
-  Hinweis: Einlesen der Datei:        C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\ciso646
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\iso646.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxDeletionListener.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxBase.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxFlags.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxSerialFramework.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxCollection.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxTypeInfo.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxTransform.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxQuat.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxVec3.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxMath.h
-  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxIntrinsics.h
-  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/windows/PxWindowsIntrinsics.h
-  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxSharedAssert.h
-  Hinweis: Einlesen der Datei:         C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxPlane.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxShape.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxGeometry.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxGeometryHelpers.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxUnionCast.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxBoxGeometry.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxSphereGeometry.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxCapsuleGeometry.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxFoundationConfig.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxPlaneGeometry.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxConvexMeshGeometry.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxMeshScale.h
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxMat33.h
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxAssert.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxCoreUtilityTypes.h
-  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxMemory.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxConvexMesh.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxHeightFieldGeometry.h
-  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxTriangleMeshGeometry.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\PhysX/PxPhysicsAPI.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxAllocatorCallback.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxBitAndData.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxBounds3.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxErrorCallback.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxErrors.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxIO.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxMat44.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxVec4.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxMathUtils.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxStrideIterator.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxVec2.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxRenderBuffer.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxTolerancesScale.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxStringTable.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxSerializer.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxFoundation.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxMetaData.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common\PxMetaDataFlags.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\common/PxPhysicsInsertionCallback.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\task/PxTask.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\task/PxTaskDefine.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\task/PxTaskManager.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\task/PxCpuDispatcher.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\gpu/PxGpu.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cudamanager/PxCudaContextManager.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cudamanager/PxCudaMemoryManager.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxBVHStructure.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxGeometryQuery.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxQueryReport.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxHeightField.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxHeightFieldFlag.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxHeightFieldSample.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxHeightFieldDesc.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxMeshQuery.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxSimpleTriangleMesh.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxTriangle.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geometry/PxTriangleMesh.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxActor.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxClient.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxAggregate.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulation.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulationBase.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulationReducedCoordinate.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\solver/PxSolverDefs.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxConstraintDesc.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\geomutils/GuContactPoint.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulationJoint.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulationJointReducedCoordinate.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxArticulationLink.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxRigidBody.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxRigidActor.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxForceMode.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxBatchQuery.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxBatchQueryDesc.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxFiltering.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxQueryFiltering.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxConstraint.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxContact.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxContactModifyCallback.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxLockedData.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxMaterial.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxPhysicsVersion.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxRigidDynamic.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxRigidStatic.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxScene.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxVisualizationParameter.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxSceneDesc.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxBroadPhase.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxSimulationStatistics.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\pvd/PxPvdSceneClient.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxSceneLock.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxSimulationEventCallback.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\PxPruningStructure.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxBoxController.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxController.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxExtended.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxControllerObstacles.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxCapsuleController.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxControllerBehavior.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\characterkinematic/PxControllerManager.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/Pxc.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxConvexMeshDesc.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxCooking.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxTriangleMeshDesc.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxMidphaseDesc.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxBVH33MidphaseDesc.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxBVH34MidphaseDesc.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\cooking/PxBVHStructureDesc.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDefaultStreams.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDistanceJoint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxJoint.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxExtensionsAPI.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDefaultAllocator.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxConstraintExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxContactJoint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxFixedJoint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxPrismaticJoint.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxJointLimit.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxRevoluteJoint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxSphericalJoint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxD6Joint.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDefaultSimulationFilterShader.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDefaultErrorCallback.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxRigidActorExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxRigidBodyExt.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxMassProperties.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxShapeExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxTriangleMeshExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxSerialization.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxDefaultCpuDispatcher.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxSmoothNormals.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxSimpleFactory.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxStringTableExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxBroadPhaseExt.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxSceneQueryExt.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxConvexMeshExt.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxBinaryConverter.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxRepXSerializer.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\extensions/PxRepXSimpleType.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleComponents.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleSDK.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleDrive.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleWheels.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleShaders.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleDrive4W.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleDriveTank.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleTireFriction.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleUpdate.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleUtilControl.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleDriveNW.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleUtilSetup.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleUtilTelemetry.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\vehicle/PxVehicleNoDrive.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\pvd/PxPvd.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\foundation/PxProfiler.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\physx\pvd/PxPvdTransport.h
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\CollisionCallback.h
-  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\model.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\stb_image.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\stb_image.cpp
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\stdarg.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp/Importer.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\types.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\memory.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\math.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\defs.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\vector3.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\vector2.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\color4.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\matrix3x3.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\matrix4x4.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\quaternion.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\vector2.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\vector3.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\color4.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\quaternion.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\matrix3x3.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\matrix4x4.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\config.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp/scene.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\texture.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\mesh.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\light.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\camera.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\material.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/pushpack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\./Compiler/poppack1.h
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\material.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\anim.h
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp\metadata.h
-  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\ucrt\assert.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\assimp/postprocess.h
-  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\mesh.h
-  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\INIReader.h
-  Hinweis: Einlesen der Datei: c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\ParticleGenerator.h
-  Hinweis: Einlesen der Datei:  C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/gtx/norm.hpp
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\../gtx/quaternion.hpp
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\../ext/quaternion_exponential.hpp
-  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_exponential.inl
-  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\quaternion.inl
-  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtx\norm.inl
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(329): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
-c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\main.cpp(138): warning C4715: "getCrowdFrame": Nicht alle Codepfade geben einen Wert zurück.
+  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\ball.h
+  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\text_renderer.h
+  Hinweis: Einlesen der Datei:     C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\map
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\tuple
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xtree
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\shader.h
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\string
+  Hinweis: Einlesen der Datei:       C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\xstring_insert.h
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\fstream
+  Hinweis: Einlesen der Datei:      C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\sstream
+  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\enemy.h
+  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\bloom.h
+  Hinweis: Einlesen der Datei:   c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\window.h
+  Hinweis: Einlesen der Datei:    C:\Program Files (x86)\Windows Kits\10\Include\10.0.17134.0\um\GL/GL.h
+  Hinweis: Einlesen der Datei:    C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm/gtc/type_ptr.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/quaternion.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_relational.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\vector_relational.inl
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_float.hpp
+  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\setup.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_common.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../ext/quaternion_geometric.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_geometric.inl
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_common.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_float.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\../detail/type_quat.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\../ext/quaternion_relational.hpp
+  Hinweis: Einlesen der Datei:         c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_relational.inl
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\detail\type_quat.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_float_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_double.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_double_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_trigonometric.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_trigonometric.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/quaternion_transform.hpp
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\ext\quaternion_transform.inl
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\quaternion.inl
+  Hinweis: Einlesen der Datei:       c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\epsilon.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../detail/setup.hpp
+  Hinweis: Einlesen der Datei:        c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\epsilon.inl
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../gtc/vec1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_bool1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_bool1_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_float1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_float1_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_double1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_double1_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_int1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_int1_precision.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_uint1.hpp
+  Hinweis: Einlesen der Datei:      c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\../ext/vector_uint1_precision.hpp
+  Hinweis: Einlesen der Datei:     c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\include\glm\gtc\type_ptr.inl
+  Hinweis: Einlesen der Datei:    c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.h
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\vector
+  Hinweis: Einlesen der Datei:  c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\INIReader.h
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\set
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\algorithm
+  Hinweis: Einlesen der Datei:   C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Tools\MSVC\14.15.26726\include\cctype
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(32): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(121): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(122): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(126): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(127): warning C4244: "Initialisierung": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(129): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
+c:\dev\cgue19-dodgeballsimulator\dodgeball_simulator\dodgeball_simulator\settings.cpp(130): warning C4244: "=": Konvertierung von "double" in "float", möglicher Datenverlust
   dodgeball_simulator.vcxproj -> C:\Dev\cgue19-dodgeballsimulator\dodgeball_simulator\Debug\dodgeball_simulator.exe

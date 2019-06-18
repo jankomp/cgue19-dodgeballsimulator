@@ -54,28 +54,30 @@ void settings::processInput(GLFWwindow *window)
 		glfwSetWindowShouldClose(window, true);
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
-		running = true;
-	}
-	else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
-		running = false;
-	}
+	if (screen == 2) {
+		if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
+			running = true;
+		}
+		else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
+			running = false;
+		}
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		player->move(running, FORWARD, deltaTime);
-		camera->sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		player->move(running, BACKWARD, deltaTime);
-		camera->sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		player->move(running, LEFT, deltaTime);
-		camera->sidewaysMotion();
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		player->move(running, RIGHT, deltaTime);
-		camera->sidewaysMotion();
+		if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+			player->move(running, FORWARD, deltaTime);
+			camera->sidewaysMotion();
+		}
+		if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+			player->move(running, BACKWARD, deltaTime);
+			camera->sidewaysMotion();
+		}
+		if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+			player->move(running, LEFT, deltaTime);
+			camera->sidewaysMotion();
+		}
+		if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+			player->move(running, RIGHT, deltaTime);
+			camera->sidewaysMotion();
+		}
 	}
 
 	if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
@@ -126,8 +128,9 @@ void settings::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 
 	lastX = xpos;
 	lastY = ypos;
-
-	camera->rotate(xoffset, yoffset, deltaTime);
+	if (screen == 2) {
+		camera->rotate(xoffset, yoffset, deltaTime);
+	}
 }
 
 void settings::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
