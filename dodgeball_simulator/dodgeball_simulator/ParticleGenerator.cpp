@@ -127,7 +127,7 @@ void ParticleGenerator::SortParticles() {
 	std::sort(&ParticlesContainer[0], &ParticlesContainer[MaxParticles]);
 }
 //
-void ParticleGenerator::setVBO(Shader shader, glm::mat4 ProjectionMatrix)
+void ParticleGenerator::setParticleSettings(Shader shader, glm::mat4 ProjectionMatrix)
 {
 
 	//GLuint VertexArrayID;

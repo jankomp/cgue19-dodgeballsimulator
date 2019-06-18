@@ -14,9 +14,6 @@
 #include "Camera.h"
 #include "text_renderer.h"
 #include "enemy.h"
-#include "bloom.h"
-#include "INIReader.h"
-//#include "Utils.h"
 #include "ParticleGenerator.h"
 
 static void APIENTRY DebugCallbackDefault(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const GLvoid* userParam);
@@ -163,7 +160,6 @@ int main(void)
 	Shader gameShader("shaders/model.vert", "shaders/model.frag");
 	Shader textShader("shaders/text.vert", "shaders/text.frag");
 	Shader bloomShader("shaders/bloom.vert", "shaders/bloom.frag");
-	Shader lightShader("shaders/bloom.vert", "shaders/light.frag");
 	Shader blurShader("shaders/blur.vert", "shaders/blur.frag");
 	Shader bloom2Shader("shaders/bloom2.vert", "shaders/bloom2.frag");
 	Shader particleShader("shaders/particle.vert", "shaders/particle.frag");
@@ -182,8 +178,6 @@ int main(void)
 
 	unsigned int lightMapTexture;
 	glGenTextures(1, &lightMapTexture);
-	//unsigned int stoneTexture = loadTexture("modells/turnhalle/grey01.jpg", true); // note that we're loading the texture as an SRGB texture
-	//unsigned int particleTexture = loadTexture("modells/particle.DDS", true); // note that we're loading the texture as an SRGB texture
 	
 	//load fonts
 	TextRenderer title, text, spielstand, herzSchrift, ballSchrift;
@@ -193,7 +187,6 @@ int main(void)
 	herzSchrift.Load("fonts/BonusHearts.ttf", SCR_WIDTH / 5);
 	ballSchrift.Load("fonts/Balls.ttf", SCR_WIDTH / 25);
 
-
 	//projection matrix
 	glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 	glm::mat4 proj2 = glm::ortho(0.0f, static_cast<GLfloat>(SCR_WIDTH), 0.0f, static_cast<GLfloat>(SCR_HEIGHT));
@@ -202,36 +195,29 @@ int main(void)
 	glm::mat4 model_turnhalle = glm::mat4(1.0f);
 	model_turnhalle = glm::rotate(model_turnhalle, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
-
-
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 	//settings = all the callbacks of mouse and keyboard
 	settings s(&player, &camera);
 	float helligkeit = s.getBrightness();
 	
-
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	physics p(&player, &enemy_character, &enemy2_character, &enemy3_character);
 	//p.initPhysics();
 	p.setupScene();
 
-	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	unsigned int crowdTexture;
 	glGenTextures(1, &crowdTexture);
 	
-
 	glm::mat4 videomodel = glm::mat4(1.0f);
 	videomodel = glm::translate(videomodel, glm::vec3(-13.5f, 3.5f, 0.0));
 	videomodel = glm::rotate(videomodel, glm::radians(-90.0f), glm::normalize(glm::vec3(1.0, 0.0, 0.0)));
 	videomodel = glm::scale(videomodel, glm::vec3(0.01f, 5.0f, 2.5f));
 
-
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 	// configure (floating point) framebuffers
 	// ---------------------------------------
@@ -286,7 +272,6 @@ int main(void)
 			std::cout << "Framebuffer not complete!" << std::endl;
 	}
 
-
 	// shader configuration
 	// --------------------
 	bloomShader.use();
@@ -305,13 +290,11 @@ int main(void)
 	float helpFloat;
 
 	ParticleGenerator particles;
-	particles.setVBO(particleShader, projection);
+	particles.setParticleSettings(particleShader, projection);
 	
-
 	/* Loop until the user closes the window */
 	while (gameWindow.run())
 	{
-
 		//gamewon, gamelost screens
 		if (scoreEnemy == 3)
 			s.setScreen(3);
@@ -444,7 +427,6 @@ int main(void)
 				gegner.Draw(bloomShader);
 			}
 
-
 			if (s.getScreen() == 1) 
 			{
 				title.RenderText(textShader, "DODGEBALLSIMULATOR", (SCR_WIDTH / 8), ((float)SCR_HEIGHT / 2) + (SCR_WIDTH / 8), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
@@ -479,13 +461,10 @@ int main(void)
 				title.RenderText(textShader, "YOU LOST!", (SCR_WIDTH / 3), ((float)SCR_HEIGHT * 4 / 5), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 			}
 
-
-			//glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 			// 2. blur bright fragments with two-pass Gaussian Blur 
 			// --------------------------------------------------
 			bool horizontal = true, first_iteration = true;
-			unsigned int amount = 10; // HERE
+			unsigned int amount = 10; 
 			blurShader.use();
 			for (unsigned int i = 0; i < amount; i++)
 			{
@@ -512,12 +491,8 @@ int main(void)
 			renderQuad();
 			
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
 		}
 
-
-
-		
 		//won screen
 		if (s.getScreen() == 4) {
 
@@ -545,7 +520,6 @@ int main(void)
 			model_spieler = glm::scale(model_spieler, glm::vec3(0.3f, 0.3f, 0.3f));
 			gameShader.setMat4("model", model_spieler);
 			spieler.Draw(gameShader);
-
 
 			//particle
 			particles.render(helpFloat, particleShader, projection, view);

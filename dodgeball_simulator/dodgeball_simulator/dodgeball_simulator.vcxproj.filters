@@ -2055,9 +2055,6 @@
     <ClInclude Include="CollisionCallback.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="bloom.h">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="ParticleGenerator.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -2099,10 +2096,10 @@
     <ClCompile Include="physics.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="bloom.cpp">
+    <ClCompile Include="ParticleGenerator.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleGenerator.cpp">
+    <ClCompile Include="stb_image.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
