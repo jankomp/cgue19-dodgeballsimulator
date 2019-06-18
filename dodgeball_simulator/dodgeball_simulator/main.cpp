@@ -528,7 +528,16 @@ int main(void)
 			gameShader.setFloat("settingsBrightness", helligkeit);
 
 			gameShader.setMat4("model", model_turnhalle);
+
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, lightMapTexture);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, lmWidth, lmHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, lightMap);
+			glGenerateMipmap(GL_TEXTURE_2D);
+			
 			turnhalle.Draw(gameShader);
+
+			glActiveTexture(GL_TEXTURE1);
+			glBindTexture(GL_TEXTURE_2D, 0);
 
 			glm::mat4 model_spieler = glm::mat4(1.0f);
 			model_spieler = glm::translate(model_spieler, player.getPosition());
