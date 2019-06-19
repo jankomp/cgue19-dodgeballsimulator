@@ -115,7 +115,7 @@ void settings::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 
 	lastX = xpos;
 	lastY = ypos;
-	if (screen == 2) {
+	if (screen != 1) {
 		camera->rotate(xoffset, yoffset, deltaTime);
 	}
 }
