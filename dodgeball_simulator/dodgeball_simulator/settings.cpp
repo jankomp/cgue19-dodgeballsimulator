@@ -12,7 +12,7 @@ float deltaTime = 0.0f;
 /* --------------------------------------------- */
 // Load settings.ini
 /* --------------------------------------------- */
-INIReader reader("settings.ini");
+INIReader reader("settings/settings.ini");
 
 int SCR_WIDTH = reader.GetInteger("window", "width", 800);
 int SCR_HEIGHT = reader.GetInteger("window", "height", 800);
