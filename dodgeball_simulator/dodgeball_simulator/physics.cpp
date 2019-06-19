@@ -36,20 +36,6 @@ physics::physics(PlayerCharacter* newplayer, enemy* newenemy_character, enemy* n
 	gContactReportCallback = CollisionCallback(pplayer, penemy_character, penemy2_character, penemy3_character);
 }
 
-bool physics::initPhysics() {
-	/*gFoundation = PxCreateFoundation(PX_PHYSICS_VERSION, gDefaultAllocatorCallback, gDefaultErrorCallback);
-	if (!gFoundation)
-		return false;
-
-	static PxPhysics* gPhysicsSDK = NULL;
-	//Creating instance of PhysX SDK
-	gPhysicsSDK = PxCreatePhysics(PX_PHYSICS_VERSION, *gFoundation, PxTolerancesScale());
-	if (gPhysicsSDK == NULL)
-	{
-		return false;
-	}*/
-	return true;
-}
 
 void physics::setupScene() {
 	//PxScene* gScene = NULL;

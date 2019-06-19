@@ -130,7 +130,6 @@ void ParticleGenerator::SortParticles() {
 void ParticleGenerator::setParticleSettings(Shader shader, glm::mat4 ProjectionMatrix)
 {
 
-	//GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 

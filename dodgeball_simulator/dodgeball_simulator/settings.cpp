@@ -77,12 +77,6 @@ void settings::processInput(GLFWwindow *window)
 		}
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
-		if (screen == 1) {
-			screen = 4;
-		}
-	}
-
 	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS) {
 		camera->camReset(player, camera->getPosition());
 	}
@@ -123,7 +117,8 @@ void settings::mouse_callback(GLFWwindow* window, double xpos, double ypos)
 void settings::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_PRESS) {
-		player->shootBall();
+		if(screen == 2)
+			player->shootBall();
 	}
 	else if (button == GLFW_MOUSE_BUTTON_LEFT && action == GLFW_RELEASE) {
 	}

@@ -12,7 +12,6 @@ class physics {
 	public:
 		physics(PlayerCharacter* player, enemy* enemy_character, enemy* enemy2_character, enemy* enemy3_character);
 
-		bool initPhysics();
 		void setupScene();
 		void releaseScene();
 
