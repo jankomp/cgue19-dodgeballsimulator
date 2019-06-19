@@ -324,7 +324,7 @@ int main(void)
 		textShader.setMat4("projection", proj2);
 
 		//start and gamescreen
-		if (s.getScreen() == 1 || s.getScreen() == 2 || s.getScreen() == 3) {
+		if (s.getScreen() == 1 || s.getScreen() == 2) {
 
 			//advance the physx simulkation by one step
 			p.stepPhysicSimulation(s.getDeltaTime());
@@ -457,12 +457,6 @@ int main(void)
 					ballSchrift.RenderText(textShader, "Ball", (float)SCR_WIDTH - (SCR_WIDTH / 10), (float)SCR_HEIGHT - (SCR_HEIGHT / 8), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
 			}
 
-			//lost screen
-			if (s.getScreen() == 3)
-			{
-				title.RenderText(textShader, "YOU LOST!", (SCR_WIDTH / 3), ((float)SCR_HEIGHT * 4 / 5), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
-			}
-
 			// 2. blur bright fragments with two-pass Gaussian Blur 
 			// --------------------------------------------------
 			bool horizontal = true, first_iteration = true;
@@ -496,7 +490,7 @@ int main(void)
 		}
 
 		//won screen
-		if (s.getScreen() == 4) {
+		if (s.getScreen() == 4 || s.getScreen() == 3) {
 
 			gameShader.use();
 			gameShader.setMat4("projection", projection);
@@ -523,12 +517,19 @@ int main(void)
 			gameShader.setMat4("model", model_spieler);
 			spieler.Draw(gameShader);
 
-			//particle
-			particles.render(helpFloat, particleShader, projection, view);
+			//won
+			if (s.getScreen() == 4) {
+				//particle
+				particles.render(helpFloat, particleShader, projection, view);
 
-			//text
-			title.RenderText(textShader, "YOU WON!", (SCR_WIDTH / 3), ((float)SCR_HEIGHT*4/5), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+				//text
+				title.RenderText(textShader, "YOU WON!", (SCR_WIDTH / 3), ((float)SCR_HEIGHT*4/5), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			}
 
+			//lost
+			if (s.getScreen() == 3) {
+				title.RenderText(textShader, "YOU LOST!", (SCR_WIDTH / 3), ((float)SCR_HEIGHT * 4 / 5), 1.0f, glm::vec3(0.0f, 0.0f, 0.0f));
+			}
 		}
 
 		glEnable(GL_DEPTH_TEST);
