@@ -9,6 +9,7 @@ uniform sampler2D scene;
 uniform sampler2D bloomBlur;
 uniform bool bloom;
 uniform float exposure;
+uniform float settingsBrightness;
 
 void main()
 {             
@@ -17,5 +18,6 @@ void main()
     vec3 bloomColor = texture(bloomBlur, TexCoords).rgb;
     if(bloom)
         hdrColor += bloomColor; // additive blending
+		hdrColor *= settingsBrightness;
     FragColor = vec4(hdrColor, 1.0);
 }

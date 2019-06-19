@@ -276,12 +276,13 @@ int main(void)
 	bloomShader.use();
 	bloomShader.setInt("diffuseTexture", 0);
 	bloomShader.setInt("lightMap", 1);
-	bloomShader.setFloat("settingsBrightness", helligkeit);
+	
 	blurShader.use();
 	blurShader.setInt("image", 0);
 	bloom2Shader.use();
 	bloom2Shader.setInt("scene", 0);
 	bloom2Shader.setInt("bloomBlur", 1);
+	bloom2Shader.setFloat("settingsBrightness", helligkeit);
 
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
