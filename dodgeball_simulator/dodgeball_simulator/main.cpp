@@ -143,7 +143,7 @@ int main(void)
 	gameWindow.genWindow(SCR_WIDTH,SCR_HEIGHT);
 
 	glfwSetFramebufferSizeCallback(gameWindow.getWindow(), framebuffer_size_callback);
-
+	glfwSetInputMode(gameWindow.getWindow(), GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	// Debug callback
 	if (glDebugMessageCallback != NULL) {

@@ -159,6 +159,3 @@ void settings::setScreen(int scr)
 {
 	screen = scr;
 }
-
-
-
